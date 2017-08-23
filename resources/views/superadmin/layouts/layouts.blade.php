@@ -1,0 +1,5 @@
+@include('superadmin.layouts.head')
+@include('superadmin.layouts.sidebar')
+@yield('content')
+@yield('page-specific-scripts')
+@include('superadmin.layouts.footer')
