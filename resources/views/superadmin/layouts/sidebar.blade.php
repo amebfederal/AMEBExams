@@ -32,12 +32,12 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{ url('superadmin/support/manageenrollers')}}" title="Responsive tabs"><span>Teacher</span></a></li>
-                        <li><a href="{{ url('superadmin/support/manageenrollers')}}" title="Collapsables"><span>Parents</span></a></li>
-                        <li><a href="{{ url('superadmin/support/manageenrollers')}}" title="Collapsables"><span>Adults</span></a></li>
-                        <li><a href="{{ url('superadmin/support/manageenrollers')}}" title="Collapsables"><span>Candidates</span></a></li>
-                        <li><a href="{{ url('superadmin/support/manageenrollers')}}" title="Collapsables"><span>Schools</span></a></li>
-                        <li><a href="{{ url('superadmin/support/manageenrollers')}}" title="Collapsables"><span>Markers</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Responsive tabs"><span>Teacher</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Parents</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Adults</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Candidates</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Schools</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Markers</span></a></li>
                     </ul>
 
                 </div><!-- .sidebar-submenu -->
