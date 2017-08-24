@@ -23,6 +23,16 @@ Route::get('/home', 'HomeController@index')->name('home');
     return view('superadmin.dashboard.index');
 });*/
 
+
+/*
+******************************************************************************************* 
+
+Super Admin Holders Route  
+
+*******************************************************************************************
+*/
+
+
 Route::get('superadmin/dashboard',
             ['as' => 'superadmin.dashboard',  'uses' => 'SuperAdmin\DashboardController@index']);
 
@@ -96,3 +106,46 @@ Route::get('superadmin/adminlogin/manage',    function () {
 Route::get('superadmin/payments/manage',    function () {
     return view('superadmin.payments.manage');
 });
+
+/*
+******************************************************************************************* 
+
+Account Holders Route  
+
+*******************************************************************************************
+*/
+
+
+Route::get('accountholders/dashboard',    function () {
+    return view('accountholders.dashboard.index');
+});
+
+Route::get('accountholders/notifications',    function () {
+    return view('accountholders.notifications.index');
+});
+
+Route::get('accountholders/exams/category',    function () {
+    return view('accountholders.exams.viewcategory');
+});
+
+Route::get('accountholders/exams/products',    function () {
+    return view('accountholders.exams.viewproducts');
+});
+
+Route::get('accountholders/exams/view',    function () {
+    return view('accountholders.exams.viewsingle');
+});
+
+Route::get('accountholders/payment/cart',    function () {
+    return view('accountholders.payment.cart');
+});
+
+Route::get('accountholders/profile/manageexams',    function () {
+    return view('accountholders.profile.manageexams');
+});
+
+Route::get('accountholders/support/manage',    function () {
+    return view('accountholders.support.manage');
+});
+
+//Account Holders Route Ends accountholders
