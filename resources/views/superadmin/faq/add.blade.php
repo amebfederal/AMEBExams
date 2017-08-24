@@ -60,7 +60,7 @@
                     </div>
 @endsection
 @section('page-specific-scripts')
-                    <script type="text/javascript" src="{{ asset('admintemplate/assets/widgets/summernote-wysiwyg/summernote-wysiwyg.js') }}"></script>
+                    <script type="text/javascript" src="{{ asset('resources/assets/widgets/summernote-wysiwyg/summernote-wysiwyg.js') }}"></script>
                     <?php include 'footer.php'; ?>
                     <script type="text/javascript">
                         $(function() { "use strict";

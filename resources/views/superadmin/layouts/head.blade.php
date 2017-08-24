@@ -16,151 +16,151 @@
 
     <!-- Favicons -->
 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('admintemplate/assets/images/icons/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('admintemplate/assets/images/icons/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('admintemplate/assets/images/icons/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('admintemplate/assets/images/icons/apple-touch-icon-57-precomposed.png') }}">
-    <link rel="shortcut icon" href="{{ asset('admintemplate/assets/images/icons/favicon.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('resources/assets/images/icons/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('resources/assets/images/icons/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('resources/assets/images/icons/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('resources/assets/images/icons/apple-touch-icon-57-precomposed.png') }}">
+    <link rel="shortcut icon" href="{{ asset('resources/assets/images/icons/favicon.png') }}">
 
 
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/bootstrap/css/bootstrap.css') }}">
 
 
     <!-- HELPERS -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/backgrounds.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/boilerplate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/border-radius.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/grid.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/page-transitions.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/spacing.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/typography.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/utils.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/colors.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/backgrounds.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/boilerplate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/border-radius.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/page-transitions.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/spacing.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/typography.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/utils.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/colors.css') }}">
 
     <!-- ELEMENTS -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/badges.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/buttons.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/content-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/dashboard-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/forms.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/images.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/info-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/invoice.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/loading-indicators.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/menus.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/panel-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/response-messages.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/responsive-tables.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/ribbon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/social-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/tables.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/tile-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/elements/timeline.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/badges.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/buttons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/content-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/dashboard-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/forms.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/images.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/info-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/invoice.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/loading-indicators.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/menus.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/panel-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/response-messages.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/responsive-tables.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/ribbon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/social-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/tables.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/tile-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/elements/timeline.css') }}">
 
 
 
     <!-- ICONS -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/icons/fontawesome/fontawesome.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/icons/linecons/linecons.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/icons/spinnericon/spinnericon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/icons/fontawesome/fontawesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/icons/linecons/linecons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/icons/spinnericon/spinnericon.css') }}">
 
 
     <!-- WIDGETS -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/accordion-ui/accordion.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/calendar/calendar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/carousel/carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/accordion-ui/accordion.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/calendar/calendar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/carousel/carousel.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/charts/justgage/justgage.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/charts/morris/morris.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/charts/piegage/piegage.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/charts/xcharts/xcharts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/charts/justgage/justgage.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/charts/morris/morris.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/charts/piegage/piegage.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/charts/xcharts/xcharts.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/chosen/chosen.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/colorpicker/colorpicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/datatable/datatable.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/datepicker/datepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/datepicker-ui/datepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/daterangepicker/daterangepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/dialog/dialog.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/dropdown/dropdown.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/dropzone/dropzone.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/file-input/fileinput.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/input-switch/inputswitch.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/input-switch/inputswitch-alt.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/ionrangeslider/ionrangeslider.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/jcrop/jcrop.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/jgrowl-notifications/jgrowl.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/loading-bar/loadingbar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/maps/vector-maps/vectormaps.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/markdown/markdown.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/modal/modal.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/multi-select/multiselect.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/multi-upload/fileupload.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/nestable/nestable.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/noty-notifications/noty.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/popover/popover.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/pretty-photo/prettyphoto.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/progressbar/progressbar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/range-slider/rangeslider.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/slidebars/slidebars.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/slider-ui/slider.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/summernote-wysiwyg/summernote-wysiwyg.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/tabs-ui/tabs.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/theme-switcher/themeswitcher.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/timepicker/timepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/tocify/tocify.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/tooltip/tooltip.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/touchspin/touchspin.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/uniform/uniform.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/wizard/wizard.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/widgets/xeditable/xeditable.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/chosen/chosen.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/colorpicker/colorpicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/datatable/datatable.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/datepicker/datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/datepicker-ui/datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/dialog/dialog.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/dropdown/dropdown.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/dropzone/dropzone.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/file-input/fileinput.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/input-switch/inputswitch.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/input-switch/inputswitch-alt.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/ionrangeslider/ionrangeslider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/jcrop/jcrop.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/jgrowl-notifications/jgrowl.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/loading-bar/loadingbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/maps/vector-maps/vectormaps.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/markdown/markdown.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/modal/modal.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/multi-select/multiselect.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/multi-upload/fileupload.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/nestable/nestable.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/noty-notifications/noty.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/popover/popover.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/pretty-photo/prettyphoto.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/progressbar/progressbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/range-slider/rangeslider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/slidebars/slidebars.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/slider-ui/slider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/summernote-wysiwyg/summernote-wysiwyg.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/tabs-ui/tabs.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/theme-switcher/themeswitcher.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/timepicker/timepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/tocify/tocify.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/tooltip/tooltip.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/touchspin/touchspin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/uniform/uniform.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/wizard/wizard.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/widgets/xeditable/xeditable.css') }}">
 
     <!-- SNIPPETS -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/chat.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/files-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/login-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/notification-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/progress-box.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/todo.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/user-profile.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/snippets/mobile-navigation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/chat.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/files-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/login-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/notification-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/progress-box.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/todo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/user-profile.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/snippets/mobile-navigation.css') }}">
 
     <!-- APPLICATIONS -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/applications/mailbox.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/applications/mailbox.css') }}">
 
     <!-- Admin theme -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/themes/admin/layout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/themes/admin/color-schemes/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/admin/layout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/admin/color-schemes/default.css') }}">
 
     <!-- Components theme -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/themes/components/default.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/themes/components/border-radius.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/components/default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/components/border-radius.css') }}">
 
     <!-- Admin responsive -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/responsive-elements.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('admintemplate/assets/helpers/admin-responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/responsive-elements.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/helpers/admin-responsive.css') }}">
 
     <!-- JS Core -->
 
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/jquery-core.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/jquery-ui-core.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/jquery-ui-widget.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/jquery-ui-mouse.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/jquery-ui-position.js') }}"></script>
-    <!--<script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/transition.js') }}"></script>-->
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/modernizr.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('admintemplate/assets/js-core/jquery-cookie.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/jquery-core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/jquery-ui-core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/jquery-ui-widget.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/jquery-ui-mouse.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/jquery-ui-position.js') }}"></script>
+    <!--<script type="text/javascript" src="{{ asset('resources/assets/js-core/transition.js') }}"></script>-->
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('resources/assets/js-core/jquery-cookie.js') }}"></script>
 
 
 
@@ -280,7 +280,7 @@
         <div id="header-nav-left">
             <div class="user-account-btn dropdown">
                 <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown">
-                    <img width="28" src="{{ asset('admintemplate/assets/image-resources/gravatar.jpg') }}" alt="Profile image">
+                    <img width="28" src="{{ asset('resources/assets/image-resources/gravatar.jpg') }}" alt="Profile image">
                     <span>Superadmin</span>
                     <i class="glyph-icon icon-angle-down"></i>
                 </a>
@@ -289,7 +289,7 @@
                         <div class="login-box clearfix">
                             <div class="user-img">
                                 <a href="#" title="" class="change-img">Change photo</a>
-                                <img src="{{ asset('admintemplate/assets/image-resources/gravatar.jpg') }}" alt="">
+                                <img src="{{ asset('resources/assets/image-resources/gravatar.jpg') }}" alt="">
                             </div>
                             <div class="user-info">
                             <span>

@@ -249,13 +249,13 @@
 @section('page-specific-scripts')
     <!-- Sparklines charts -->
 
-        <script type="text/javascript" src="{{ asset('admintemplate/assets/widgets/charts/sparklines/sparklines.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('admintemplate/assets/widgets/charts/sparklines/sparklines-demo.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('resources/assets/widgets/charts/sparklines/sparklines.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('resources/assets/widgets/charts/sparklines/sparklines-demo.js') }}"></script>
 
         <!-- Flot charts -->
 
         <!-- PieGage charts -->
 
-        <script type="text/javascript" src="{{ asset('admintemplate/assets/widgets/charts/piegage/piegage.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('admintemplate/assets/widgets/charts/piegage/piegage-demo.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('resources/assets/widgets/charts/piegage/piegage.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('resources/assets/widgets/charts/piegage/piegage-demo.js') }}"></script>
 @endsection
