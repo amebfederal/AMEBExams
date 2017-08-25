@@ -107,6 +107,7 @@ Route::get('superadmin/payments/manage',    function () {
     return view('superadmin.payments.manage');
 });
 
+
 Route::get('candidate/profile/profile',    function () {
     return view('candidate.profile.profile');
 });
@@ -119,6 +120,7 @@ Route::get('candidate/practiceexam/practiceexam',    function () {
 Route::get('candidate/startexam/startexam',    function () {
     return view('candidate.startexam.startexam');
 });
+
 
 
 /*
@@ -162,5 +164,4 @@ Route::get('accountholders/support/manage',    function () {
     return view('accountholders.support.manage');
 });
 
-//Account Holders Route Ends accountholders
 
