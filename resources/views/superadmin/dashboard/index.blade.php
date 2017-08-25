@@ -1,4 +1,4 @@
-@extends('accountholders.layouts.layouts')
+@extends('superadmin.layouts.layouts')
 @section('content')
 <div id="page-content-wrapper">
     <div id="page-content">
