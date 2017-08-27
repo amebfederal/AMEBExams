@@ -13,15 +13,17 @@ class CreateProductCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('ProductCategory', function (Blueprint $table) {
-            $table->bigIncrements('CategoryId');
-            $table->string('CategoryName', 100);
-            $table->string('CategorySlug', 100);
-            $table->text('CategoryDesc');
-            $table->string('CategoryImage', 100);
-            $table->enum('CategoryVisibility', ['visible', 'notvisible'])->index();
-            $table->enum('CategoryStatus', ['0', '1'])->index(); // O for Inactive And 1 for Active
-            $table->enum('CategoryAvailability', ['available', 'notavailable'])->index();
+        Schema::create('product_categories', function (Blueprint $table) {
+
+            $table->bigIncrements();
+
+            $table->string('name', 100);
+            $table->string('slug', 100);
+            $table->text('description');
+            $table->string('image', 100);
+            $table->enum('visibility', ['visible', 'not_visible'])->index();
+            $table->enum('status', ['active', 'in_active'])->index();
+            $table->enum('availability', ['available', 'not_available'])->index();
 
             $table->timestamps();
         });
@@ -34,6 +36,6 @@ class CreateProductCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ProductCategory');
+        Schema::dropIfExists('product_categories');
     }
 }
