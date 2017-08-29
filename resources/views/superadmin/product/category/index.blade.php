@@ -20,25 +20,33 @@
                 <tr>
                     <th>SN</th>
                     <th>Name</th>
-                    <th>SKU</th>
-                    <th>Type</th>
-                    <th>Category</th>
+                    <th>Image</th>
                     <th>Status</th>
+                    <th>Visibility</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>12</td>
-                    <td>Grade 1 Performance</td>
-                    <td>614564551</td>
-                    <td>Single</td>
-                    <td>Online Music Theory</td>
-                    <td>Active</td>
-                </tr>
+                @foreach($categories as $k => $category)
+                    <tr>
+                        <td>{{ ++$k }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td><img src="{{ asset($category->thumbnail_path) }}" height="60px" /></td>
+                        <td>{{ $category->status_text }}</td>
+                        <td>{{ $category->visibility_text }}</td>
+                        <td>{{ $category->availability_text }}</td>
+                        <td>
+                            <a href="{{ route('product-category.edit', $category->id) }}">Edit</a>
+                            ||
+                            {!! delete_form(route('product-category.destroy', $category->id)) !!}
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
             <div class="col-md-12 text-right">
-
+                {!! $categories->render() !!}
             </div>
         </div>
     </div>

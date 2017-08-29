@@ -22,6 +22,18 @@ class ProductCategoryService extends Service
     public function create(array $data)
     {
         try {
+            //now try to upload the file
+            $file = $data['file'];
+
+            if(!empty($file)){
+                $this->uploadPath = 'uploads/product-category';
+                $fileName = $this->upload($file);
+
+                $data['image'] = $fileName;
+            }else{
+                unset($data['image']);
+            }
+
             $category = $this->productCategory->create($data);
             return $category;
         } catch (Exception $e) {
@@ -77,9 +89,23 @@ class ProductCategoryService extends Service
     public function update($categoryId, array $data)
     {
         try {
-            $category = $this->productCategory->find($categoryId);
-            $category = $category->update($data);
-            $this->logger->info(' created successfully', $data);
+            $cat = $this->productCategory->find($categoryId);
+
+            $file = $data['file'];
+
+            if(!empty($file)){
+                $this->uploadPath = 'uploads/product-category';
+                $fileName = $this->upload($file);
+
+                $data['image'] = $fileName;
+
+                $this->__deleteImages($cat);
+            }else{
+                unset($data['image']);
+            }
+
+            $category = $cat->update($data);
+            //$this->logger->info(' created successfully', $data);
 
             return $category;
         } catch (Exception $e) {
@@ -98,7 +124,12 @@ class ProductCategoryService extends Service
     {
         try {
             $category = $this->productCategory->find($categoryId);
+
+            //unset the files uploaded first
+            $this->__deleteImages($category);
+
             return $category->delete();
+
         } catch (Exception $e) {
             return false;
         }
@@ -124,5 +155,17 @@ class ProductCategoryService extends Service
 
     public function getBySlug($slug){
         return $this->productCategory->whereSlug($slug);
+    }
+
+    private function __deleteImages($category){
+        try{
+            if(is_file($category->image_path))
+                unlink($category->image_path);
+
+            if(is_file($category->thumbnail_path))
+                unlink($category->thumbnail_path);
+        }catch (\Exception $e){
+
+        }
     }
 }

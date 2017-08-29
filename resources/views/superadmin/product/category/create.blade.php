@@ -14,7 +14,8 @@
         </h3>
 
         <div class="example-box-wrapper">
-            <form class="form-horizontal bordered-row" action="">
+            <form class="form-horizontal bordered-row" method="POST" action="{{ route('product-category.store') }}"
+                    enctype="multipart/form-data">
                 @include('superadmin.product.category.form')
             </form>
         </div>

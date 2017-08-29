@@ -1,5 +1,8 @@
 <?php
 namespace App\Modules\Services;
+use Illuminate\Http\UploadedFile;
+use Intervention\Image\Facades\Image;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class Service
@@ -15,6 +18,9 @@ abstract class Service
     {
         if(!is_dir('uploads'))
             mkdir('uploads');
+
+        if(!is_dir($this->uploadPath))
+            mkdir($this->uploadPath);
 
         $destination = $this->uploadPath;
         if ($file->isValid()) {
