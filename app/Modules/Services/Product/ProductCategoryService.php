@@ -124,7 +124,6 @@ class ProductCategoryService extends Service
     {
         try {
             $category = $this->productCategory->find($categoryId);
-
             //unset the files uploaded first
             $this->__deleteImages($category);
 
