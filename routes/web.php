@@ -39,6 +39,13 @@ Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router)
 
 });
 
+Route::get('superadmin/login',    function () {
+    return view('superadmin.login.login');
+});
+
+
+Route::post('superadmin/login',
+    ['as' => 'superadmin.login',  'uses' => 'SuperAdminAuth\LoginController@login']);
 
 
 Route::get('superadmin/dashboard',
