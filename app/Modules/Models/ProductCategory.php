@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductCategory extends Model
 {
+    private $path = 'uploads/product-category';
 
     use Sluggable;
 
@@ -21,7 +22,7 @@ class ProductCategory extends Model
     ];
 
     protected $appends = [
-        'visibility_text', 'status_text', 'availability_text'
+        'visibility_text', 'status_text', 'availability_text', 'thumbnail_path', 'image_path'
     ];
 
     function getVisibilityTextAttribute(){
@@ -32,8 +33,16 @@ class ProductCategory extends Model
         return ucwords(str_replace('_', ' ', $this->status));
     }
 
-    function getAvailableTextAttribute(){
-        return ucwords(str_replace('_', ' ', $this->is_available
+    function getAvailabilityTextAttribute(){
+        return ucwords(str_replace('_', ' ', $this->availability
         ));
+    }
+
+    function getImagePathAttribute(){
+        return $this->path.'/'. $this->image;
+    }
+
+    function getThumbnailPathAttribute(){
+        return $this->path.'/thumb/'. $this->image;
     }
 }

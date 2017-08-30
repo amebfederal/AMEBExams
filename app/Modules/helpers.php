@@ -3,7 +3,7 @@ function delete_form($url, $label = 'Delete', $class = '', $title = '', $isButto
 {
     $form = Form::open(['method' => 'DELETE', 'url' => $url, 'class' => 'deleteContentForm']);
     if( $isButton ) {
-        $form .= "<button type='button' class='$class deleteContentButton' title='$title' data-toggle='tooltip' data-placement='top' data-original-title='$title'>";
+        $form .= "<button type='submit' class='$class deleteContentButton' title='$title' data-toggle='tooltip' data-placement='top' data-original-title='$title'>";
         $form .= "<i class='fa fa-trash-o'> </i> $label";
         $form .= '</button>';
     }else{

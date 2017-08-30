@@ -13,7 +13,7 @@ class ProductCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,18 @@ class ProductCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required'
+        $rules = [
+            'name' => 'required',
+            'status' => 'required',
+            'description' => 'required',
+            'visibility' => 'required',
+            'availability' => 'required'
         ];
+
+        if($this->method() != 'PATCH'){
+            $rules['file'] = 'required';
+        }
+
+        return $rules;
     }
 }
