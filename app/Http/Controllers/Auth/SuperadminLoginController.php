@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\SuperadminAuth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class SuperadminLoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,12 +20,14 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = 'superadmin/dashboard';
+    protected $redirectTo = '/superadmin/dashboard';
 
     /**
      * Create a new controller instance.
@@ -42,11 +43,4 @@ class LoginController extends Controller
     {
         return view('superadmin.login.login');
     }
-
-    protected function guard()
-    {
-        return Auth::guard('superadmin');
-    }
-
-
 }

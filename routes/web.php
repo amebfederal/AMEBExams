@@ -39,17 +39,27 @@ Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router)
 
 });
 
-Route::get('superadmin/login',    function () {
-    return view('superadmin.login.login');
+
+Route::group(['middleware' => 'superadmin'], function () {
+
+
+    Route::post('superadmin/login',
+        ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@login']);
+
+    Route::get('superadmin/dashboard',
+        ['as' => 'superadmin.dashboard',  'uses' => 'SuperAdmin\DashboardController@index']);
+    Route::get('superadmin/login',
+        ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@showLoginForm']);
+
 });
 
 
-Route::post('superadmin/login',
-    ['as' => 'superadmin.login',  'uses' => 'SuperAdminAuth\LoginController@login']);
 
 
-Route::get('superadmin/dashboard',
-            ['as' => 'superadmin.dashboard',  'uses' => 'SuperAdmin\DashboardController@index']);
+
+
+
+
 
 Route::get('superadmin/product/addstep1',
             ['as' => 'superadmin.product.addproductstep1',        'uses' => 'SuperAdmin\ProductController@addproductstep1']);
