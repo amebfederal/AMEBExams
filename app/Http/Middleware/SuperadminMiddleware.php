@@ -15,24 +15,13 @@ class SuperadminMiddleware
      */
     public function handle($request, Closure $next)
     {
-      // dd(Auth::user());
-
-        $auth = Auth::guard('superadmin');
-        //dd($auth);
-        if ($auth->check() && Auth::user()->user_type =='superadmin') {
-
-
-        }
-        else
-        {
-
-           // Auth::logout();
-           // return redirect('/superadmin/login');
+        $user = Auth::user();
+        if (empty($user) || $user->user_type != 'superadmin') {
+            if(!strstr($request->url(), 'login'))
+                return redirect('/superadmin/login');
         }
 
         return $next($request);
-
-
 
     }
 
