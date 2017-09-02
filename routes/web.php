@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Route::get('superadmin/dashboard',    function () {
+/*Route::get('super-admin/dashboard',    function () {
     return view('superadmin.dashboard.index');
 });*/
 
@@ -40,16 +40,24 @@ Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router)
 });
 
 
-Route::group(['middleware' => 'superadmin'], function () {
+Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function ($router) {
 
-
-    Route::post('superadmin/login',
+    Route::get('dashboard',
+        ['as' => 'superadmin.dashboard',  'uses' => 'Superadmin\Dashboard\DashboardController@index']);
+    Route::get('login',
+        ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@showLoginForm']);
+    Route::get('logout',
+        ['as' => 'superadmin.logout',  'uses' => 'Auth\SuperadminLoginController@logout']);
+    Route::post('login',
         ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@login']);
 
-    Route::get('superadmin/dashboard',
-        ['as' => 'superadmin.dashboard',  'uses' => 'SuperAdmin\DashboardController@index']);
-    Route::get('superadmin/login',
-        ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@showLoginForm']);
+
+    $router->resource('admin-setting', 'Superadmin\AdminSetting\AdminSettingController');
+
+    Route::get('admin-setting/{id}/change-password',
+        ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@showPasswordChangeForm' ]);
+    Route::post('admin-setting/{id}/change-password',
+        ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@passwordChange' ]);
 
 });
 
@@ -123,10 +131,10 @@ Route::get('superadmin/federal/office',    function () {
     return view('superadmin.federal.office');
 });
 Route::get('superadmin/adminlogin/add',    function () {
-    return view('superadmin.adminlogin.add');
+    return view('superadmin.admin-login.create');
 });
 Route::get('superadmin/adminlogin/manage',    function () {
-    return view('superadmin.adminlogin.manage');
+    return view('superadmin.admin-users.index');
 });
 Route::get('superadmin/payments/manage',    function () {
     return view('superadmin.payments.manage');

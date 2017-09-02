@@ -1,9 +1,6 @@
-@extends('superadmin.layouts.layouts')
+@extends('layouts.super-admin')
 @section('content')
-<div id="page-content-wrapper">
-    <div id="page-content">
 
-        <div class="container">
 
             <div id="page-title">
                 <h2>Manage State</h2>
@@ -79,4 +76,7 @@
                             <li><a href="#">»</a></li>
                         </ul>
                     </div>
-                    @endsection
+
+                </div>
+            </div>
+@endsection

@@ -35,13 +35,13 @@
                                 AMEB Online
                                 <i>Administrator</i>
                             </span>
-                            <a href="#" title="Edit profile">Edit profile</a>
-                            <a href="#" title="View notifications">Lock Screen</a>
+                            <a href="{{ route('admin-setting.edit',['id'=>\Illuminate\Support\Facades\Auth::user()->id]) }}" title="Edit profile">Edit profile</a>
+                            <a href="{{ route('admin-setting.change-password',['id'=>\Illuminate\Support\Facades\Auth::user()->id]) }}" title="View notifications">Change Password</a>
                         </div>
                     </div>
                     <div class="divider"></div>
                     <div class="pad5A button-pane button-pane-alt text-center">
-                        <a href="#" class="btn display-block font-normal btn-danger">
+                        <a href="{{ route('superadmin.logout') }}" class="btn display-block font-normal btn-danger">
                             <i class="glyph-icon icon-power-off"></i>
                             Logout
                         </a>
