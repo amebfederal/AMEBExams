@@ -41,6 +41,12 @@ return [
             'provider' => 'users',
         ],
 
+        //Admin custom driver.
+        'superadmin' => [
+            'driver' => 'session',
+            'provider' => 'superadmin',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -70,6 +76,11 @@ return [
             'model' => App\Modules\Models\User::class,
         ],
 
+        //User Provider for superadminadmin
+        'superadmin' => [
+            'driver' => 'eloquent',
+             'model' => App\Modules\Models\User::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,6 +105,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        //Password broker for superadmin
+        'superadmin' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
         ],
