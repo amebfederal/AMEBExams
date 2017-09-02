@@ -96,12 +96,18 @@ Route::get('superadmin/settings/general',    function () {
 Route::get('superadmin/settings/social',    function () {
     return view('superadmin.settings.social');
 });
-Route::get('superadmin/state/add',    function () {
-    return view('superadmin.state.add');
+Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router) {
+
+    $router->resource('state', 'SuperAdmin\State\StateController');
+
 });
-Route::get('superadmin/state/manage',    function () {
-    return view('superadmin.state.manage');
-});
+//Route::get('superadmin/state/add',    function () {
+    //return view('superadmin.state.add');
+//});
+//Route::get('superadmin/state/manage',    function () {
+    //return view('superadmin.state.manage');
+//});
+
 Route::get('superadmin/federal/office',    function () {
     return view('superadmin.federal.office');
 });
@@ -115,6 +121,13 @@ Route::get('superadmin/payments/manage',    function () {
     return view('superadmin.payments.manage');
 });
 
+/*
+*******************************************************************************************
+
+Candidate Holders Route
+
+*******************************************************************************************
+*/
 
 Route::get('candidate/profile/profile',    function () {
     return view('candidate.profile.profile');
