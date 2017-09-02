@@ -68,13 +68,13 @@ class ProductCategoryService extends Service
     /**
      * Get a Product Category
      *
-     * @param $bankId
+     * @param $id
      * @return Product Category|null
      */
-    public function find($bankId)
+    public function find($id)
     {
         try {
-            return $this->productCategory->find($bankId);
+            return $this->productCategory->find($id);
         } catch (Exception $e) {
             return null;
         }
