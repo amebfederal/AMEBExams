@@ -36,6 +36,7 @@ Super Admin Holders Route
 Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router) {
 
     $router->resource('product-category', 'SuperAdmin\Product\ProductCategoryController');
+    $router->resource('state', 'SuperAdmin\State\StateController');
 
 });
 

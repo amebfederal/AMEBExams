@@ -28,17 +28,14 @@ class StateRequest extends FormRequest
             'prefix' => 'required',
             'notification_email' => 'required',
             'contact_email' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/(01)[0-9]{9}/',
             'address' => 'required',
             'contact_person' => 'required',
-            'contact_person_phone' => 'required',
+            'contact_person_phone' => 'required|regex:/(01)[0-9]{9}/',
             'contact_person_email' => 'required',
             'api' => 'required',
             'key' => 'required'
         ];
-        if($this->method() != 'PATCH'){
-            $rules['file'] = 'required';
-        }
         return $rules;
     }
 }
