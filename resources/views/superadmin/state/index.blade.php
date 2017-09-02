@@ -26,8 +26,10 @@
                         <td>{{ ++$k }}</td>
                         <td>{{ $state->name }}</td>
                         <td>{{$state->prefix }}</td>
-                        <td><a href="{{ route('state.edit', $state->id) }}"><i class="glyph-icon icon-edit"></i>Edit</a>
-                            <a href=""><i class="glyph-icon icon-trash"></i> Delete</a></td>
+                        <td>
+                            <a href="{{ route('state.edit', $state->id) }}"><i class="glyph-icon icon-edit"></i>Edit</a>
+                            {!! delete_form(route('state.destroy', $state->id)) !!}
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
