@@ -1,36 +1,36 @@
-<?php namespace App\Modules\Services\State;
+<?php namespace App\Modules\Services\Venue;
 
-use App\Modules\Models\State;
+use App\Modules\Models\Venue;
 use App\Modules\Services\Service;
 
-class StateService extends Service
+class VenueService extends Service
 {
-    protected $state;
+    protected $venue;
 
     public function __construct(
-        State $state
+        Venue $venue
     ){
-        $this->state = $state;
+        $this->venue = $venue;
     }
 
     /**
-     * Create new State
+     * Create new Venue
      *
      * @param array $data
-     * @return State|null
+     * @return Venue|null
      */
     public function create(array $data)
     {
         try {
-            $state = $this->state->create($data);
-            return $state;
+            $venue = $this->venue->create($data);
+            return $venue;
         } catch (Exception $e) {
             return null;
         }
     }
 
     /**
-     * Paginate all State
+     * Paginate all Venue
      *
      * @param array $filter
      * @return Collection
@@ -39,7 +39,7 @@ class StateService extends Service
     {
         $filter['limit'] = 10;
 
-        return $this->state->paginate($filter['limit']);
+        return $this->venue->paginate($filter['limit']);
     }
 
     /**
@@ -49,39 +49,39 @@ class StateService extends Service
      */
     public function all()
     {
-        return $this->state->all();
+        return $this->venue->all();
     }
 
     /**
-     * Get a State
+     * Get a Venue
      *
-     * @param $stateId
-     * @return State |null
+     * @param $venueId
+     * @return Venue |null
      */
-    public function find($stateId)
+    public function find($venueId)
     {
         try {
-            return $this->state->find($stateId);
+            return $this->venue->find($venueId);
         } catch (Exception $e) {
             return null;
         }
     }
 
     /**
-     * Update the state
-     * @param $stateId
+     * Update the venue
+     * @param $venueId
      * @param array $data
      * @return bool
      */
-    public function update($stateId, array $data)
+    public function update($venueId, array $data)
     {
         try {
-            $st = $this->state->find($stateId);
+            $st = $this->venue->find($venueId);
 
-            $state = $st->update($data);
+            $venue = $st->update($data);
             //$this->logger->info(' created successfully', $data);
 
-            return $state;
+            return $venue;
         } catch (Exception $e) {
             //$this->logger->error($e->getMessage());
             return false;
@@ -89,17 +89,17 @@ class StateService extends Service
     }
 
     /**
-     * Delete a state
+     * Delete a venue
      *
      * @param Id
      * @return bool
      */
-    public function delete($stateId)
+    public function delete($venueId)
     {
         try {
-            $state = $this->state->find($stateId);
+            $venue = $this->venue->find($venueId);
 
-            return $state->delete();
+            return $venue->delete();
 
         } catch (Exception $e) {
             return false;
@@ -112,11 +112,11 @@ class StateService extends Service
      * @return mixed
      */
     public function getByName($name){
-        return $this->state->whereName($name);
+        return $this->venue->whereName($name);
     }
 
     public function getBySlug($slug){
-        return $this->state->whereSlug($slug);
+        return $this->venue->whereSlug($slug);
     }
 
 }

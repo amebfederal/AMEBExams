@@ -17,6 +17,8 @@
                     <th>SN</th>
                     <th>State Name</th>
                     <th>Short Name</th>
+                    <th>Notification Email</th>
+                    <th>Phone</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -26,6 +28,8 @@
                         <td>{{ ++$k }}</td>
                         <td>{{ $state->name }}</td>
                         <td>{{$state->prefix }}</td>
+                        <td>{{$state->notification_email }}</td>
+                        <td>{{$state->phone }}</td>
                         <td>
                             <a href="{{ route('state.edit', $state->id) }}"><i class="glyph-icon icon-edit"></i>Edit</a>
                             {!! delete_form(route('state.destroy', $state->id)) !!}
