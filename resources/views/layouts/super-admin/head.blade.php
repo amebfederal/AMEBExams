@@ -173,6 +173,12 @@
             }, 300);
         });
     </script>
+    <style>
+        .validation-error
+        {
+            color: red;
+        }
+    </style>
 
 
 

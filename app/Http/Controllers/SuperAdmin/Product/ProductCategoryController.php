@@ -22,6 +22,7 @@ class ProductCategoryController extends AdminBaseController
     public function index()
     {
         $categories = $this->category->paginate();
+        //dd($categories);
         return view('superadmin.product.category.index', compact('categories'));
     }
 
@@ -57,7 +58,7 @@ class ProductCategoryController extends AdminBaseController
     public function edit($id)
     {
         $category = $this->category->find($id);
-
+        dd($category);
         return view('superadmin.product.category.edit', compact('category'));
     }
 

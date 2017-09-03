@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin;
+namespace App\Http\Controllers\Superadmin\Dashboard;
 
+use App\Http\Controllers\Superadmin\AdminBaseController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends AdminBaseController
 {
-    protected $middleware;
+
     function __construct()
     {
-        //dd(Auth::user());
-      $this->middleware('superadmin');
+
+        $this->middleware('superadmin');
     }
 
     public function index()
