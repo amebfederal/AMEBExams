@@ -2,9 +2,9 @@
 
 @section('content')
     <div id="page-title">
-        <h2>Edit Product Category</h2>
+        <h2>Edit Sub Category</h2>
 
-        <p>Edit Category - {{ $category->slug }}.</p>
+        <p>For Category - {{ $category->name }}</p>
     </div>
 
     <div class="panel">
@@ -14,10 +14,10 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" method="POST" action="{{ route('category.update', $category->id) }}"
+                <form class="form-horizontal bordered-row" method="POST" action="{{ route('category.sub-category.update', [$category->slug,$subCategory->id]) }}"
                       enctype="multipart/form-data">
                     {{ method_field('patch') }}
-                    @include('superadmin.product.category.form')
+                    @include('superadmin.product.sub-category.form')
                 </form>
             </div>
         </div>

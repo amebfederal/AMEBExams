@@ -5,7 +5,7 @@
 
     <div class="col-sm-6">
         <input type="text" class="form-control" name="name"
-               value="{{ old('name', isset($category->name) ? $category->name : '') }}"/>
+               value="{{ old('name', isset($subCategory->name) ? $subCategory->name : '') }}"/>
         <span class="validation-error">{{ $errors->first('name') }}</span>
     </div>
 </div>
@@ -16,11 +16,11 @@
     <div class="col-sm-6">
         <select class="form-control" name="visibility">
             <option value="visible"
-                    {{ old('visibility', isset($category->visibility) ? $category->visibility : '') == 'visible' ? 'selected="selected"' : '' }}
+                    {{ old('visibility', isset($subCategory->visibility) ? $subCategory->visibility : '') == 'visible' ? 'selected="selected"' : '' }}
                     >Visible
             </option>
             <option value="not_visible"
-                    {{ old('visibility', isset($category->visibility) ? $category->visibility : '') == 'not_visible' ? 'selected="selected"' : '' }}
+                    {{ old('visibility', isset($subCategory->visibility) ? $subCategory->visibility : '') == 'not_visible' ? 'selected="selected"' : '' }}
                     >Not Visible
             </option>
         </select>
@@ -34,11 +34,11 @@
     <div class="col-sm-6">
         <select class="form-control" name="status">
             <option value="active"
-                    {{ old('status', isset($category->status) ? $category->status : '') == 'active' ? 'selected="selected"' : '' }}
+                    {{ old('status', isset($subCategory->status) ? $subCategory->status : '') == 'active' ? 'selected="selected"' : '' }}
                     >Active
             </option>
             <option value="in_active"
-                    {{ old('status', isset($category->status) ? $category->status : '') == 'in_active' ? 'selected="selected"' : '' }}
+                    {{ old('status', isset($subCategory->status) ? $subCategory->status : '') == 'in_active' ? 'selected="selected"' : '' }}
                     >Inactive
             </option>
         </select>
@@ -52,11 +52,11 @@
     <div class="col-sm-6">
         <select class="form-control" name="availability">
             <option value="available"
-                    {{ old('availability', isset($category->availability) ? $category->availability : '') == 'available' ? 'selected="selected"' : '' }}
+                    {{ old('availability', isset($subCategory->availability) ? $subCategory->availability : '') == 'available' ? 'selected="selected"' : '' }}
                     >Available
             </option>
             <option value="not_available"
-                    {{ old('availability', isset($category->availability) ? $category->availability : '') == 'not_available' ? 'selected="selected"' : '' }}
+                    {{ old('availability', isset($subCategory->availability) ? $subCategory->availability : '') == 'not_available' ? 'selected="selected"' : '' }}
                     >Not Available
             </option>
         </select>
@@ -68,8 +68,8 @@
     <label class="col-sm-3 control-label">Image</label>
 
     <div class="col-sm-6">
-        @if(isset($category->image))
-            <img src="{{ asset($category->thumbnail_path) }}" height="100px" alt=""/>
+        @if(isset($subCategory->image))
+            <img src="{{ asset($subCategory->thumbnail_path) }}" height="100px" alt=""/>
             <br/>
             <br/>
         @endif
@@ -83,7 +83,7 @@
 
     <div class="col-sm-6">
         <textarea class="form-control"
-                  name="description">{{ old('description', isset($category->description) ? $category->description : '') }}</textarea>
+                  name="description">{{ old('description', isset($subCategory->description) ? $subCategory->description : '') }}</textarea>
         <span class="validation-error">{{ $errors->first('description') }}</span>
     </div>
 </div>
@@ -93,7 +93,7 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('category.index') }}" class="btn btn-default btn-sm">
+        <a href="{{ route('category.sub-category.index', $category->slug) }}" class="btn btn-default btn-sm">
             <i class="fa fa-aw fa-reply-o"></i> Back
         </a>
     </div>

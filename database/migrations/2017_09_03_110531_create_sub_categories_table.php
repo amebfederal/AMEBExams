@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductCategoryTable extends Migration
+class CreateSubCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('sub_categories', function (Blueprint $table) {
 
             $table->bigIncrements('id');
 
@@ -21,6 +21,10 @@ class CreateProductCategoryTable extends Migration
             $table->string('slug', 100);
             $table->text('description');
             $table->string('image', 100);
+
+            $table->bigInteger('category_id')->unsigned()->index();
+            $table->foreign('category_id')->references('id')->on('categories');
+
             $table->enum('visibility', ['visible', 'not_visible'])->index();
             $table->enum('status', ['active', 'in_active'])->index();
             $table->enum('availability', ['available', 'not_available'])->index();
@@ -36,6 +40,6 @@ class CreateProductCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_categories');
+        Schema::drop('sub_categories');
     }
 }

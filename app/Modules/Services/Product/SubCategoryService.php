@@ -1,16 +1,17 @@
 <?php namespace App\Modules\Services\Product;
 
-use App\Modules\Models\ProductCategory;
+use App\Modules\Models\Category;
+use App\Modules\Models\SubCategory;
 use App\Modules\Services\Service;
 
-class ProductCategoryService extends Service
+class SubCategoryService extends Service
 {
-    protected $productCategory;
+    protected $category;
 
     public function __construct(
-        ProductCategory $category
+        SubCategory $category
     ){
-        $this->productCategory = $category;
+        $this->category = $category;
     }
 
     /**
@@ -19,14 +20,14 @@ class ProductCategoryService extends Service
      * @param array $data
      * @return Product Category|null
      */
-    public function create(array $data)
+    public function create($category, array $data)
     {
         try {
             //now try to upload the file
             $file = $data['file'];
 
             if(!empty($file)){
-                $this->uploadPath = 'uploads/product-category';
+                $this->uploadPath = 'uploads/sub-category';
                 $fileName = $this->upload($file);
 
                 $data['image'] = $fileName;
@@ -34,7 +35,9 @@ class ProductCategoryService extends Service
                 unset($data['image']);
             }
 
-            $category = $this->productCategory->create($data);
+            $data['category_id'] = $category->id;
+
+            $category = $this->category->create($data);
             return $category;
         } catch (Exception $e) {
             //$this->logger->error($e->getMessage());
@@ -52,7 +55,7 @@ class ProductCategoryService extends Service
     {
         $filter['limit'] = 1;
 
-        return $this->productCategory->paginate($filter['limit']);
+        return $this->category->paginate($filter['limit']);
     }
 
     /**
@@ -62,7 +65,7 @@ class ProductCategoryService extends Service
      */
     public function all()
     {
-        return $this->productCategory->all();
+        return $this->category->all();
     }
 
     /**
@@ -74,7 +77,7 @@ class ProductCategoryService extends Service
     public function find($id)
     {
         try {
-            return $this->productCategory->find($id);
+            return $this->category->find($id);
         } catch (Exception $e) {
             return null;
         }
@@ -86,12 +89,12 @@ class ProductCategoryService extends Service
      * @param array $data
      * @return bool
      */
-    public function update($categoryId, array $data)
+    public function update($category, $categoryId, array $data)
     {
         try {
-            $cat = $this->productCategory->find($categoryId);
+            $cat = $this->category->find($categoryId);
 
-            $file = $data['file'];
+            $file = isset($data['file']) ? $data['file'] : '';
 
             if(!empty($file)){
                 $this->uploadPath = 'uploads/product-category';
@@ -103,6 +106,8 @@ class ProductCategoryService extends Service
             }else{
                 unset($data['image']);
             }
+
+            $data['category_id'] = $category->id;
 
             $category = $cat->update($data);
             //$this->logger->info(' created successfully', $data);
@@ -123,7 +128,7 @@ class ProductCategoryService extends Service
     public function delete($categoryId)
     {
         try {
-            $category = $this->productCategory->find($categoryId);
+            $category = $this->category->find($categoryId);
             //unset the files uploaded first
             $this->__deleteImages($category);
 
@@ -140,7 +145,7 @@ class ProductCategoryService extends Service
      * @return mixed
      */
     public function getByType($type){
-        return $this->productCategory->whereType($type);
+        return $this->category->whereType($type);
     }
 
     /**
@@ -149,11 +154,11 @@ class ProductCategoryService extends Service
      * @return mixed
      */
     public function getByName($name){
-        return $this->productCategory->whereName($name);
+        return $this->category->whereName($name)->first();
     }
 
     public function getBySlug($slug){
-        return $this->productCategory->whereSlug($slug);
+        return $this->category->whereSlug($slug)->first();
     }
 
     private function __deleteImages($category){

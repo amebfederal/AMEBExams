@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('image', 100);
 
             $table->bigInteger('product_category_id')->unsigned()->index();
-            $table->foreign('product_category_id')->references('id')->on('product_categories');
+            $table->foreign('product_category_id')->references('id')->on('categories');
 
             $table->string('expiry_type', 100);
             $table->double('renew_fee', 15, 2);

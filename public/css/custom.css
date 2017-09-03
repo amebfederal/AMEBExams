@@ -1,0 +1,12 @@
+.add-button{
+    margin-bottom: 10px;
+    float: right;
+}
+
+.deleteContentButton{
+    border: none;
+    background: none;
+    float: left;
+    display: inline-block;
+}
+

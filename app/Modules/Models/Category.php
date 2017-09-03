@@ -3,7 +3,7 @@
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductCategory extends Model
+class Category extends Model
 {
     private $path = 'uploads/product-category';
 
@@ -24,6 +24,10 @@ class ProductCategory extends Model
     protected $appends = [
         'visibility_text', 'status_text', 'availability_text', 'thumbnail_path', 'image_path'
     ];
+
+    public function sub_categories(){
+        return $this->hasMany('App\Modules\Models\SubCategory', 'category_id');
+    }
 
     function getVisibilityTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->visibility));

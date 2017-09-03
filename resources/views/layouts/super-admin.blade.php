@@ -7,10 +7,11 @@
         <div id="page-content">
 
             <div class="container">
+                @include('layouts.super-admin.flash-message')
                 @yield('content')
-                @yield('page-specific-scripts')
             </div>
         </div>
     </div>
 </div>
+@yield('page-specific-scripts')
 @include('layouts.super-admin.footer')

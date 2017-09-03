@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductCategoryRequest extends FormRequest
+class GradeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,10 @@ class ProductCategoryRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required',
+            'title' => 'required',
             'status' => 'required',
-            'description' => 'required',
-            'visibility' => 'required',
-            'availability' => 'required'
+            'code' => 'required'
         ];
-
-        if($this->method() != 'PATCH'){
-            $rules['file'] = 'required';
-        }
 
         return $rules;
     }

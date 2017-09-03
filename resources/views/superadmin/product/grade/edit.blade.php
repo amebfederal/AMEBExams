@@ -2,9 +2,9 @@
 
 @section('content')
     <div id="page-title">
-        <h2>Edit Product Category</h2>
+        <h2>Edit Grade</h2>
 
-        <p>Edit Category - {{ $category->slug }}.</p>
+        <p>For Sub Category - {{ $subCategory->name }}</p>
     </div>
 
     <div class="panel">
@@ -14,10 +14,10 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" method="POST" action="{{ route('category.update', $category->id) }}"
+                <form class="form-horizontal bordered-row" method="POST" action="{{ route('sub-category.grade.update', [$subCategory->slug,$grade->id]) }}"
                       enctype="multipart/form-data">
                     {{ method_field('patch') }}
-                    @include('superadmin.product.category.form')
+                    @include('superadmin.product.grade.form')
                 </form>
             </div>
         </div>

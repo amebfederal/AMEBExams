@@ -141,10 +141,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/admin/layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/admin/color-schemes/default.css') }}">
 
+
+
     <!-- Components theme -->
 
     <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/components/default.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/themes/components/border-radius.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
 
     <!-- Admin responsive -->
 
