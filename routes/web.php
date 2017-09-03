@@ -128,12 +128,11 @@ Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router)
     $router->resource('state', 'SuperAdmin\State\StateController');
 
 });
-//Route::get('superadmin/state/add',    function () {
-    //return view('superadmin.state.add');
-//});
-//Route::get('superadmin/state/manage',    function () {
-    //return view('superadmin.state.manage');
-//});
+Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router) {
+
+    $router->resource('venue', 'SuperAdmin\Venue\VenueController');
+
+});
 
 Route::get('superadmin/federal/office',    function () {
     return view('superadmin.federal.office');

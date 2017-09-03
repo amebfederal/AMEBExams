@@ -43,10 +43,10 @@ class StateController extends AdminBaseController
     public function store(StateRequest $request)
     {
         if ($this->state->create($request->all())) {
-            return redirect()->route('product-category.index')->with('success', 'State created successfully.');
+            return redirect()->route('state.index')->with('success', 'State created successfully.');
         }
 
-        return redirect()->route('product-category.create')->with('error', 'State could not be created.');
+        return redirect()->route('state.create')->with('error', 'State could not be created.');
     }
 
     /**
