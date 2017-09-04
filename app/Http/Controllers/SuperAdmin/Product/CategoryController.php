@@ -42,10 +42,10 @@ class CategoryController extends AdminBaseController
     public function store(CategoryRequest $request)
     {
         if ($this->category->create($request->all())) {
-            return redirect()->route('category.index')->with('success', 'Product category created successfully.');
+            return redirect()->route('category.index')->with('success', 'Category created successfully.');
         }
 
-        return redirect()->route('category.create')->with('error', 'Product category could not be created.');
+        return redirect()->route('category.create')->with('error', 'Category could not be created.');
     }
 
     /**
@@ -71,10 +71,10 @@ class CategoryController extends AdminBaseController
     public function update(CategoryRequest $request, $id)
     {
         if($this->category->update($id, $request->all())) {
-            return redirect()->route('category.index')->with('success', 'Product Category updated successfully.');
+            return redirect()->route('category.index')->with('success', 'Category updated successfully.');
         }
 
-        return redirect()->route('category.edit',[$id])->with('error', 'Product Category could not be updated.');
+        return redirect()->route('category.edit',[$id])->with('error', 'Category could not be updated.');
     }
 
     /**
@@ -86,9 +86,9 @@ class CategoryController extends AdminBaseController
     public function destroy($id)
     {
         if ($this->category->delete($id)) {
-            return redirect()->route('category.index')->with('success', 'Product Category deleted successfully.');
+            return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
         }
 
-        return redirect()->route('category.index')->with('error', 'Product Category could not be deleted.');
+        return redirect()->route('category.index')->with('error', 'Category could not be deleted.');
     }
 }

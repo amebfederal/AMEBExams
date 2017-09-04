@@ -105,7 +105,7 @@ class GradeService extends Service
         try {
             $grade = $this->grade->find($gradeId);
             //unset the files uploaded first
-            $grade->delete();
+            return $grade->delete();
 
         } catch (Exception $e) {
             return false;
