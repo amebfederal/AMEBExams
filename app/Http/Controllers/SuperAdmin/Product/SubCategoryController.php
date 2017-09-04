@@ -53,10 +53,10 @@ class SubCategoryController extends AdminBaseController
         $category = $this->category->getBySlug($slug);
         if ($this->subCategory->create($category, $request->all())) {
             return redirect()->route('category.sub-category.index', $category->slug)
-                ->with('success', 'Product category created successfully.');
+                ->with('success', 'Sub Category created successfully.');
         }
 
-        return redirect()->route('category.create')->with('error', 'Product category could not be created.');
+        return redirect()->route('category.create')->with('error', 'Sub Category could not be created.');
     }
 
     /**
@@ -85,11 +85,11 @@ class SubCategoryController extends AdminBaseController
         $category = $this->category->getBySlug($slug);
         if($this->subCategory->update($category, $id, $request->all())) {
             return redirect()->route('category.sub-category.index', $category->slug)
-                ->with('success', 'Product Category updated successfully.');
+                ->with('success', 'Sub Category updated successfully.');
         }
 
         return redirect()->route('category.sub-category.edit',[$category->slug, $id])
-            ->with('error', 'Product Category could not be updated.');
+            ->with('error', 'Sub Category could not be updated.');
     }
 
     /**
@@ -103,10 +103,10 @@ class SubCategoryController extends AdminBaseController
         $category = $this->category->getBySlug($slug);
         if ($this->subCategory->delete($id)) {
             return redirect()->route('category.sub-category.index', $category->slug)
-                ->with('success', 'Product Category deleted successfully.');
+                ->with('success', 'Sub Category deleted successfully.');
         }
 
         return redirect()->route('category.sub-category.index', $category->slug)
-            ->with('error', 'Product Category could not be deleted.');
+            ->with('error', 'Sub Category could not be deleted.');
     }
 }

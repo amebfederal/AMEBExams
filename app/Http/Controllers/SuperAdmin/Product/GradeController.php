@@ -86,11 +86,11 @@ class GradeController extends AdminBaseController
         $category = $this->subCategory->getBySlug($slug);
         if($this->grade->update($category, $id, $request->all())) {
             return redirect()->route('sub-category.grade.index', $category->slug)
-                ->with('success', 'Product Category updated successfully.');
+                ->with('success', 'Grade updated successfully.');
         }
 
         return redirect()->route('sub-category.grade.edit',[$category->slug, $id])
-            ->with('error', 'Product Category could not be updated.');
+            ->with('error', 'Grade could not be updated.');
     }
 
     /**
@@ -104,10 +104,10 @@ class GradeController extends AdminBaseController
         $category = $this->subCategory->getBySlug($slug);
         if ($this->grade->delete($id)) {
             return redirect()->route('sub-category.grade.index', $category->slug)
-                ->with('success', 'Product Category deleted successfully.');
+                ->with('success', 'Grade deleted successfully.');
         }
 
         return redirect()->route('sub-category.grade.index', $category->slug)
-            ->with('error', 'Product Category could not be deleted.');
+            ->with('error', 'Grade could not be deleted.');
     }
 }
