@@ -18,10 +18,15 @@
                 <div class="sidebar-submenu">
 
                     <ul>
+                        <li><a href="{{url('super-admin/category/create')}}" title="Manage Category"><span>New Category</span></a></li>
+                        <li><a href="{{url('super-admin/category')}}" title="Manage Category"><span>Manage Category</span></a></li>
+
                         <li><a href="{{URL::route('superadmin.product.addproductstep1')}}" title="Buttons"><span>New Product</span></a></li>
                         <li><a href="{{URL::route('superadmin.product.manageproduct')}}" title="Content boxes"><span>Manage Products</span></a></li>
-                    </ul>
 
+                        <li><a href="{{url('super-admin/venue/create')}}" title="Alternate dashboard"><span>Add Venue</span></a></li>
+                        <li><a href="{{url('super-admin/venue')}}" title="Alternate dashboard"><span>Manage Venue</span></a></li>
+                    </ul>
                 </div><!-- .sidebar-submenu -->
             </li>
             <li>
@@ -163,8 +168,8 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{url('superadmin/state/add')}}" title="Alternate dashboard"><span>Add</span></a></li>
-                        <li><a href="{{url('superadmin/state/manage')}}" title="Alternate dashboard"><span>Manage</span></a></li>
+                        <li><a href="{{url('super-admin/state/create')}}" title="Alternate dashboard"><span>Add</span></a></li>
+                        <li><a href="{{url('super-admin/state')}}" title="Alternate dashboard"><span>Manage</span></a></li>
                     </ul>
 
                 </div><!-- .sidebar-submenu -->

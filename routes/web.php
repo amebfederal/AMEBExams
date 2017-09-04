@@ -64,13 +64,6 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
 });
 
 
-
-
-
-
-
-
-
 Route::get('superadmin/product/addstep1',
             ['as' => 'superadmin.product.addproductstep1',        'uses' => 'SuperAdmin\ProductController@addproductstep1']);
 
