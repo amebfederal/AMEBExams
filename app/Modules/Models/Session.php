@@ -5,21 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
-    use Sluggable;
-
-    public function sluggable(){
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
-
     protected $fillable = [
-        'name', 'slug', 's_date', 'e_date','venue_id'
+        'name', 'status', 'start_date', 'end_date'
     ];
 
     function venues(){
-        return $this->belongsToMany('App\Modules\Model\Venue', 'session_venue');
+        return $this->belongsToMany('App\Modules\Models\Venue', 'session_venue');
     }
 }

@@ -29,6 +29,10 @@ class SubCategory extends Model
         return $this->hasMany('App\Modules\Models\Grade', 'sub_category_id');
     }
 
+    function category(){
+        return $this->belongsTo('App\Modules\Models\Category');
+    }
+
     function getVisibilityTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->visibility));
     }

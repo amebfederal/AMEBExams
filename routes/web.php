@@ -33,12 +33,13 @@ Super Admin Holders Route
 */
 
 
-Route::group(['before' => 'auth', 'prefix' => 'super-admin'], function ($router) {
+Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function ($router) {
 
     $router->resource('category', 'SuperAdmin\Product\CategoryController');
     $router->resource('category.sub-category', 'SuperAdmin\Product\SubCategoryController');
     $router->resource('state', 'SuperAdmin\State\StateController');
     $router->resource('sub-category.grade', 'SuperAdmin\Product\GradeController');
+    $router->resource('session', 'SuperAdmin\Session\SessionController');
 });
 
 

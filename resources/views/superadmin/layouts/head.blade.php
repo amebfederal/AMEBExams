@@ -296,7 +296,7 @@
                                 AMEB Online
                                 <i>Administrator</i>
                             </span>
-                                <a href="{{ route('admin-login.edit',\Illuminate\Support\Facades\Auth::user()->id) }}" title="Edit profile">Edit profile</a>
+                                <a href="{{ url('/') }}" title="Edit profile">Edit profile</a>
                                 <a href="#" title="View notifications">Lock Screen</a>
                             </div>
                         </div>

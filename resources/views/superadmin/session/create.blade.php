@@ -12,7 +12,7 @@
         </h3>
 
         <div class="example-box-wrapper">
-            <form class="form-horizontal bordered-row" method="POST" action="{{ route('session.store', $venue->slug) }}"
+            <form class="form-horizontal bordered-row" method="POST" action="{{ route('session.store') }}"
                     enctype="multipart/form-data">
                 @include('superadmin.session.form')
             </form>

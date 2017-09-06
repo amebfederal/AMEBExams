@@ -1,7 +1,7 @@
-<?php namespace App\Http\Controllers\SuperAdmin\Product;
+<?php namespace App\Http\Controllers\SuperAdmin\Session;
 
 use App\Http\Controllers\Superadmin\AdminBaseController;
-use App\Http\Requests\VenueRequest;
+use App\Http\Requests\SessionRequest;
 use App\Modules\Services\Venue\VenueService;
 use App\Modules\Services\Session\SessionService;
 
@@ -24,12 +24,54 @@ class SessionController extends AdminBaseController
      * write brief description
      * @return mixed
      */
-    public function index($slug)
+    public function index()
     {
-        $venue = $this->venue->getBySlug($slug);
-        $session = $venue->venues;
-        return view('superadmin.product.sub-category.index', compact('venue', 'session'));
+        $sessions = $this->session->paginate();
+        return view('superadmin.session.index', compact('sessions'));
     }
 
-   
+    public function create(){
+        $venues = $this->venue->all();
+
+        return view('superadmin.session.create', compact('venues'));
+    }
+
+    public function store(SessionRequest $request){
+        if ($this->session->create($request->all())) {
+            return redirect()->route('session.index')->with('success', 'Session created successfully.');
+        }
+
+        return redirect()->route('session.create')->with('error', 'Session could not be created.');
+    }
+
+    public function edit($id){
+        $venues = $this->venue->all();
+        $session = $this->session->find($id);
+
+        $sessionVenues = $session->venues;
+        $svArr = [];
+        foreach($sessionVenues as $sv){
+            $svArr[] = $sv->id;
+        }
+
+        $session->venue_ids = $svArr;
+
+        return view('superadmin.session.edit', compact('venues', 'session'));
+    }
+
+    public function update($id, SessionRequest $request){
+        if ($this->session->update($id, $request->all())) {
+            return redirect()->route('session.index')->with('success', 'Session updated successfully.');
+        }
+
+        return redirect()->route('session.create')->with('error', 'Session could not be created.');
+    }
+
+    public function destroy($id){
+        if ($this->session->delete($id)) {
+            return redirect()->route('session.index')->with('success', 'Session deleted successfully.');
+        }
+
+        return redirect()->route('session.index')->with('error', 'Session could not be deleted.');
+    }
 }

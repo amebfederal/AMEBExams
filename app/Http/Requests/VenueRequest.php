@@ -26,8 +26,7 @@ class VenueRequest extends FormRequest
         $rules = [
             'name' => 'required',
             'location' => 'required',
-            'seats' => 'required|regex:/(01)[0-9]{9}/',
-            '' => 'required',
+            'seats' => 'required|integer',
             'venue' => 'required',
             'from' => 'required',
             'till' => 'required',

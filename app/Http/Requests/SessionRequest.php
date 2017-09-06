@@ -25,8 +25,9 @@ class SessionRequest extends FormRequest
     {
         $rules = [
             'name' => 'required',
-            's_date' => 'required',
-            'e_date' => 'required'
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'venues' => 'required'
         ];
         return $rules;
     }

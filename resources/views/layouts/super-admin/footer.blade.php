@@ -1,5 +1,3 @@
-
-
 <!-- WIDGETS -->
 <script type="text/javascript" src="{{ asset('resources/assets/bootstrap/js/bootstrap.js') }}"></script>
 <!-- Bootstrap Dropdown -->
@@ -73,7 +71,8 @@
 <script type="text/javascript">
     /* jQuery UI Spinner */
 
-    $(function() { "use strict";
+    $(function () {
+        "use strict";
         $(".spinner-input").spinner();
     });
 </script>
@@ -97,7 +96,8 @@
 <script type="text/javascript">
     /* Input switch */
 
-    $(function() { "use strict";
+    $(function () {
+        "use strict";
         $('.input-switch').bootstrapSwitch();
     });
 </script>
@@ -108,7 +108,8 @@
 <script type="text/javascript">
     /* Textarea autoresize */
 
-    $(function() { "use strict";
+    $(function () {
+        "use strict";
         $('.textarea-autosize').autosize();
     });
 </script>
@@ -120,7 +121,8 @@
 <script type="text/javascript">
     /* Multiselect inputs */
 
-    $(function() { "use strict";
+    $(function () {
+        "use strict";
         $(".multi-select").multiSelect();
         $(".ms-container").append('<i class="glyph-icon icon-exchange"></i>');
     });
@@ -139,7 +141,18 @@
 <script type="text/javascript" src="{{ asset('resources/assets/widgets/chosen/chosen-demo.js') }}"></script>
 <script type="text/javascript" src="{{ asset('resources/assets/widgets/datatable/datatable.js') }}"></script>
 <script type="text/javascript" src="{{ asset('resources/assets/widgets/datatable/datatable-bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ asset('resources/assets/widgets/datatable/datatable-fixedcolumns.js') }}"></script>
+<script type="text/javascript"
+        src="{{ asset('resources/assets/widgets/datatable/datatable-fixedcolumns.js') }}"></script>
+
+<script>
+    siteUrl = "<?php echo url('/') ?>";
+    $(function () {
+
+        $('.sfActive').parents('.sidebar-submenu').show();
+        $('.sfActive').parents('.sidebar-submenu').parents('li').addClass('sfHover');
+
+    })
+</script>
 
 
 </div>

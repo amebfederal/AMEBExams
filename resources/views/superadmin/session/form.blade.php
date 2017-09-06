@@ -1,44 +1,46 @@
 {!! csrf_field() !!}
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">Name</label>
+    <label class="col-sm-3 control-label">Name <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" name="name"
-               value="{{ old('name', isset($subCategory->name) ? $subCategory->name : '') }}"/>
+               value="{{ old('name', isset($session->name) ? $session->name : '') }}"/>
         <span class="validation-error">{{ $errors->first('name') }}</span>
     </div>
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">Visibility</label>
+    <label class="col-sm-3 control-label">Start Date <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
-        <select class="form-control" name="visibility">
-            <option value="visible"
-                    {{ old('visibility', isset($subCategory->visibility) ? $subCategory->visibility : '') == 'visible' ? 'selected="selected"' : '' }}
-                    >Visible
-            </option>
-            <option value="not_visible"
-                    {{ old('visibility', isset($subCategory->visibility) ? $subCategory->visibility : '') == 'not_visible' ? 'selected="selected"' : '' }}
-                    >Not Visible
-            </option>
-        </select>
-        <span class="validation-error">{{ $errors->first('visibility') }}</span>
+        <input type="date" name="start_date" class="form-control"
+               value="{{ old('start_date', isset($session->start_date) ? $session->start_date: '')}}">
+        <span class="validation-error">{{ $errors->first('start_date') }}</span>
     </div>
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">Status</label>
+    <label class="col-sm-3 control-label">End Date <span class="text-danger">*</span></label>
+
+    <div class="col-sm-6">
+        <input type="date" name="end_date" class="form-control"
+               value="{{ old('end_date', isset($session->end_date) ? $session->end_date: '')}}">
+        <span class="validation-error">{{ $errors->first('end_date') }}</span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">Status <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
         <select class="form-control" name="status">
             <option value="active"
-                    {{ old('status', isset($subCategory->status) ? $subCategory->status : '') == 'active' ? 'selected="selected"' : '' }}
+                    {{ old('status', isset($session->status) ? $session->status : '') == 'active' ? 'selected="selected"' : '' }}
                     >Active
             </option>
             <option value="in_active"
-                    {{ old('status', isset($subCategory->status) ? $subCategory->status : '') == 'in_active' ? 'selected="selected"' : '' }}
+                    {{ old('status', isset($session->status) ? $session->status : '') == 'in_active' ? 'selected="selected"' : '' }}
                     >Inactive
             </option>
         </select>
@@ -47,44 +49,17 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">Availability</label>
+    <label class="col-sm-3 control-label">Venues <span class="text-danger">*</span> </label>
+
+    <?php $selectedVenues = old('venues', isset($session->venue_ids) ? $session->venue_ids : []); ?>
 
     <div class="col-sm-6">
-        <select class="form-control" name="availability">
-            <option value="available"
-                    {{ old('availability', isset($subCategory->availability) ? $subCategory->availability : '') == 'available' ? 'selected="selected"' : '' }}
-                    >Available
-            </option>
-            <option value="not_available"
-                    {{ old('availability', isset($subCategory->availability) ? $subCategory->availability : '') == 'not_available' ? 'selected="selected"' : '' }}
-                    >Not Available
-            </option>
+        <select multiple="" class="multi-select" name="venues[]">
+            @foreach($venues as $venue)
+                <option value="{{ $venue->id }}"
+                       {{ in_array($venue->id, $selectedVenues) ? 'selected="selected"' : '' }} >{{ $venue->name }}</option>
+            @endforeach
         </select>
-        <span class="validation-error">{{ $errors->first('availability') }}</span>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="col-sm-3 control-label">Image</label>
-
-    <div class="col-sm-6">
-        @if(isset($subCategory->image))
-            <img src="{{ asset($subCategory->thumbnail_path) }}" height="100px" alt=""/>
-            <br/>
-            <br/>
-        @endif
-        <input type="file" class="form-control" name="file"/>
-        <span class="validation-error">{{ $errors->first('file') }}</span>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="col-sm-3 control-label">Description</label>
-
-    <div class="col-sm-6">
-        <textarea class="form-control"
-                  name="description">{{ old('description', isset($subCategory->description) ? $subCategory->description : '') }}</textarea>
-        <span class="validation-error">{{ $errors->first('description') }}</span>
     </div>
 </div>
 
@@ -93,8 +68,8 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('category.sub-category.index', $category->slug) }}" class="btn btn-default btn-sm">
-            <i class="fa fa-aw fa-reply-o"></i> Back
+        <a href="{{ route('session.index') }}" class="btn btn-default btn-sm">
+            <i class="icon-reply"></i> Back
         </a>
     </div>
 </div>

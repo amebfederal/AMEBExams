@@ -41,6 +41,14 @@
                 @endforeach
                 </tbody>
             </table>
+
+            <a href="{{ route('category.index') }}">
+                <i class="icon-reply"></i> Go to Categories
+            </a>
+
+            <a href="{{ route('category.sub-category.index', $subCategory->category->slug) }}">
+                <i class="icon-reply"></i> Go to Sub Categories
+            </a>
         </div>
     </div>
 @stop

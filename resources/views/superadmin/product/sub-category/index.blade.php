@@ -50,6 +50,10 @@
                 @endforeach
                 </tbody>
             </table>
+
+            <a href="{{ route('category.index') }}">
+                <i class="icon-reply"></i> Go to Categories
+            </a>
         </div>
     </div>
 @stop

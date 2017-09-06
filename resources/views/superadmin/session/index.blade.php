@@ -3,16 +3,16 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Sub Categories</h2>
+        <h2>Session Management</h2>
 
-        <p>Sub Categories for - {{ $category->name }}</p>
+        <p>Manage session for exams</p>
     </div>
 
     <div class="panel">
         <div class="panel-body">
 
-            <a class="btn btn-sm btn-success add-button" href="{{ route('category.sub-category.create', $category->slug) }}">
-                <i class="fa fa-aw fc-agenda-axis"></i> Add Sub Category - {{ $category->name }}
+            <a class="btn btn-sm btn-success add-button" href="{{ route('session.create') }}">
+                <i class="fa fa-aw fc-agenda-axis"></i> Add a new Session
             </a>
 
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
@@ -20,30 +20,34 @@
                 <tr>
                     <th>SN</th>
                     <th>Name</th>
-                    <th>Image</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                     <th>Status</th>
-                    <th>Visibility</th>
-                    <th>Availability</th>
+                    <th>Venues</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($subCategories as $k => $subCategory)
+                @foreach($sessions as $k => $session)
                     <tr>
                         <td>{{ ++$k }}</td>
                         <td>
-                            <a href="{{ route('sub-category.grade.index', $subCategory->slug) }}">
-                                {{ $subCategory->name }}
-                            </a>
+                            {{ $session->name }}
                         </td>
-                        <td><img src="{{ asset($subCategory->thumbnail_path) }}" height="60px"/></td>
-                        <td>{{ $subCategory->status_text }}</td>
-                        <td>{{ $subCategory->visibility_text }}</td>
-                        <td>{{ $subCategory->availability_text }}</td>
+                        <td>{{ $session->start_date }}</td>
+                        <td>{{ $session->end_date }}</td>
+                        <td>{{ $session->status_text }}</td>
                         <td>
-                            <a href="{{ route('category.sub-category.edit', [$category->slug,$subCategory->id]) }}">Edit</a>
+                            <ul>
+                                @foreach($session->venues as $venue)
+                                    <li>{{ $venue->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="{{ route('session.edit', [$session->id]) }}">Edit</a>
                             ||
-                            {!! delete_form(route('category.sub-category.destroy', [$category->slug,$subCategory->id]))
+                            {!! delete_form(route('session.destroy', [$session->id]))
                             !!}
                         </td>
                     </tr>

@@ -23,6 +23,12 @@ class SessionService extends Service
     {
         try {
             $session = $this->session->create($data);
+
+            //now assign session to venues
+            $venues = $data['venues'];
+            foreach($venues as $venue)
+                $session->venues()->attach($venue);
+
             return $session;
         } catch (Exception $e) {
             return null;
@@ -81,6 +87,9 @@ class SessionService extends Service
             $session = $st->update($data);
             //$this->logger->info(' created successfully', $data);
 
+            $venues = $data['venues'];
+            $st->venues()->sync($venues);
+
             return $session;
         } catch (Exception $e) {
             //$this->logger->error($e->getMessage());
@@ -97,9 +106,19 @@ class SessionService extends Service
     public function delete($sessionId)
     {
         try {
-            $session = $this->session->find($sessionId);
+            $ses = $this->session->find($sessionId);
 
-            return $session->delete();
+            $sessionVenues = $ses->venues;
+            if(!empty($sessionVenues)){
+                $svArr = [];
+                foreach($sessionVenues as $sv){
+                    $svArr[] = $sv->id;
+                }
+
+                $ses->venues()->detach($svArr);
+            }
+
+            return $ses->delete();
 
         } catch (Exception $e) {
             return false;
