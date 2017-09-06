@@ -24,11 +24,11 @@
                         <li><a href="{{URL::route('superadmin.product.addproductstep1')}}" title="Buttons"><span>New Product</span></a></li>
                         <li><a href="{{URL::route('superadmin.product.manageproduct')}}" title="Content boxes"><span>Manage Products</span></a></li>
 
-                        <li><a href="{{url('super-admin/venue/create')}}" title="Alternate dashboard"><span>Add Venue</span></a></li>
-                        <li><a href="{{url('super-admin/venue')}}" title="Alternate dashboard"><span>Manage Venue</span></a></li>
+                        <li><a href="{{url('super-admin/venue/create')}}" title="Add Venue"><span>Add Venue</span></a></li>
+                        <li><a href="{{url('super-admin/venue')}}" title="Manage Venue"><span>Manage Venue</span></a></li>
 
-                        <li><a href="{{url('super-admin/session/create')}}" title="Alternate dashboard"><span>Add Session</span></a></li>
-                        <li><a href="{{url('super-admin/session')}}" title="Alternate dashboard"><span>Manage Session</span></a></li>
+                        <li><a href="{{url('super-admin/session/create')}}" title="Add Session"><span>Add Session</span></a></li>
+                        <li><a href="{{url('super-admin/session')}}" title="Manage Session"><span>Manage Session</span></a></li>
 
                     </ul>
                 </div><!-- .sidebar-submenu -->
