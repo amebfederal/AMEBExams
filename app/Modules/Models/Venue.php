@@ -23,6 +23,10 @@ class Venue extends Model
         'venue', 'status'
     ];
 
+    function sessions(){
+        return $this->belongsToMany('App\Modules\Models\Session', 'session_venue');
+    }
+
     function getVenueTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->venue));
     }

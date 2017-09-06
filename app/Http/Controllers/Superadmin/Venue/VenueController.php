@@ -11,7 +11,7 @@ class VenueController extends AdminBaseController
     public function __construct(VenueService $venue
     )
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->venue = $venue;
     }
 

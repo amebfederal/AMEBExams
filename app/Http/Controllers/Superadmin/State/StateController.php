@@ -11,7 +11,7 @@ class StateController extends AdminBaseController
     public function __construct(StateService $state
     )
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->state = $state;
     }
 
