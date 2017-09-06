@@ -98,6 +98,9 @@
 <div class="form-group">
     <label class="col-sm-3 control-label"></label>
     <div class="col-sm-6">
-        <input type="submit" name="" value="Continue" class="btn btn-success">
+        <button type="submit" class="btn btn-success btn-sm">Save</button>
+        <a href="{{ route('state.index') }}" class="btn btn-default btn-sm">
+            <i class="icon-reply"></i> Back
+        </a>
     </div>
 </div>

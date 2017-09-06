@@ -26,6 +26,10 @@
 
                         <li><a href="{{url('super-admin/venue/create')}}" title="Alternate dashboard"><span>Add Venue</span></a></li>
                         <li><a href="{{url('super-admin/venue')}}" title="Alternate dashboard"><span>Manage Venue</span></a></li>
+
+                        <li><a href="{{url('super-admin/session/create')}}" title="Alternate dashboard"><span>Add Session</span></a></li>
+                        <li><a href="{{url('super-admin/session')}}" title="Alternate dashboard"><span>Manage Session</span></a></li>
+
                     </ul>
                 </div><!-- .sidebar-submenu -->
             </li>

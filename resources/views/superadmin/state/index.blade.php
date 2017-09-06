@@ -8,9 +8,11 @@
 
     <div class="panel">
         <div class="panel-body">
-            <a class="btn btn-sm btn-success" href="{{ route('state.create') }}">
+
+            <a class="btn btn-sm btn-success add-button" href="{{ route('state.create') }}">
                 <i class="fa fa-aw fc-agenda-axis"></i> Add State Here
             </a>
+
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
                 <thead>
                 <tr>
@@ -31,8 +33,10 @@
                         <td>{{$state->notification_email }}</td>
                         <td>{{$state->phone }}</td>
                         <td>
-                            <a href="{{ route('state.edit', $state->id) }}"><i class="glyph-icon icon-edit"></i>Edit</a>
-                            {!! delete_form(route('state.destroy', $state->id)) !!}
+                            <a href="{{ route('state.edit', [$state->id]) }}">Edit</a>
+                            ||
+                            {!! delete_form(route('state.destroy', [$state->id]))
+                            !!}
                         </td>
                     </tr>
                 @endforeach

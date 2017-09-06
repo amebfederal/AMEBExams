@@ -8,9 +8,11 @@
 
     <div class="panel">
         <div class="panel-body">
-            <a class="btn btn-sm btn-success" href="{{ route('venue.create') }}">
+
+            <a class="btn btn-sm btn-success add-button" href="{{ route('venue.create') }}">
                 <i class="fa fa-aw fc-agenda-axis"></i> Add Venue Here
             </a>
+
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
                 <thead>
                 <tr>
@@ -33,8 +35,10 @@
                         <td>{{$venue->venue }}</td>
                         <td>{{$venue->status }}</td>
                         <td>
-                            <a href="{{ route('venue.edit', $venue->id) }}"><i class="glyph-icon icon-edit"></i>Edit</a>
-                            {!! delete_form(route('venue.destroy', $venue->id)) !!}
+                            <a href="{{ route('venue.edit', [$venue->id]) }}">Edit</a>
+                            ||
+                            {!! delete_form(route('venue.destroy', [$venue->id]))
+                            !!}
                         </td>
                     </tr>
                 @endforeach
