@@ -10,6 +10,6 @@ class Session extends Model
     ];
 
     function venues(){
-        return $this->belongsToMany('App\Modules\Models\Venue', 'session_venue');
+        return $this->belongsToMany('App\Modules\Models\Venue', 'session_venue')->withTimestamps();
     }
 }

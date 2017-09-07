@@ -57,7 +57,7 @@
         <select multiple="" class="multi-select" name="venues[]">
             @foreach($venues as $venue)
                 <option value="{{ $venue->id }}"
-                       {{ in_array($venue->id, $selectedVenues) ? 'selected="selected"' : '' }} >{{ $venue->name }}</option>
+                       {{ in_array($venue->id, $session->savedVenue) ? 'selected="selected"' : '' }} >{{ $venue->name }}</option>
             @endforeach
         </select>
     </div>

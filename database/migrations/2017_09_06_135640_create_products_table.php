@@ -33,10 +33,10 @@ class CreateProductsTable extends Migration
             $table->double('default_price', 15, 2);
             $table->unsignedInteger('expiry_months')->comment('In Months');
             $table->enum('marking_type', ['computer', 'manual'])->index(); // Computer Marked / Manually marked
-            $table->enum('certificate_type ', ['e-certificate', 'hard_copy'])->index(); // E-Certificate / Hard Copy
-            $table->enum('exam_type ', ['online', 'offline'])->index(); // Online / Offline
+            $table->enum('certificate_type', ['e-certificate', 'hard_copy'])->index(); // E-Certificate / Hard Copy
+            $table->enum('exam_type', ['online', 'offline'])->index(); // Online / Offline
             $table->string('online_key', 100);
-            $table->enum('pricing_policy ', ['default', 'state'])->index(); // Default / State
+            $table->enum('pricing_policy', ['default', 'state'])->index(); // Default / State
             $table->date('created_date');
             $table->date('last_updated_date');
             $table->string('last_updated_by',200);

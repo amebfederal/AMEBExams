@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Superadmin\AdminBaseController;
 use App\Http\Requests\SessionRequest;
+use App\Modules\Models\SessionVenue;
 use App\Modules\Services\Venue\VenueService;
 use App\Modules\Services\Session\SessionService;
+use Illuminate\Support\Facades\DB;
 
 class SessionController extends AdminBaseController
 {
@@ -48,13 +50,18 @@ class SessionController extends AdminBaseController
         $venues = $this->venue->all();
         $session = $this->session->find($id);
 
-        $sessionVenues = $session->venues;
+        $savedVenues = SessionVenue::select('venue_id')->where('session_id', '=', $id)->get();
+        $sessionVenues = $venues;
         $svArr = [];
         foreach($sessionVenues as $sv){
             $svArr[] = $sv->id;
         }
-
+        $savedVenue = [];
+        foreach($savedVenues as $sav){
+            $savedVenue[] = $sav->venue_id;
+        }
         $session->venue_ids = $svArr;
+        $session->savedVenue = $savedVenue;
 
         return view('superadmin.session.edit', compact('venues', 'session'));
     }
