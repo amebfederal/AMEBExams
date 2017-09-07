@@ -10,6 +10,7 @@
 
     <div class="panel">
         <div class="panel-body">
+        <a href="{{url('super-admin/category/create')}}" title="Add new exam" class="btn btn-sm btn-success add-button"><span>Add Category</span></a>
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
                 <thead>
                 <tr>

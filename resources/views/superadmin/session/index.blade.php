@@ -5,7 +5,7 @@
     <div id="page-title">
         <h2>Session Management</h2>
 
-        <p>Manage session for exams</p>
+        <p></p>
     </div>
 
     <div class="panel">

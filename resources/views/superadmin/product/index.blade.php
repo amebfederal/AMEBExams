@@ -7,67 +7,52 @@
 
             <div id="page-title">
                 <h2>Manage Product</h2>
-                <p>Products available on the website</p>
+                <p></p>
             </div>
 
             <div class="panel">
                 <div class="panel-body">
+                <a class="btn btn-sm btn-success add-button" href="{{URL::route('superadmin.product.addproductstep2')}}">
+                <i class="fa fa-aw fc-agenda-axis"></i> Add Product</a>
+                    
                     <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
                         <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>S.N.</th>
                             <th>Product Name</th>
-                            <th>SKU</th>
-                            <th>Type</th>
+                            <th>Subject Code</th>
+                            <th>Grade</th>
                             <th>Category</th>
+                            <th>Price</th>
                             <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>12</td>
-                            <td>Grade 1 Performance</td>
-                            <td>614564551</td>
-                            <td>Single</td>
-                            <td>Online Music Theory</td>
+                            <td>1</td>
+                            <td>Online Music Exam - Grade 1</td>
+                            <td>5658745895</td>
+                            <td>1</td>
+                            <td>Musicianship</td>
+                            <td>89.95</td>
+                            <td>Active</td>
+                        </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>Online Music Exam - Grade 2</td>
+                            <td>5658745895</td>
+                            <td>1</td>
+                            <td>Theory of Music</td>
+                            <td>89.95</td>
                             <td>Active</td>
                         </tr>
                         <tr>
-                            <td>12</td>
-                            <td>Grade 1 Performance</td>
-                            <td>614564551</td>
-                            <td>Single</td>
-                            <td>Online Music Theory</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Grade 1 Performance</td>
-                            <td>614564551</td>
-                            <td>Single</td>
-                            <td>Online Music Theory</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Grade 1 Performance</td>
-                            <td>614564551</td>
-                            <td>Single</td>
-                            <td>Online Music Theory</td>
-                            <td>Active</td>
-                        </tr>    <tr>
-                            <td>12</td>
-                            <td>Grade 1 Performance</td>
-                            <td>614564551</td>
-                            <td>Single</td>
-                            <td>Online Music Theory</td>
-                            <td>Active</td>
-                        </tr>    <tr>
-                            <td>12</td>
-                            <td>Grade 1 Performance</td>
-                            <td>614564551</td>
-                            <td>Single</td>
-                            <td>Online Music Theory</td>
+                            <td>3</td>
+                            <td>Online Music Exam - Grade 3</td>
+                            <td>5658745895</td>
+                            <td>1</td>
+                            <td>Music Craft</td>
+                            <td>89.95</td>
                             <td>Active</td>
                         </tr>
                         </tbody>

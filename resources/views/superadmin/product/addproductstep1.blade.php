@@ -7,13 +7,13 @@
 
             <div id="page-title">
                 <h2>Add Product</h2>
-                <p>Choose Product Type.</p>
+                <p>Choose Exam Type.</p>
             </div>
 
             <div class="panel">
                 <div class="panel-body">
                     <h3 class="title-hero">
-                        Select Product Type
+                        Select Exam Category
                     </h3>
                     <div class="example-box-wrapper">
                         <form class="form-horizontal bordered-row" action="{{URL::route('superadmin.product.addproductstep2')}}">
@@ -21,12 +21,15 @@
                                 <label class="col-sm-3 control-label">Select</label>
                                 <div class="col-sm-6">
                                     <select class="form-control">
-                                        <option>Examination</option>
-                                        <option>Bundled</option>
+                                        <option>Online Music Theory</option>
+                                         <option>Online Theory Course</option>
+                                         <option>Rockschool AMEB</option>
+                                        <option>Rockschool New Zealand</option>
                                     </select>
                                 </div>
                             </div>
-
+                             <b>Online Music Theory</b> - is the only category we will work on first step.<br/>
+                                We are working on only on first category at the moment, just added to let you know that we might expand this in future.
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-6">
