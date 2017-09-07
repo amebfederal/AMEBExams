@@ -7,13 +7,13 @@
 
             <div id="page-title">
                 <h2>Add Product</h2>
-                <p>Choose Product Type.</p>
+                <p>Online Music Theory</p>
             </div>
 
             <div class="panel">
                 <div class="panel-body">
                     <h3 class="title-hero">
-                        Select Product Type
+                        Add Online Music Theory Exam
                     </h3>
 
                     <div class="example-box-wrapper">
@@ -25,9 +25,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Rising Software Key *</label>
+                            This is unique for this Online Music Theory Category (Repeats on Online Theory Exam Category)
+                                <label class="col-sm-3 control-label">Subject Code*</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="" id="" class="form-control">
+                                    <input type="text" name="" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -44,29 +45,51 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Expiry Date *</label>
+                                <label class="col-sm-3 control-label">Expiry Date (in month) *</label>
                                 <div class="col-sm-6">
                                     <select class="form-control">
-                                        <option>1 year from purchase date</option>
-                                        <option>Seasonal Sessions</option>
-                                        <option>Never Expires</option>
+                                        <option>1 </option>
+                                        <option>2 </option>
+                                        <option>3 </option>
+                                        <option>4 </option>
+                                        <option>5 </option>
+                                        <option>6 </option>
+                                        <option>7 </option>
+                                        <option>8 </option>
+                                        <option>9 </option>
+                                        <option>10 </option>
+                                        <option>11 </option>
+                                        <option selected="selected">12 </option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Renewal Fee Type</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control">
+                                        <option>Default </option>
+                                        <option>Custom</option>
+                                        <option>Non-renewable</option>
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            This should appear only if custom is selected on renewal type
                                 <label class="col-sm-3 control-label">Renewal Fee*</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="000.00">
+                                    <input type="text" name="" class="form-control" placeholder="00.00">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Category *</label>
                                 <div class="col-sm-6">
                                     <select multiple="" class="multi-select" name="" style="position: absolute; left: -9999px;" id="714multiselect">
-                                        <option>Online Exam Theory</option>
-                                        <option>Practical Exam</option>
-                                        <option>Written Exam</option>
-                                        <option>Rockschool Exam</option>
+                                        <option>Pull from Sub-category</option>
+                                        <option>Theory of Music</option>
+                                        <option>Music Craft</option>
+                                        <option>Musicianship</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -74,6 +97,7 @@
                                 <label class="col-sm-3 control-label">Grade *</label>
                                 <div class="col-sm-6">
                                     <select class="form-control">
+                                    <option>Pull from Grade</option>
                                         <option>Grade 1</option>
                                         <option>Grade 2</option>
                                         <option>Grade 3</option>
@@ -112,7 +136,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Exam Duration *</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="" placeholder="Duration in minutes" class="form-control"> Display in Hours
+                                    <input type="text" name="" placeholder="Duration in minutes" class="form-control">
                                 </div>
 
                             </div>
@@ -134,24 +158,23 @@
                                 <label class="col-sm-3 control-label">Availability for States *</label>
                                 <div class="col-sm-6">
                                     <select multiple="" class="multi-select" name="" style="position: absolute; left: -9999px;" id="714multiselect">
+                                        <option>Pull this from States</option>
                                         <option>Victoria</option>
-                                        <option>Queensland</option>
-                                        <option>Southern Territory </option>
-                                        <option>Tasmania</option>
+                                        <option>New South Wales</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Price *</label>
+                                <label class="col-sm-3 control-label">Default Price *</label>
                                 <div class="col-sm-6">
-                                    <div class="row">
-                                        <div class="panel-body">
-                                            <div class="col-sm-12">
-                                                <input type="text" name="" placeholder="Global Price" class="form-control" value="000.00"><small>Global Price *</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                   
+                                        
+                                           
+                                                <input type="text" name="" placeholder="Global Price" class="form-control" value="000.00">
+                                            
+                                        
+                                    
+<!--                                    <div class="row">
                                         <div class="panel-body">
                                             <div class="col-sm-2">
                                                 <input type="text" name="" placeholder="VIC" class="form-control" value="000.00"><small>VIC Price</small>
@@ -172,21 +195,22 @@
                                                 <input type="text" name="" placeholder="NZ" class="form-control" value="000.00"><small>NZ Price</small>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
 
                             </div>
-
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Availability</label>
-                                <div class="col-sm-3">
-                                    <input type="text" name="" placeholder="Start on" class="form-control"><small>Available from </small>
+                                <label class="col-sm-3 control-label">Rising Software Key *</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="" id="" class="form-control">
                                 </div>
-                                <div class="col-sm-3">
-                                    <input type="text" name="" placeholder="Ends on" class="form-control"><small>Available till </small>
+                            </div>
+                             <div class="form-group">
+                                <label class="col-sm-3 control-label">State Price</label>
+                                <div class="col-sm-6">
+                                    <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate"><div class="bootstrap-switch-container"><input data-on-color="primary" name="checkbox-example-1" class="input-switch" checked="" data-size="medium" data-on-text="Enabled" data-off-text="Disabled" type="checkbox"></div></div>
                                 </div>
-
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Status</label>
@@ -194,7 +218,14 @@
                                     <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate"><div class="bootstrap-switch-container"><input data-on-color="primary" name="checkbox-example-1" class="input-switch" checked="" data-size="medium" data-on-text="Enabled" data-off-text="Disabled" type="checkbox"></div></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Visibility</label>
+                                <div class="col-sm-6">
+                                    <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate"><div class="bootstrap-switch-container"><input data-on-color="primary" name="checkbox-example-1" class="input-switch" checked="" data-size="medium" data-on-text="Show" data-off-text="Hide" type="checkbox"></div></div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">
 
                                 <div class="col-md-12">Visible only if bundled option is selected</div>
                                 <label class="col-sm-3 control-label">Bundled Products</label>
@@ -206,7 +237,8 @@
                                     </small>
                                     <a href="#">+ Add Product</a>
                                 </div>
-                            </div>
+                            </div> 
+                            -->
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-6">

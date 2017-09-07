@@ -13,22 +13,23 @@
             <li>
                 <a href="#" title="Elements">
                     <i class="glyph-icon icon-linecons-graduation-cap"></i>
-                    <span>Products</span>
+                    <span>Online Examination</span>
                 </a>
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{url('super-admin/category/create')}}" title="Manage Category"><span>New Category</span></a></li>
-                        <li><a href="{{url('super-admin/category')}}" title="Manage Category"><span>Manage Category</span></a></li>
+                        <li><a href="{{URL::route('superadmin.product.manageproduct')}}" title="Add & Manage Exams"><span>Product</span></a></li>
+                        
+                        <li><a href="{{url('super-admin/category')}}" title="Manage Exam Sub-Category"><span>Category</span></a></li>
+                        <li><a href="{{url('super-admin/grade')}}" title="Manage Exam Sub-Category"><span>Grade</span></a></li>
+                        
+                        <!-- Hide this for now 
 
-                        <li><a href="{{URL::route('superadmin.product.addproductstep1')}}" title="Buttons"><span>New Product</span></a></li>
-                        <li><a href="{{URL::route('superadmin.product.manageproduct')}}" title="Content boxes"><span>Manage Products</span></a></li>
+                        <li><a href="{{url('super-admin/venue')}}" title="Manage Venue"><span>Venue</span></a></li>
 
-                        <li><a href="{{url('super-admin/venue/create')}}" title="Add Venue"><span>Add Venue</span></a></li>
-                        <li><a href="{{url('super-admin/venue')}}" title="Manage Venue"><span>Manage Venue</span></a></li>
+                        <li><a href="{{url('super-admin/session')}}" title="Manage Session"><span>Session</span></a></li>
 
-                        <li><a href="{{url('super-admin/session/create')}}" title="Add Session"><span>Add Session</span></a></li>
-                        <li><a href="{{url('super-admin/session')}}" title="Manage Session"><span>Manage Session</span></a></li>
+                        -->
 
                     </ul>
                 </div><!-- .sidebar-submenu -->
@@ -41,12 +42,11 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Responsive tabs"><span>Teacher</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Parents</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Adults</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Candidates</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Schools</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Markers</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Responsive tabs"><span>Teacher/School</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Parent</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Adult</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Candidate</span></a></li>
+                        
                     </ul>
 
                 </div><!-- .sidebar-submenu -->
@@ -194,12 +194,13 @@
             <li>
                 <a href="#" title="Other Pages">
                     <i class="glyph-icon icon-linecons-user"></i>
-                    <span>Admin Logins</span>
+                    <span>Backend User</span>
                 </a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{url('superadmin/adminlogin/add')}}" title="Login page 2"><span>Add User</span></a></li>
-                        <li><a href="{{url('superadmin/adminlogin/manage')}}" title="Login page 2"><span>Manage User</span></a></li>
+                        
+                        <li><a href="{{url('superadmin/adminlogin/manage')}}" title="Login page 2"><span>Administration</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Marker</span></a></li>
                     </ul>
 
 
