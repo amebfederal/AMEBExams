@@ -37,15 +37,15 @@
             <li>
                 <a href="#" title="Widgets">
                     <i class="glyph-icon icon-linecons-user"></i>
-                    <span>Users</span>
+                    <span>User</span>
                 </a>
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Responsive tabs"><span>Teacher/School</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Parent</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Adult</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Candidate</span></a></li>
+                        <li><a href="{{ url('superadmin/user/manage')}}" title="Manage Teacher, School, Parent, Adult Candidate"><span>Account Holders</span></a></li>
+                        <li><a href="{{ url('superadmin/candidate/manage')}}" title="Manage Candidate"><span>Candidate</span></a></li>
+                        <li><a href="{{ url('superadmin/marker/manage')}}" title="Manage Marker"><span>Marker</span></a></li>
+                        <li><a href="{{url('superadmin/administrator/manage')}}" title="Manage Administrator"><span>Administration</span></a></li>
                         
                     </ul>
 
@@ -84,7 +84,7 @@
             <li>
                 <a href="#" title="Other Pages">
                     <i class="glyph-icon icon-linecons-calendar"></i>
-                    <span>Reports</span>
+                    <span>Report</span>
                 </a>
                 <div class="sidebar-submenu">
                     <ul>
@@ -199,8 +199,7 @@
                 <div class="sidebar-submenu">
                     <ul>
                         
-                        <li><a href="{{url('superadmin/adminlogin/manage')}}" title="Login page 2"><span>Administration</span></a></li>
-                        <li><a href="{{ url('superadmin/user/manageenrollers')}}" title="Collapsables"><span>Marker</span></a></li>
+                       
                     </ul>
 
 

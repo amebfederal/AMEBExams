@@ -74,9 +74,19 @@ Route::get('superadmin/product/addstep2',
 Route::get('superadmin/product/manage',
     ['as' => 'superadmin.product.manageproduct',        'uses' => 'SuperAdmin\ProductController@manageproduct']);
 
-Route::get('superadmin/user/manageenrollers',    function () {
-    return view('superadmin.users.index');
+Route::get('superadmin/user/manage',    function () {
+    return view('superadmin.user.index');
 });
+Route::get('superadmin/candidate/manage',    function () {
+    return view('superadmin.candidate.index');
+});
+Route::get('superadmin/marker/manage',    function () {
+    return view('superadmin.marker.index');
+});
+Route::get('superadmin/administrator/manage',    function () {
+    return view('superadmin.administrator.index');
+});
+
 Route::get('superadmin/product/manageexamprice',    function () {
     return view('superadmin.product.price.manageexamprice');
 });

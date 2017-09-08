@@ -39,7 +39,7 @@
                             <td>Active</td>
                             <td>
                             <a href="#" title="Manage Details"><i class="glyph-icon icon-pencil" aria-hidden="true"></i> Edit </a>
-                            <a href="#" title="Manage Exam price"><i class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
+                            <a href="{{url('superadmin/product/manageexamprice')}}" title="Manage Exam price"><i class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
                             <a href="#" title="Delete This Exam"><i class="glyph-icon icon-trash" aria-hidden="true"></i> Delete </a>
                             </td>
                         </tr>

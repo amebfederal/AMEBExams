@@ -6,13 +6,46 @@
         <div class="container">
 
             <div id="page-title">
-                <h2>Manage </h2>
-                <p>Products available on the website</p>
+                <h2>Manage Account Holder </h2>
             </div>
 
             <div class="panel">
                 <div class="panel-body">
-                    <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
+                <div class="dropdown float-right">
+                                    <a href="#" title="" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">
+                                        Filter by
+                                        <i class="glyph-icon icon-chevron-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu float-right">
+                                        <li>
+                                            <a href="#" title="">
+                                               
+                                                Teacher
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                
+                                                Parent
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                               
+                                                School
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                
+                                                Adult Candidate
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                               <br/><br/>
+                    <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -22,7 +55,7 @@
                             <th>State</th>
                             <th>Postcode</th>
                             <th>Phone</th>
-                            <th> </th>
+                            <th>Action </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,46 +74,28 @@
                                     </a>
                                     <ul class="dropdown-menu float-right">
                                         <li>
-                                            <a href="view_enrollers.php" title="">
-                                                <i class="glyph-icon icon-eye mrg5R"></i>
-                                                View
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="edit_enrollers.php" title="">
+                                            <a href="{{ url('superadmin/user/edit/')}}" title="">
                                                 <i class="glyph-icon icon-pencil mrg5R"></i>
-                                                Edit
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="view_enrollers-groups.php" title="">
-                                                <i class="glyph-icon icon-user mrg5R"></i>
-                                                Groups
+                                                View / Edit
                                             </a>
                                         </li>
                                         <li>
                                             <a href="view_enrollers-purchase.php" title="">
-                                                <i class="glyph-icon icon-money mrg5R"></i>
-                                                Purchase History
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="view_enrollers-courses.php" title="">
                                                 <i class="glyph-icon icon-book mrg5R"></i>
-                                                Courses
+                                                Exam History
                                             </a>
                                         </li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="view_enrollers-request.php" class="font-red" title="">
-                                                <i class="glyph-icon icon-bell mrg5R"></i>
-                                                Requests
+                                            <a href="view_enrollers-request.php" class="font-blue" title="">
+                                                <i class="glyph-icon icon-ticket mrg5R"></i>
+                                                 Support
                                             </a>
                                         </li>
                                         <li>
                                             <a href="view_enrollers-refunds.php" class="font-blue" title="">
                                                 <i class="glyph-icon icon-bank mrg5R"></i>
-                                                Refunds
+                                                Refund
                                             </a>
                                         </li>
                                     </ul>
