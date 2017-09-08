@@ -19,12 +19,13 @@
                         <thead>
                         <tr>
                             <th>S.N.</th>
-                            <th>Product Name</th>
+                            <th>Title</th>
                             <th>Subject Code</th>
                             <th>Grade</th>
                             <th>Category</th>
                             <th>Price</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,11 @@
                             <td>Musicianship</td>
                             <td>89.95</td>
                             <td>Active</td>
+                            <td>
+                            <a href="#" title="Manage Details"><i class="glyph-icon icon-pencil" aria-hidden="true"></i> Edit </a>
+                            <a href="#" title="Manage Exam price"><i class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
+                            <a href="#" title="Delete This Exam"><i class="glyph-icon icon-trash" aria-hidden="true"></i> Delete </a>
+                            </td>
                         </tr>
                          <tr>
                             <td>2</td>
@@ -45,6 +51,10 @@
                             <td>Theory of Music</td>
                             <td>89.95</td>
                             <td>Active</td>
+                            <td>
+                            <a href="#" title="Manage Details"><i class="glyph-icon icon-pencil" aria-hidden="true"></i> Edit </a>
+                            <a href="#" title="Delete This Exam"><i class="glyph-icon icon-trash" aria-hidden="true"></i> Delete </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -54,6 +64,10 @@
                             <td>Music Craft</td>
                             <td>89.95</td>
                             <td>Active</td>
+                            <td>
+                            <a href="#" title="Manage Details"><i class="glyph-icon icon-pencil" aria-hidden="true"></i> Edit </a>
+                            <a href="#" title="Delete This Exam"><i class="glyph-icon icon-trash" aria-hidden="true"></i> Delete </a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

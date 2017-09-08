@@ -140,6 +140,22 @@
                                 </div>
 
                             </div>
+                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Marking Type *</label>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="" class="checkbox-inline"> Manual Marking
+                                     <input type="checkbox" name="" class="checkbox-inline"> Automated Marking
+                                </div>
+
+                            </div>
+                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Certificate Type *</label>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="" class="checkbox-inline"> E-Certificate Marking
+                                     <input type="checkbox" name="" class="checkbox-inline"> Hard Copy
+                                </div>
+
+                            </div>
                             <!-- <div class="form-group">
                                  <label class="col-sm-3 control-label">Global Pricing *</label>
                                  <div class="col-sm-6">

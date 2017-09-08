@@ -77,6 +77,9 @@ Route::get('superadmin/product/manage',
 Route::get('superadmin/user/manageenrollers',    function () {
     return view('superadmin.users.index');
 });
+Route::get('superadmin/product/manageexamprice',    function () {
+    return view('superadmin.product.price.manageexamprice');
+});
 Route::get('superadmin/support/viewenrollerrefund',    function () {
     return view('superadmin.support.viewenrollerrefund');
 });
