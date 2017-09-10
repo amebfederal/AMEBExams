@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class CreateOnlineExaminationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,12 +19,12 @@ class CreateProductsTable extends Migration
             $table->string('slug', 100);
             $table->string('subject_code', 100)->unique();
             $table->string('image', 100);
-            $table->text('description');
+            $table->text('description')->nullable();
 
             $table->unsignedInteger('expiry_months')->comment('In Months');
             $table->date('expiry_date')->comment('Should be calculated from expiry_months');
 
-            $table->enum('renewable_fee_type', ['default', 'custom', 'non-renewable'])->index();
+            $table->enum('renewable_fee_type', ['default', 'custom', 'non-renewable'])->nullable()->index();
             $table->double('renewable_fee', 15, 2);
 
             $table->bigInteger('sub_category_id')->unsigned()->index();
@@ -35,22 +35,24 @@ class CreateProductsTable extends Migration
 
             $table->unsignedInteger('exam_duration')->comment('In Minutes');
 
-            $table->enum('marking_type', ['manual', 'automated-marking'])->index()->default('automated-marking'); // Computer Marked / Manually marked
+            $table->string('marking_type'); // Computer Marked / Manually marked
             $table->enum('is_manual_marking', ['yes', 'no']);
 
-            $table->string('certificate_type', 255)->index();
+            $table->string('certificate_type');
             $table->enum('exam_type', ['online', 'offline'])->index();
             $table->string('rising_software_key', 255);
 
             $table->double('default_price', 15, 2);
 
-            $table->enum('pricing_policy', ['default', 'state'])->index(); // Default / State
+            $table->enum('state_price', ['default', 'state'])->index(); // Default / State
 
             $table->string('last_updated_by',200);
-            $table->bigInteger('last_updated_by_user')->unsigned()->index();
+            $table->integer('last_updated_by_user')->unsigned()->index();
             $table->foreign('last_updated_by_user')->references('id')->on('users');
 
-            $table->enum('status', ['active', 'in_active'])->index();
+            $table->enum('status', ['active', 'in-active'])->index();
+            $table->enum('visibility', ['visible', 'not-visible'])->index();
+
             $table->timestamps();
         });
     }
@@ -62,6 +64,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('online_examinations');
     }
 }

@@ -18,7 +18,7 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{URL::route('superadmin.product.manageproduct')}}" title="Add & Manage Exams"><span>Product</span></a></li>
+                        <li><a href="{{URL::route('online-examination.index')}}" title="Add & Manage Exams"><span>Product</span></a></li>
                         
                         <li><a href="{{url('super-admin/category')}}" title="Manage Exam Sub-Category"><span>Category</span></a></li>
                         <li><a href="{{url('super-admin/grade')}}" title="Manage Exam Sub-Category"><span>Grade</span></a></li>

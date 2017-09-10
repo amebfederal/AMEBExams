@@ -40,6 +40,12 @@ Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function
     $router->resource('state', 'SuperAdmin\State\StateController');
     $router->resource('sub-category.grade', 'SuperAdmin\Product\GradeController');
     $router->resource('session', 'SuperAdmin\Session\SessionController');
+    $router->resource('online-examination', 'SuperAdmin\Product\OnlineExaminationController');
+});
+
+
+Route::group(['middleware' => 'superadmin', 'prefix' => 'api'], function ($router) {
+    $router->resource('sub-category.api-grade', 'Api\GradeController', ['only' => ['index']]);
 });
 
 
@@ -63,16 +69,6 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
         ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@passwordChange' ]);
 
 });
-
-
-Route::get('superadmin/product/addstep1',
-            ['as' => 'superadmin.product.addproductstep1',        'uses' => 'SuperAdmin\ProductController@addproductstep1']);
-
-Route::get('superadmin/product/addstep2',
-    ['as' => 'superadmin.product.addproductstep2',        'uses' => 'SuperAdmin\ProductController@addproductstep2']);
-
-Route::get('superadmin/product/manage',
-    ['as' => 'superadmin.product.manageproduct',        'uses' => 'SuperAdmin\ProductController@manageproduct']);
 
 Route::get('superadmin/user/manage',    function () {
     return view('superadmin.user.index');
