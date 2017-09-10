@@ -2,9 +2,9 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Add Product</h2>
+        <h2>Edit Exam</h2>
 
-        <p>Online Music Theory</p>
+        <p>Edit {{ $product->title }} from form below.</p>
     </div>
 
     <div class="panel">
@@ -14,9 +14,9 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" method="post" action="{{ route('online-examination.update', $product->id) }}" enctype="multipart/form-data">
+                <form class="form-horizontal bordered-row" method="post" action="{{ route('practice-exam.update', $product->id) }}" enctype="multipart/form-data">
                     {{ method_field('patch') }}
-                    @include('superadmin.product.online-exam.form')
+                    @include('superadmin.practice-exam.form')
                 </form>
             </div>
         </div>

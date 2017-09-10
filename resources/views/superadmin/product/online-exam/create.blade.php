@@ -2,9 +2,9 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Add Product</h2>
+        <h2>Add Exam</h2>
 
-        <p>Online Music Theory</p>
+        <p>Add a online exam from form below.</p>
     </div>
 
     <div class="panel">

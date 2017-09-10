@@ -65,7 +65,7 @@ class OnlineExaminationController extends AdminBaseController
 
     function update(OnlineExaminationRequest $request, $id){
         if($this->product->update($id, $request->all())){
-            return redirect()->route('online-examination.index')->with('success', 'Online Examination added successfully');
+            return redirect()->route('online-examination.index')->with('success', 'Online Examination updated successfully');
         }
 
         return redirect()->route('online-examination.index')->with('error', 'Online Examination could not be successfully');

@@ -28,20 +28,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($grades as $k => $grade)
+                @if($grades->count() > 0)
+                    @foreach($grades as $k => $grade)
+                        <tr>
+                            <td>{{ ++$k }}</td>
+                            <td>{{ $grade->title }}</td>
+                            <td>{{ $grade->status_text }}</td>
+                            <td>{{ $grade->code }}</td>
+                            <td>
+                                <a href="{{ route('sub-category.grade.edit', [$grade->sub_category->slug,$grade->id]) }}">Edit</a>
+                                ||
+                                {!! delete_form(route('sub-category.grade.destroy',
+                                [$grade->sub_category->slug,$grade->id]))
+                                !!}
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ ++$k }}</td>
-                        <td>{{ $grade->title }}</td>
-                        <td>{{ $grade->status_text }}</td>
-                        <td>{{ $grade->code }}</td>
-                        <td>
-                            <a href="{{ route('sub-category.grade.edit', [$grade->sub_category->slug,$grade->id]) }}">Edit</a>
-                            ||
-                            {!! delete_form(route('sub-category.grade.destroy', [$grade->sub_category->slug,$grade->id]))
-                            !!}
-                        </td>
+                        <td colspan="5">No data found.</td>
                     </tr>
-                @endforeach
+                @endif
                 </tbody>
             </table>
 

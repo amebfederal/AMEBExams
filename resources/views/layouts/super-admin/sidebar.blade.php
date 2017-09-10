@@ -42,6 +42,24 @@
                 <!-- .sidebar-submenu -->
             </li>
             <li>
+                <a href="#" title="Elements">
+                    <i class="glyph-icon icon-linecons-graduation-cap"></i>
+                    <span>Practice Examination</span>
+                </a>
+
+                <div class="sidebar-submenu">
+
+                    <ul>
+                        <li><a href="{{ route('practice-exam.create')}}"
+                               title="Add Exam"><span>Add Exam</span></a></li>
+
+                        <li><a href="{{ route('practice-exam.index')}}" title="Manage Exam"><span>Manage Exam</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- .sidebar-submenu -->
+            </li>
+            <li>
                 <a href="#" title="Widgets">
                     <i class="glyph-icon icon-linecons-user"></i>
                     <span>User</span>

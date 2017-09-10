@@ -28,6 +28,11 @@
     <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
+        @if(isset($product->image))
+            <img src="{{ asset($product->thumbnail_path) }}" height="100px" alt=""/>
+            <br/>
+            <br/>
+        @endif
         <input type="file" name="image" id="image" class="form-control">
         <span class="validation-error">{{ $errors->first('image') }}</span>
     </div>
@@ -36,7 +41,7 @@
     <label class="col-sm-3 control-label">Short Description</label>
 
     <div class="col-sm-6">
-        <textarea name="" rows="3" class="form-control textarea-counter"
+        <textarea name="description" rows="3" class="form-control textarea-counter"
                   placeholder="Short description that is to be displayed for Exam">{{ old('description', isset($product->description) ? $product->description : '') }}</textarea>
 
         <div class="character-remaining clear input-description">125 characters left</div>

@@ -34,7 +34,7 @@ class OnlineExaminationRequest extends FormRequest
             'exam_duration' => 'required',
             'certificate_types' => 'required',
             'states' => 'required',
-            'default_price' => 'required',
+            'default_price' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'rising_software_key' => 'required|unique:online_examinations|max:255',
         ];
 

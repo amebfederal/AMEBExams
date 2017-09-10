@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class OnlineExamination extends Model
 {
     use Sluggable;
+    private $path = 'uploads/online-exams';
 
     public function sluggable()
     {

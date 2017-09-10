@@ -2,9 +2,9 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Add Product</h2>
+        <h2>Edit Product</h2>
 
-        <p>Online Music Theory</p>
+        <p>Edit {{ $product->title }} from form below.</p>
     </div>
 
     <div class="panel">

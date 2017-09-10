@@ -2,9 +2,9 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Add Product</h2>
+        <h2>Add Exam</h2>
 
-        <p>Online Music Theory</p>
+        <p>Add a practice exam from form below.</p>
     </div>
 
     <div class="panel">
@@ -14,9 +14,9 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" method="post" action="{{ route('online-examination.store') }}" enctype="multipart/form-data">
+                <form class="form-horizontal bordered-row" method="post" action="{{ route('practice-exam.store') }}" enctype="multipart/form-data">
 
-                    @include('superadmin.product.practice-exam.form')
+                    @include('superadmin.practice-exam.form')
                 </form>
             </div>
         </div>

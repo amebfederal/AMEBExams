@@ -48,6 +48,8 @@ Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function
 
     $router->post('superadmin/product/{id}/exam-price',
         ['as' => 'product.save-price', 'uses' => 'SuperAdmin\Product\OnlineExaminationController@savePrice']);
+
+    $router->resource('practice-exam', 'SuperAdmin\PracticeExam\PracticeExaminationController');
 });
 
 
