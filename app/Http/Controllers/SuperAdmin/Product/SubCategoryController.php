@@ -24,10 +24,15 @@ class SubCategoryController extends AdminBaseController
      * write brief description
      * @return mixed
      */
-    public function index($slug)
+    public function index($slug = '')
     {
-        $category = $this->category->getBySlug($slug);
-        $subCategories = $category->sub_categories;
+        if (empty($slug)) {
+            $subCategories = $this->subCategory->withCategory();
+        } else {
+            $category = $this->category->getBySlug($slug);
+            $subCategories = $category->sub_categories;
+        }
+
         return view('superadmin.product.sub-category.index', compact('category', 'subCategories'));
     }
 
@@ -39,7 +44,10 @@ class SubCategoryController extends AdminBaseController
     public function create($slug)
     {
         $category = $this->category->getBySlug($slug);
-        return view('superadmin.product.sub-category.create', compact('category'));
+        if (empty($category)) {
+            $categories = $this->category->all();
+        }
+        return view('superadmin.product.sub-category.create', compact('category', 'categories'));
     }
 
     /**
@@ -51,9 +59,13 @@ class SubCategoryController extends AdminBaseController
     public function store($slug, CategoryRequest $request)
     {
         $category = $this->category->getBySlug($slug);
-        if ($this->subCategory->create($category, $request->all())) {
-            return redirect()->route('category.sub-category.index', $category->slug)
-                ->with('success', 'Sub Category created successfully.');
+        if ($subCategory = $this->subCategory->create($category, $request->all())) {
+            if (!empty($category))
+                return redirect()->route('category.sub-category.index', $slug)
+                    ->with('success', 'Sub Category created successfully.');
+            else
+                return redirect()->to('super-admin/sub-category')
+                    ->with('success', 'Sub Category created successfully.');
         }
 
         return redirect()->route('category.create')->with('error', 'Sub Category could not be created.');
@@ -83,12 +95,12 @@ class SubCategoryController extends AdminBaseController
     public function update(CategoryRequest $request, $slug, $id)
     {
         $category = $this->category->getBySlug($slug);
-        if($this->subCategory->update($category, $id, $request->all())) {
+        if ($this->subCategory->update($category, $id, $request->all())) {
             return redirect()->route('category.sub-category.index', $category->slug)
                 ->with('success', 'Sub Category updated successfully.');
         }
 
-        return redirect()->route('category.sub-category.edit',[$category->slug, $id])
+        return redirect()->route('category.sub-category.edit', [$category->slug, $id])
             ->with('error', 'Sub Category could not be updated.');
     }
 

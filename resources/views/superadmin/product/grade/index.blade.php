@@ -5,14 +5,16 @@
     <div id="page-title">
         <h2>Grades</h2>
 
-        <p>For Sub Category - {{ $subCategory->name }}</p>
+        <p>Sub Category {{ isset($subCategory->name) ? '- '.$subCategory->name : '' }}</p>
     </div>
 
     <div class="panel">
         <div class="panel-body">
 
-            <a class="btn btn-sm btn-success add-button" href="{{ route('sub-category.grade.create', $subCategory->slug) }}">
-                <i class="fa fa-aw fc-agenda-axis"></i> Add Grade - {{ $subCategory->name }}
+            <a class="btn btn-sm btn-success add-button"
+               href="{{ route('sub-category.grade.create', isset($subCategory->slug) ? $subCategory->slug : '999-test-subcat') }}">
+                <i class="fa fa-aw fc-agenda-axis"></i> Add Grade
+                {{ isset($subCategory->name) ? '- '.$subCategory->name : '' }}
             </a>
 
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
@@ -33,9 +35,10 @@
                         <td>{{ $grade->status_text }}</td>
                         <td>{{ $grade->code }}</td>
                         <td>
-                            <a href="{{ route('sub-category.grade.edit', [$subCategory->slug,$grade->id]) }}">Edit</a>
+                            <a href="{{ route('sub-category.grade.edit', [$grade->sub_category->slug,$grade->id]) }}">Edit</a>
                             ||
-                            {!! delete_form(route('sub-category.grade.destroy', [$subCategory->slug,$grade->id])) !!}
+                            {!! delete_form(route('sub-category.grade.destroy', [$grade->sub_category->slug,$grade->id]))
+                            !!}
                         </td>
                     </tr>
                 @endforeach
@@ -45,10 +48,15 @@
             <a href="{{ route('category.index') }}">
                 <i class="icon-reply"></i> Go to Categories
             </a>
-
-            <a href="{{ route('category.sub-category.index', $subCategory->category->slug) }}">
-                <i class="icon-reply"></i> Go to Sub Categories
-            </a>
+            @if(!empty($subCategory))
+                <a href="{{ route('category.sub-category.index', $subCategory->slug) }}">
+                    <i class="icon-reply"></i> Go to Sub Categories
+                </a>
+            @else
+                <a href="{{ url('super-admin/sub-category') }}">
+                    <i class="icon-reply"></i> Go to Sub Categories
+                </a>
+            @endif
         </div>
     </div>
 @stop

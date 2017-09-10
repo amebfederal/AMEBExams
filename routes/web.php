@@ -35,6 +35,9 @@ Super Admin Holders Route
 
 Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function ($router) {
 
+    $router->get('sub-category', 'SuperAdmin\Product\SubCategoryController@index');
+    $router->get('grade', 'SuperAdmin\Product\GradeController@index');
+
     $router->resource('category', 'SuperAdmin\Product\CategoryController');
     $router->resource('category.sub-category', 'SuperAdmin\Product\SubCategoryController');
     $router->resource('state', 'SuperAdmin\State\StateController');

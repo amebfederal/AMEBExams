@@ -158,7 +158,12 @@ class CategoryService extends Service
      * @return mixed
      */
     public function getBySlug($slug){
-        return $this->category->whereSlug($slug)->first();
+        try{
+            return $this->category->whereSlug($slug)->first();
+        }catch (\Exception $e){
+            return new $this->category();
+        }
+
     }
 
     private function __deleteImages($category){

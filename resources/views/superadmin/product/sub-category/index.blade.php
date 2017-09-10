@@ -5,14 +5,15 @@
     <div id="page-title">
         <h2>Sub Categories</h2>
 
-        <p>Sub Categories for - {{ $category->name }}</p>
+        <p>Sub Categories {{ isset($category->name) ? "for -  $category->name" : '' }}</p>
     </div>
 
     <div class="panel">
         <div class="panel-body">
 
-            <a class="btn btn-sm btn-success add-button" href="{{ route('category.sub-category.create', $category->slug) }}">
-                <i class="fa fa-aw fc-agenda-axis"></i> Add Sub Category - {{ $category->name }}
+            <a class="btn btn-sm btn-success add-button"
+               href="{{ route('category.sub-category.create', !empty($category->slug) ? $category->slug : '999-new-cat') }}">
+                <i class="fa fa-aw fc-agenda-axis"></i> Add Sub Category {{ isset($category->name) ? '- '.$category->name : '' }}
             </a>
 
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
@@ -41,9 +42,10 @@
                         <td>{{ $subCategory->visibility_text }}</td>
                         <td>{{ $subCategory->availability_text }}</td>
                         <td>
-                            <a href="{{ route('category.sub-category.edit', [$category->slug,$subCategory->id]) }}">Edit</a>
+                            <a href="{{ route('category.sub-category.edit', [$subCategory->category->slug,$subCategory->id]) }}">Edit</a>
                             ||
-                            {!! delete_form(route('category.sub-category.destroy', [$category->slug,$subCategory->id]))
+                            {!! delete_form(route('category.sub-category.destroy',
+                            [$subCategory->category->slug,$subCategory->id]))
                             !!}
                         </td>
                     </tr>

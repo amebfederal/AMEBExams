@@ -24,7 +24,7 @@ class GradeController extends AdminBaseController
      * write brief description
      * @return mixed
      */
-    public function index($slug)
+    public function index($slug = '')
     {
         $subCategory = $this->subCategory->getBySlug($slug);
         $grades = $subCategory->grades;
