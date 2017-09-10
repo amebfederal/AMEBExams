@@ -4,7 +4,7 @@
 <div id="page-title">
     <h2>Add Sub Category</h2>
 
-    <p>For Category - {{ $category->name }}</p>
+    <p>For Category - {{ isset($category->name) ? "for -  $category->name" : '' }}</p>
 </div>
 
 <div class="panel">
@@ -14,7 +14,7 @@
         </h3>
 
         <div class="example-box-wrapper">
-            <form class="form-horizontal bordered-row" method="POST" action="{{ route('category.sub-category.store', $category->slug) }}"
+            <form class="form-horizontal bordered-row" method="POST" action="{{ route('category.sub-category.store', !empty($category->slug) ? $category->slug : '999-new-cat') }}"
                     enctype="multipart/form-data">
                 @include('superadmin.product.sub-category.form')
             </form>

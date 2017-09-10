@@ -1,5 +1,25 @@
 {!! csrf_field() !!}
 
+@if(empty($category))
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Category</label>
+
+        <div class="col-sm-6">
+            <select class="form-control" name="category_id">
+                @foreach($categories as $cat)
+                    <option value="{{ $cat->id }}"
+                            {{ old('category_id', isset($subCategory->category_id) ? $subCategory->category_id : '') == $cat->id ? 'selected="selected"' : '' }}
+                            >{{ $cat->name }}
+                    </option>
+                @endforeach
+            </select>
+            <span class="validation-error">{{ $errors->first('category_id') }}</span>
+        </div>
+    </div>
+
+@endif
+
 <div class="form-group">
     <label class="col-sm-3 control-label">Name</label>
 
@@ -93,8 +113,14 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('category.sub-category.index', $category->slug) }}" class="btn btn-default btn-sm">
-            <i class="fa fa-aw fa-reply-o"></i> Back
-        </a>
+        @if(!empty($category))
+            <a href="{{ route('category.sub-category.index', $category->slug) }}" class="btn btn-default btn-sm">
+                <i class="fa fa-aw fa-reply-o"></i> Back
+            </a>
+        @else
+            <a href="{{ url('super-admin/sub-category') }}" class="btn btn-default btn-sm">
+                <i class="fa fa-aw fa-reply-o"></i> Back
+            </a>
+        @endif
     </div>
 </div>

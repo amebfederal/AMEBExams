@@ -35,11 +35,26 @@ Super Admin Holders Route
 
 Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function ($router) {
 
+    $router->get('sub-category', 'SuperAdmin\Product\SubCategoryController@index');
+    $router->get('grade', 'SuperAdmin\Product\GradeController@index');
+
     $router->resource('category', 'SuperAdmin\Product\CategoryController');
     $router->resource('category.sub-category', 'SuperAdmin\Product\SubCategoryController');
     $router->resource('state', 'SuperAdmin\State\StateController');
     $router->resource('sub-category.grade', 'SuperAdmin\Product\GradeController');
     $router->resource('session', 'SuperAdmin\Session\SessionController');
+    $router->resource('online-examination', 'SuperAdmin\Product\OnlineExaminationController');
+    $router->get('superadmin/product/{id}/exam-price', ['as' => 'product.manage-price', 'uses' => 'SuperAdmin\Product\OnlineExaminationController@managePrice']);
+
+    $router->post('superadmin/product/{id}/exam-price',
+        ['as' => 'product.save-price', 'uses' => 'SuperAdmin\Product\OnlineExaminationController@savePrice']);
+
+    $router->resource('practice-exam', 'SuperAdmin\PracticeExam\PracticeExaminationController');
+});
+
+
+Route::group(['middleware' => 'superadmin', 'prefix' => 'api'], function ($router) {
+    $router->resource('sub-category.api-grade', 'Api\GradeController', ['only' => ['index']]);
 });
 
 
@@ -64,18 +79,17 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
 
 });
 
-
-Route::get('superadmin/product/addstep1',
-            ['as' => 'superadmin.product.addproductstep1',        'uses' => 'SuperAdmin\ProductController@addproductstep1']);
-
-Route::get('superadmin/product/addstep2',
-    ['as' => 'superadmin.product.addproductstep2',        'uses' => 'SuperAdmin\ProductController@addproductstep2']);
-
-Route::get('superadmin/product/manage',
-    ['as' => 'superadmin.product.manageproduct',        'uses' => 'SuperAdmin\ProductController@manageproduct']);
-
-Route::get('superadmin/user/manageenrollers',    function () {
-    return view('superadmin.users.index');
+Route::get('superadmin/user/manage',    function () {
+    return view('superadmin.user.index');
+});
+Route::get('superadmin/candidate/manage',    function () {
+    return view('superadmin.candidate.index');
+});
+Route::get('superadmin/marker/manage',    function () {
+    return view('superadmin.marker.index');
+});
+Route::get('superadmin/administrator/manage',    function () {
+    return view('superadmin.administrator.index');
 });
 Route::get('superadmin/support/viewenrollerrefund',    function () {
     return view('superadmin.support.viewenrollerrefund');

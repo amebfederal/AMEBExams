@@ -1,5 +1,25 @@
 {!! csrf_field() !!}
 
+@if(empty($subCategory))
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Sub Category</label>
+
+        <div class="col-sm-6">
+            <select class="form-control" name="sub_category_id">
+                @foreach($subCategories as $cat)
+                    <option value="{{ $cat->id }}"
+                            {{ old('sub_category_id', isset($grade->sub_category_id) ? $grade->sub_category_id : '') == $cat->id ? 'selected="selected"' : '' }}
+                            >{{ $cat->name }}
+                    </option>
+                @endforeach
+            </select>
+            <span class="validation-error">{{ $errors->first('sub_category_id') }}</span>
+        </div>
+    </div>
+
+@endif
+
 <div class="form-group">
     <label class="col-sm-3 control-label">Title</label>
 
@@ -43,7 +63,7 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('sub-category.grade.index', $subCategory->slug) }}" class="btn btn-default btn-sm">
+        <a href="{{ route('sub-category.grade.index', isset($subCategory->slug) ? $subCategory->slug : '999-test-subcat') }}" class="btn btn-default btn-sm">
             <i class="fa fa-aw fa-reply-o"></i> Back
         </a>
     </div>

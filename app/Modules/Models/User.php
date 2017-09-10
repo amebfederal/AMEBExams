@@ -19,7 +19,7 @@ class User extends Authenticatable
         'last_logged_in', 'last_logged_in', 'user_type', 'status'
     ];
 
-
+    protected $appends = ['full_name'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -29,4 +29,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    function getFullNameAttribute(){
+        $fullName = $this->first_name . ' '. $this->last_name;
+        if(empty($fullName)){
+            $fullName = $this->username;
+        }
+
+        return $fullName;
+    }
 }
