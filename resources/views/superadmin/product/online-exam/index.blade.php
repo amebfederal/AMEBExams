@@ -45,10 +45,8 @@
                                 <a href="{{ url('superadmin/product/manageexamprice') }}" title="Manage Exam price"><i
                                             class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
                             @endif
-                            <a href="{{ url('online-examination.delete') }}" title="Delete This Exam"><i
-                                        class="glyph-icon icon-trash"
-                                        aria-hidden="true"></i>
-                                Delete </a>
+                            {!! delete_form(route('online-examination.destroy', [$product->id]))
+                            !!}
                         </td>
                     </tr>
                 @endforeach

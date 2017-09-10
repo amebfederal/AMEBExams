@@ -21,7 +21,7 @@
 
     <div class="col-sm-6">
         <input type="text" name="subject_code" class="form-control" placeholder="Subject Code for Exam"
-               value="{{ old('title', isset($product->subject_code) ? $product->subject_code : '') }}">
+               value="{{ old('subject_code', isset($product->subject_code) ? $product->subject_code : '') }}">
         <span class="help-block">(Repeats on Online Theory Exam Category)</span>
         <span class="validation-error">{{ $errors->first('subject_code') }}</span>
     </div>
@@ -131,11 +131,12 @@
     <label class="col-sm-3 control-label">Marking Type <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
+        <?php $markingTypes = old('marking_types', isset($product->marking_type) ? $product->marking_type : []); ?>
         <input type="checkbox" name="marking_types[]" class="checkbox-inline" value="manual"
-                {{ old('marking_type', isset($product->marking_type) ? $product->marking_type : '') == 'manual' ? 'checked="checked"' : '' }}>
+                {{ in_array('manual', $markingTypes) ? 'checked="checked"' : '' }}>
         Manual Marking
         <input type="checkbox" name="marking_types[]" class="checkbox-inline" value="automated"
-                {{ old('marking_type', isset($product->marking_type) ? $product->marking_type : 'automated-marking') == 'automated-marking' ? 'checked="checked"' : '' }}>
+                {{ in_array('automated', $markingTypes) ? 'checked="checked"' : '' }}>
         Automated Marking
     </div>
 
@@ -144,11 +145,12 @@
     <label class="col-sm-3 control-label">Certificate Type <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
+        <?php $certificateTypes = old('certificate_types', isset($product->certificate_type) ? $product->certificate_type : []); ?>
         <input type="checkbox" name="certificate_types[]" class="checkbox-inline" value="e-certificate"
-                {{ old('marking_type', isset($product->certificate_type) ? $product->certificate_type : '') == 'e-certificate' ? 'checked="checked"' : '' }}>
+                {{ in_array('e-certificate', $certificateTypes) ? 'checked="checked"' : '' }}>
         E-Certificate Marking
         <input type="checkbox" name="certificate_types[]" class="checkbox-inline" value="hard-copy"
-                {{ old('certificate_type', isset($product->certificate_type) ? $product->certificate_type : '') == 'hard-copy' ? 'checked="checked"' : '' }}>
+                {{ in_array('hard-copy', $certificateTypes) ? 'checked="checked"' : '' }}>
         Hard Copy
     </div>
 
@@ -162,8 +164,11 @@
         <select multiple="" class="multi-select state-options" name="states[]"
                 style="position: absolute; left: -9999px;"
                 id="714multiselect">
+            <?php $stateIds = old('states', isset($product->state_ids) ? $product->state_ids : []); ?>
             @foreach($states as $state)
-                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                <option value="{{ $state->id }}"
+                        {{ in_array($state->id, $stateIds) ? 'selected="selected"' : '' }}
+                        >{{ $state->name }}</option>
             @endforeach
         </select>
     </div>
@@ -209,7 +214,7 @@
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
             <div class="bootstrap-switch-container">
                 <input data-on-color="primary" name="status"
-                        {{ old('state_price', isset($product->status) ? $product->status : 'status') == 'status' ? 'checked' : '' }}
+                        {{ old('status', isset($product->status) ? $product->status : 'status') == 'active' ? 'checked' : '' }}
                        class="input-switch" data-size="medium"
                        data-on-text="Enabled" data-off-text="Disabled"
                        type="checkbox"></div>
@@ -224,7 +229,7 @@
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
             <div class="bootstrap-switch-container">
                 <input data-on-color="primary" name="visibility"
-                        {{ old('state_price', isset($product->visibility) ? $product->visibility : 'status') == 'status' ? 'checked' : '' }}
+                        {{ old('visibility', isset($product->visibility) ? $product->visibility : 'status') == 'visible' ? 'checked' : '' }}
                        class="input-switch" data-size="medium"
                        data-on-text="Show" data-off-text="Hide" type="checkbox">
             </div>

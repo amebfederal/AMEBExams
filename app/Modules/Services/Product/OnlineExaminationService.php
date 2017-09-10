@@ -110,7 +110,38 @@ class OnlineExaminationService extends Service
         try {
             $product = $this->product->find($productId);
 
-            $product = $product->update($data);
+            $file = isset($data['image']) ? $data['image'] : '';
+
+            if(!empty($file)){
+                $this->uploadPath = 'uploads/online-exams';
+                $fileName = $this->upload($file);
+
+                $data['image'] = $fileName;
+
+                $this->__deleteImages($product);
+            }else{
+                unset($data['image']);
+            }
+
+            //now logic to store in database for few inputs
+            $data['certificate_type'] = json_encode($data['certificate_types']);
+            $markingTypes = $data['marking_types'];
+            $data['is_manual_marking'] = in_array('manual-marking', $markingTypes) ? '1' : '0';
+            $data['marking_type'] = json_encode($data['marking_types']);
+
+            $expiryDate = date('Y-m-d', strtotime('+'.$data['expiry_months'].' months'));
+            $data['expiry_date'] = $expiryDate;
+
+            $data['last_updated_by'] = Auth::user()->full_name;
+            $data['last_updated_by_user'] = Auth::user()->id;
+
+            $data['status'] = $data['status'] == 'on' ? 'active' : 'inactive';
+            $data['visibility'] = $data['visibility'] == 'on' ? 'visible' : 'not-visible';
+
+            $product->update($data);
+
+            $states = $data['states'];
+            $product->states()->sync($states);
             //$this->logger->info(' created successfully', $data);
 
             return $product;
@@ -130,6 +161,18 @@ class OnlineExaminationService extends Service
     {
         try {
             $product = $this->product->find($productId);
+
+            $this->__deleteImages($product);
+
+            $productStates = $product->states;
+            if(!empty($productStates)){
+                $svArr = [];
+                foreach($productStates as $sv){
+                    $svArr[] = $sv->id;
+                }
+
+                $product->states()->detach($svArr);
+            }
             //unset the files uploaded first
             return $product->delete();
 
@@ -155,6 +198,18 @@ class OnlineExaminationService extends Service
      */
     public function getBySlug($slug){
         return $this->product->whereSlug($slug);
+    }
+
+    private function __deleteImages($product){
+        try{
+            if(is_file($product->image_path))
+                unlink($product->image_path);
+
+            if(is_file($product->thumbnail_path))
+                unlink($product->thumbnail_path);
+        }catch (\Exception $e){
+
+        }
     }
 
 }

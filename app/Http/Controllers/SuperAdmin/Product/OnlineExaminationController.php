@@ -46,4 +46,36 @@ class OnlineExaminationController extends AdminBaseController
         return redirect()->route('online-examination.index')->with('error', 'Online Examination could not be successfully');
 
     }
+
+    function edit($id){
+        $subCategories = $this->subCategory->all();
+        $states = $this->state->all();
+        $product = $this->product->find($id);
+        $productStatesIds = [];
+        foreach($product->states as $state){
+            $productStatesIds[] = $state->id;
+        }
+        $product->state_ids = $productStatesIds;
+        $product->marking_type = json_decode($product->marking_type);
+        $product->certificate_type = json_decode($product->certificate_type);
+        return view('superadmin.product.online-exam.edit', compact('subCategories', 'states', 'product'));
+    }
+
+
+    function update(OnlineExaminationRequest $request, $id){
+        if($this->product->update($id, $request->all())){
+            return redirect()->route('online-examination.index')->with('success', 'Online Examination added successfully');
+        }
+
+        return redirect()->route('online-examination.index')->with('error', 'Online Examination could not be successfully');
+    }
+
+
+    function destroy($id){
+        if ($this->product->delete($id)) {
+            return redirect()->route('online-examination.index')->with('success', 'Online Examination deleted successfully.');
+        }
+
+        return redirect()->route('online-examination.index')->with('error', 'Online Examination could not be deleted.');
+    }
 }
