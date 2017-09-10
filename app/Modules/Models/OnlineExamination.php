@@ -27,7 +27,7 @@ class OnlineExamination extends Model
         'default_price', 'certificate_type', 'exam_type', 'rising_software_key', 'pricing_policy',
         'last_updated_by', 'last_updated_by_user',
 
-        'status', 'visibility'
+        'status', 'visibility', 'state_price'
     ];
 
     protected $appends = [
@@ -75,7 +75,7 @@ class OnlineExamination extends Model
     }
 
     function getHasStatePriceAttribute(){
-        return $this->pricing_policy == 'state' ? 1 : 0;
+        return $this->state_price == 'state' ? 1 : 0;
     }
 
     function states(){

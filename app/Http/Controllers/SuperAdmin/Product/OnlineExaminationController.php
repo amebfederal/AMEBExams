@@ -78,4 +78,16 @@ class OnlineExaminationController extends AdminBaseController
 
         return redirect()->route('online-examination.index')->with('error', 'Online Examination could not be deleted.');
     }
+
+    function managePrice($id){
+        $product = $this->product->find($id);
+
+        if(!$product->has_state_price){
+            return redirect()->route('online-examination.index')->with('success', 'State pricing not enabled for the product.');
+        }
+
+        $states = $this->state->all();
+
+        return view('superadmin.product.price.manage', compact('states', 'product'));
+    }
 }

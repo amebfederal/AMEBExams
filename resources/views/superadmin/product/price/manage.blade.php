@@ -1,105 +1,61 @@
-@extends('superadmin.layouts.layouts')
+@extends('layouts.super-admin')
 @section('content')
-<div id="page-content-wrapper">
-    <div id="page-content">
 
-        <div class="container">
+    <div id="page-title">
+        <h2>Manage State Price</h2>
 
-            <div id="page-title">
-                <h2>Manage State Price</h2>
-                <p></p>
-            </div>
+        <p></p>
+    </div>
 
-            <div class="panel">
-                <div class="panel-body">
-                    <h3 class="title-hero">
-                        Set exam price for States
-                    </h3>
+    <div class="panel">
+        <div class="panel-body">
+            <h3 class="title-hero">
+                Set exam price for States
+            </h3>
 
-                    <div class="example-box-wrapper">
-                        <form class="form-horizontal bordered-row">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Exam Title *</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" id="" class="form-control" disabled="disabled" placeholder="Exam name here">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">Default Price</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                                                        <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">Queensland</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                                                        <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">Tasmania</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                                                        <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">Victoria</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                                                        <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">New South Wales</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                                                        <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">Northern Australia</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                                                        <div class="form-group">
-                            
-                                <label class="col-sm-3 control-label">New Zealand</label>
-                                <div class="col-sm-6">
-                                    <input type="text" name="" class="form-control" placeholder="">
-                                </div>
-                            </div>
+            <div class="example-box-wrapper">
+                <form class="form-horizontal bordered-row" action="{{ route('') }}">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Exam Title <span class="text-danger">*</span> </label>
 
-                            Display all states from database and ask price for each state.
-                           
-
-                            <!-- <div class="form-group">
-
-                                <div class="col-md-12">Visible only if bundled option is selected</div>
-                                <label class="col-sm-3 control-label">Bundled Products</label>
-                                <div class="col-sm-6">
-                                    <small>Product 1 - $50.00   <a href="#">Remove</a>
-                                        <div class="divider"></div>
-                                        Product 2 - $60.00  <a href="#">Remove</a>
-                                        <div class="divider"></div>
-                                    </small>
-                                    <a href="#">+ Add Product</a>
-                                </div>
-                            </div> 
-                            -->
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label"></label>
-                                <div class="col-sm-6">
-                                    <input type="submit" class="btn btn-success" value="Update Price">
-                                </div>
-                            </div>
-                        </form>
+                        <div class="col-sm-6">
+                            <input type="text" name="" id="" class="form-control" disabled="disabled"
+                                   placeholder="Exam name here" value="{{ $product->title }}">
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+
+                        <label class="col-sm-3 control-label">Default Price</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" name="default_price" class="form-control" placeholder=""
+                                   value="{{ $product->default_price }}">
+                        </div>
+                    </div>
+
+                    @foreach($states as $state)
+
+                        <div class="form-group">
+
+                            <label class="col-sm-3 control-label">{{ $state->name }}</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="state_price[$state->id]" class="form-control" placeholder="Enter price here">
+                            </div>
+                        </div>
+
+                    @endforeach
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+
+                        <div class="col-sm-6">
+                            <input type="submit" class="btn btn-success" value="Update Price">
+                        </div>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 @endsection
 

@@ -1,8 +1,8 @@
 {!! csrf_field() !!}
 
-@foreach ($errors->all() as $error)
-    <div>{{ $error }}</div>
-@endforeach
+{{--@foreach ($errors->all() as $error)--}}
+    {{--<div>{{ $error }}</div>--}}
+{{--@endforeach--}}
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Exam Title <span class="text-danger">*</span></label>
@@ -16,13 +16,11 @@
 <div class="form-group">
     <label class="col-sm-3 control-label">
         Subject Code<span class="text-danger">*</span>
-        <span class="help-block">This is unique for this Online Music Theory Category</span>
     </label>
 
     <div class="col-sm-6">
         <input type="text" name="subject_code" class="form-control" placeholder="Subject Code for Exam"
                value="{{ old('subject_code', isset($product->subject_code) ? $product->subject_code : '') }}">
-        <span class="help-block">(Repeats on Online Theory Exam Category)</span>
         <span class="validation-error">{{ $errors->first('subject_code') }}</span>
     </div>
 </div>
@@ -42,6 +40,7 @@
                   placeholder="Short description that is to be displayed for Exam">{{ old('description', isset($product->description) ? $product->description : '') }}</textarea>
 
         <div class="character-remaining clear input-description">125 characters left</div>
+        <span class="validation-error">{{ $errors->first('description') }}</span>
     </div>
 </div>
 <div class="form-group">
@@ -73,19 +72,22 @@
                 Custom
             </option>
             <option value="non-renewable"
-                    {{ old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') == 'default' ? 'selected="selected"' : '' }}
+                    {{ old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') == 'non-renewable' ? 'selected="selected"' : '' }}
                     }}>Non-renewable
             </option>
         </select>
     </div>
 </div>
-<div class="form-group renewable-fee hide">
+<?php $rnType = old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') ?>
+<div class="form-group renewable-fee" style="{{ $rnType != 'custom' ? 'display: none;' : '' }}">
     <label class="col-sm-3 control-label">Renewal Fee<span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
-        <input type="text" name="" class="form-control" placeholder="Price of the Exam, default 0.00"
-               value="{{ old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') }}">
+        <input type="text" name="renewable_fee" class="form-control" placeholder="Price of the Exam, default 0.00"
+               value="{{ old('renewable_fee', isset($product->renewable_fee) ? $product->renewable_fee : '') }}">
         <span class="help-block">This should appear only if custom is selected on renewal type</span>
+
+        <span class="validation-error">{{ $errors->first('renewable_fee') }}</span>
     </div>
 </div>
 
@@ -111,7 +113,7 @@
 
     <div class="col-sm-6">
         <select class="form-control category-grade" name="grade_id">
-            <option>Select Grades</option>
+            <option value="">Select Grades</option>
         </select>
         <span class="validation-error">{{ $errors->first('grade_id') }}</span>
     </div>
@@ -123,6 +125,7 @@
     <div class="col-sm-6">
         <input type="text" name="exam_duration" placeholder="Duration in minutes" class="form-control"
                value="{{ old('exam_duration', isset($product->exam_duration) ? $product->exam_duration : '') }}">
+
         <span class="validation-error">{{ $errors->first('exam_duration') }}</span>
     </div>
 
@@ -131,13 +134,15 @@
     <label class="col-sm-3 control-label">Marking Type <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
-        <?php $markingTypes = old('marking_types', isset($product->marking_type) ? $product->marking_type : []); ?>
+        <?php $markingTypes = old('marking_types', isset($product->marking_type) ? $product->marking_type : ['automated']); ?>
         <input type="checkbox" name="marking_types[]" class="checkbox-inline" value="manual"
                 {{ in_array('manual', $markingTypes) ? 'checked="checked"' : '' }}>
         Manual Marking
         <input type="checkbox" name="marking_types[]" class="checkbox-inline" value="automated"
                 {{ in_array('automated', $markingTypes) ? 'checked="checked"' : '' }}>
         Automated Marking
+            <div class="clearfix"></div>
+        <div class="validation-error">{{ $errors->first('marking_types') }}</div>
     </div>
 
 </div>
@@ -152,6 +157,8 @@
         <input type="checkbox" name="certificate_types[]" class="checkbox-inline" value="hard-copy"
                 {{ in_array('hard-copy', $certificateTypes) ? 'checked="checked"' : '' }}>
         Hard Copy
+            <div class="clearfix"></div>
+        <span class="validation-error">{{ $errors->first('certificate_types') }}</span>
     </div>
 
 </div>
@@ -180,6 +187,7 @@
     <div class="col-sm-6">
         <input type="text" name="default_price" placeholder="Global Price" class="form-control"
                value="{{ old('default_price', isset($product->default_price) ? $product->default_price : '') }}">
+        <span class="validation-error">{{ $errors->first('default_price') }}</span>
     </div>
 </div>
 
@@ -189,6 +197,7 @@
     <div class="col-sm-6">
         <input type="text" name="rising_software_key" id="" class="form-control" placeholder="Enter Rising Software Key"
                value="{{ old('rising_software_key', isset($product->rising_software_key) ? $product->rising_software_key : '') }}">
+        <span class="validation-error">{{ $errors->first('rising_software_key') }}</span>
     </div>
 </div>
 
@@ -214,7 +223,7 @@
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
             <div class="bootstrap-switch-container">
                 <input data-on-color="primary" name="status"
-                        {{ old('status', isset($product->status) ? $product->status : 'status') == 'active' ? 'checked' : '' }}
+                        {{ old('status', isset($product->status) ? $product->status : 'active') == 'active' ? 'checked' : '' }}
                        class="input-switch" data-size="medium"
                        data-on-text="Enabled" data-off-text="Disabled"
                        type="checkbox"></div>
@@ -229,7 +238,7 @@
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
             <div class="bootstrap-switch-container">
                 <input data-on-color="primary" name="visibility"
-                        {{ old('visibility', isset($product->visibility) ? $product->visibility : 'status') == 'visible' ? 'checked' : '' }}
+                        {{ old('visibility', isset($product->visibility) ? $product->visibility : 'visible') == 'visible' ? 'checked' : '' }}
                        class="input-switch" data-size="medium"
                        data-on-text="Show" data-off-text="Hide" type="checkbox">
             </div>

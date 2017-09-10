@@ -25,7 +25,8 @@ class OnlineExaminationRequest extends FormRequest
     {
         $rules = [
             'title' => 'required',
-            'subject_code' => 'required',
+            'subject_code' => 'required|unique:online_examinations|max:100',
+            'description' => 'max:125',
             'expiry_months' => 'required',
             'renewable_fee' => 'required_if:renewable_fee_type,custom',
             'sub_category_id' => 'required',
@@ -34,11 +35,15 @@ class OnlineExaminationRequest extends FormRequest
             'certificate_types' => 'required',
             'states' => 'required',
             'default_price' => 'required',
-            'rising_software_key' => 'required',
+            'rising_software_key' => 'required|unique:online_examinations|max:255',
         ];
 
         if($this->method() != 'PATCH'){
             $rules['image'] = 'required';
+        }else{
+            $id = $this->segment(3);
+            $rules['subject_code'] = 'required|unique:online_examinations,id,'.$id.'|max:100';
+            $rules['rising_software_key'] = 'required|unique:online_examinations,id,'.$id.'|max:255';
         }
 
         return $rules;
@@ -46,8 +51,8 @@ class OnlineExaminationRequest extends FormRequest
 
     public function messages(){
         return [
-            'sub_category_id.required' => 'Category field is required',
-            'grade_id.required' => 'Grade field is required'
+            'sub_category_id.required' => 'The category field is required',
+            'grade_id.required' => 'The grade field is required'
         ];
     }
 }

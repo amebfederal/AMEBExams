@@ -48,6 +48,7 @@ class OnlineExaminationService extends Service
 
             $data['status'] = $data['status'] == 'on' ? 'active' : 'inactive';
             $data['visibility'] = $data['visibility'] == 'on' ? 'visible' : 'not-visible';
+            $data['state_price'] = isset($data['state_price']) && $data['state_price'] == 'on' ? 'state' : 'default';
 
             $product = $this->product->create($data);
 
@@ -137,6 +138,7 @@ class OnlineExaminationService extends Service
 
             $data['status'] = $data['status'] == 'on' ? 'active' : 'inactive';
             $data['visibility'] = $data['visibility'] == 'on' ? 'visible' : 'not-visible';
+            $data['state_price'] = $data['state_price'] == 'on' ? 'state' : 'default';
 
             $product->update($data);
 

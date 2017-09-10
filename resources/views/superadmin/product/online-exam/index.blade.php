@@ -42,7 +42,7 @@
                                 Edit
                             </a>
                             @if($product->has_state_price)
-                                <a href="{{ url('superadmin/product/manageexamprice') }}" title="Manage Exam price"><i
+                                <a href="{{ route('product.manage-price', $product->id) }}" title="Manage Exam price"><i
                                             class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
                             @endif
                             {!! delete_form(route('online-examination.destroy', [$product->id]))

@@ -41,6 +41,7 @@ Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function
     $router->resource('sub-category.grade', 'SuperAdmin\Product\GradeController');
     $router->resource('session', 'SuperAdmin\Session\SessionController');
     $router->resource('online-examination', 'SuperAdmin\Product\OnlineExaminationController');
+    Route::get('superadmin/product/{id}/exam-price', ['as' => 'product.manage-price', 'uses' => 'SuperAdmin\Product\OnlineExaminationController@managePrice']);
 });
 
 
@@ -81,10 +82,6 @@ Route::get('superadmin/marker/manage',    function () {
 });
 Route::get('superadmin/administrator/manage',    function () {
     return view('superadmin.administrator.index');
-});
-
-Route::get('superadmin/product/manageexamprice',    function () {
-    return view('superadmin.product.price.manageexamprice');
 });
 Route::get('superadmin/support/viewenrollerrefund',    function () {
     return view('superadmin.support.viewenrollerrefund');
