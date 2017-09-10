@@ -1,17 +1,21 @@
 <?php namespace App\Modules\Services\Product;
 
 use App\Modules\Models\OnlineExamination;
+use App\Modules\Models\OnlineExaminationStatePrice;
 use App\Modules\Services\Service;
 use Illuminate\Support\Facades\Auth;
 
 class OnlineExaminationService extends Service
 {
     protected $product;
+    protected $statePrice;
 
     public function __construct(
-        OnlineExamination $product
+        OnlineExamination $product,
+        OnlineExaminationStatePrice $statePrice
     ){
         $this->product = $product;
+        $this->statePrice = $statePrice;
     }
 
     /**
@@ -70,7 +74,7 @@ class OnlineExaminationService extends Service
      */
     public function paginate(array $filter = [])
     {
-        $filter['limit'] = 1;
+        $filter['limit'] = 20;
 
         return $this->product->paginate($filter['limit']);
     }
@@ -200,6 +204,25 @@ class OnlineExaminationService extends Service
      */
     public function getBySlug($slug){
         return $this->product->whereSlug($slug);
+    }
+
+
+    public function savePrice($id, $data){
+        $product = $this->product->find($id);
+
+        $defaultPrice = $data['default_price'];
+        $statePrices = $data['state_price'];
+
+        $prices = [];
+        foreach($statePrices as $k => $statePrice){
+            $prices[] = new $this->statePrice([
+                'state_id' => $k,
+                'last_updated_by' => Auth::user()->id,
+                'price' => !empty($statePrice) ? $statePrice : $defaultPrice
+            ]);
+        }
+
+        return $product->state_prices()->saveMany($prices);
     }
 
     private function __deleteImages($product){

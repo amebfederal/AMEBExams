@@ -89,4 +89,8 @@ class OnlineExamination extends Model
     function grade(){
         return $this->belongsTo('App\Modules\Models\Grade');
     }
+
+    function state_prices(){
+        return $this->hasMany('App\Modules\Models\OnlineExaminationStatePrice', 'online_examination_id');
+    }
 }

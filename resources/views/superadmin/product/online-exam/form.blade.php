@@ -251,7 +251,10 @@
     <label class="col-sm-3 control-label"></label>
 
     <div class="col-sm-6">
-        <input type="submit" class="btn btn-success" value="Add Product">
+        <input type="submit" class="btn btn-success btn-sm" value="Save Exam">
+        <a href="{{ route('online-examination.index') }}" class="btn btn-default btn-sm">
+            <i class="fa fa-aw fa-reply-o"></i> Back
+        </a>
     </div>
 </div>
 

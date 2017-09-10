@@ -14,7 +14,9 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" action="{{ route('') }}">
+                <form class="form-horizontal bordered-row" action="{{ route('product.save-price', $product->id) }}"
+                        method="post">
+                    {!! csrf_field() !!}
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Exam Title <span class="text-danger">*</span> </label>
 
@@ -40,7 +42,8 @@
                             <label class="col-sm-3 control-label">{{ $state->name }}</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="state_price[$state->id]" class="form-control" placeholder="Enter price here">
+                                <input type="text" name="state_price[{{ $state->id }}]" value="{{ isset($spArr[$state->id]) ? $spArr[$state->id] : '0.00' }}"
+                                       class="form-control" placeholder="Enter price here">
                             </div>
                         </div>
 
