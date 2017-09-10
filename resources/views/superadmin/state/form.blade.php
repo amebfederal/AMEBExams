@@ -74,21 +74,21 @@
 </div>
 <div class="form-group">
     <label class="col-sm-3 control-label">API Authority</label>
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="api">
         <input type="radio" name="authority" value="enabled" class="radio-inline"
                 {{old('authority',isset($state->authority)?$state->authority:'')=='enabled'?'checked="checked"':''}}> Enabled
         <input type="radio" name="authority" value="disabled" class="radio-inline"
                 {{old('authority',isset($state->authority)?$state->authority:'')=='disabled'?'checked="checked"':''}}> Disabled
     </div>
 </div>
-<div class="form-group">
+<div class="form-group" id="otherdiv1">
     <label class="col-sm-3 control-label">API ID</label>
     <div class="col-sm-6">
         <input type="text" name="api" class="form-control" value="{{old('api',isset($state->api)?$state->api:'')}}">
         <span class="validation-error">{{ $errors->first('api') }}</span>
     </div>
 </div>
-<div class="form-group">
+<div class="form-group" id="otherdiv2">
     <label class="col-sm-3 control-label">API Secret Key</label>
     <div class="col-sm-6">
         <input type="text" name="key" class="form-control" value="{{old('key',isset($state->key)?$state->key:'')}}">
@@ -104,3 +104,22 @@
         </a>
     </div>
 </div>
+@section('page-specific-scripts')
+    <script type="text/javascript">
+        $('#api').change(function(){
+            var api =    $('#api').val();
+            if(api=='enabled')
+            {
+                $('#otherdiv1').show();
+                $('#otherdiv2').show();
+            }
+            else
+            {
+                $('#otherdiv1').hide();
+                $('#otherdiv2').hide();
+            }
+        });
+        $('#otherdiv1').show();
+        $('#otherdiv2').show();
+    </script>
+@endsection

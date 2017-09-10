@@ -30,4 +30,8 @@ class State extends Model
     function getAuthorityTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->authority));
     }
+
+    function account(){
+        return $this->belongsTo('App\Modules\Models\AccountHolder', 'account_state');
+    }
 }
