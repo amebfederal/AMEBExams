@@ -47,6 +47,11 @@ return [
             'provider' => 'superadmin',
         ],
 
+        'account_holders' => [
+            'driver' => 'session',
+            'provider' => 'account_holders'
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -81,6 +86,11 @@ return [
             'driver' => 'eloquent',
              'model' => App\Modules\Models\User::class,
         ],
+
+        'account_holders' => [
+            'driver' => 'eloquent',
+            'model' => \App\Modules\Models\AccountState::class,
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -92,6 +102,7 @@ return [
     | Resetting Passwords
     |--------------------------------------------------------------------------
     |
+
     | You may specify multiple password reset configurations if you have more
     | than one user table or model in the application and you want to have
     | separate password reset settings based on the specific user types.

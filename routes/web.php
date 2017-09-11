@@ -190,6 +190,7 @@ Route::get('account/register/address-verification', 'AccountHolder\Register\Regi
 Route::get('account/register/register', 'AccountHolder\Register\RegisterController@register');
 Route::post('account/register/do-register',
     ['as' => 'do-register', 'uses' => 'AccountHolder\Register\RegisterController@doRegister']);
+Route::get('user/activation/{token}', 'AccountHolder\Register\RegisterController@activateUser')->name('user.activate');
 
 Route::get('accountholders/dashboard',    function () {
     return view('accountholders.dashboard.index');

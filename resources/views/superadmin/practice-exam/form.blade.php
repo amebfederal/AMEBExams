@@ -19,8 +19,14 @@
     </label>
 
     <div class="col-sm-6">
-        <input type="text" name="exam_id" class="form-control" placeholder="Exam Id to be used"
-               value="{{ old('exam_id', isset($product->exam_id) ? $product->exam_id : '') }}">
+        <select class="form-control" name="category_id">
+            @foreach($exams as $exam)
+                <option value="{{ $exam->id }}"
+                        {{ old('exam_id', isset($product->exam_id) ? $product->exam_id : '') == $exam->exam_id ? 'selected="selected"' : '' }}
+                        >{{ $cat->name }}
+                </option>
+            @endforeach
+        </select>
         <span class="validation-error">{{ $errors->first('exam_id') }}</span>
     </div>
 </div>

@@ -35,7 +35,7 @@
 
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="title">
-                                                        <option selected="selected">Select Title</option>
+                                                        <option selected="selected" value="">Select Title</option>
                                                         <option value="none">None</option>
                                                         <option value="mr" {{ old('title') == 'mr' ? 'selected="selected"' : '' }}>
                                                             Mr

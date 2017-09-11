@@ -1,13 +1,16 @@
 <?php namespace App\Modules\Services\AccountHolder;
 
+use App\Mail\AccountHolderRegistered;
 use App\Modules\Models\AccountHolder;
 use App\Modules\Services\Service;
+use Illuminate\Support\Facades\Mail;
 
 class AccountHolderService extends Service
 {
     protected $account;
 
-    public function __construct(AccountHolder $account){
+    public function __construct(AccountHolder $account)
+    {
         $this->account = $account;
     }
 
@@ -20,9 +23,11 @@ class AccountHolderService extends Service
     public function create(array $data)
     {
 //        try {
-            $data['preference'] = 'something';
-            $account = $this->account->create($data);
-            return $account;
+        $data[''] = '';
+        $account = $this->account->create($data);
+
+        // now send a verification link
+        return $account;
 //        } catch (Exception $e) {
 //            return null;
 //        }
@@ -78,8 +83,7 @@ class AccountHolderService extends Service
         try {
             $user = $this->login->find($accountId);
 
-            if($user->update($data))
-            {
+            if ($user->update($data)) {
                 return true;
             }
 
@@ -108,8 +112,6 @@ class AccountHolderService extends Service
             return false;
         }
     }
-
-
 
 
 }
