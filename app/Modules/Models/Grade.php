@@ -28,6 +28,11 @@ class Grade extends Model
         return $this->belongsTo('App\Modules\Models\SubCategory', 'sub_category_id');
     }
 
+    function course()
+    {
+        return $this->hasMany('App\Modules\Models\Course', 'grade_id');
+    }
+
     function getStatusTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->status));
     }

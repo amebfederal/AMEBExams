@@ -93,7 +93,7 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('category.index') }}" class="btn btn-default btn-sm">
+        <a href="{{ route('course.index') }}" class="btn btn-default btn-sm">
             <i class="fa fa-aw fa-reply-o"></i> Back
         </a>
     </div>

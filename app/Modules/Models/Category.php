@@ -29,6 +29,11 @@ class Category extends Model
         return $this->hasMany('App\Modules\Models\SubCategory', 'category_id');
     }
 
+    function course()
+    {
+        return $this->hasMany('App\Modules\Models\Course', 'category_id');
+    }
+
     function getVisibilityTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->visibility));
     }

@@ -59,6 +59,24 @@
                 </div>
                 <!-- .sidebar-submenu -->
             </li>
+
+            <li class="{{ Request::is('super-admin/course*')?'active':'' }}">
+                <a href="#" title="Elements">
+                    <i class="glyph-icon icon-book"></i>
+                    <span>Course</span>
+                </a>
+                <div class="sidebar-submenu">
+
+                    <ul>
+                        <li class="{{ Request::is('super-admin/course/create')?'active':'' }}"><a href="{{route('course.create')}}" title="Add Course"><span>Add Course</span></a></li>
+
+                        <li class="{{ Request::is('super-admin/course')?'active':'' }}"><a href="{{ route('course.index')}}" title="Manage Course"><span>Manage Course</span></a></li>
+
+
+                    </ul>
+                </div><!-- .sidebar-submenu -->
+            </li>
+
             <li>
                 <a href="#" title="Widgets">
                     <i class="glyph-icon icon-linecons-user"></i>
