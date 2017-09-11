@@ -19,7 +19,7 @@
     </label>
 
     <div class="col-sm-6">
-        <select class="form-control" name="category_id">
+        <select class="form-control" name="exam_id">
             @foreach($exams as $exam)
                 <option value="{{ $exam->id }}"
                         {{ old('exam_id', isset($product->exam_id) ? $product->exam_id : '') == $exam->exam_id ? 'selected="selected"' : '' }}
@@ -79,6 +79,17 @@
         <span class="validation-error">{{ $errors->first('price') }}</span>
     </div>
 </div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">No of Practice Exams <span class="text-danger">*</span></label>
+
+    <div class="col-sm-6">
+        <input type="text" name="no_of_practice_exams" placeholder="Price for the Exam" class="form-control"
+               value="{{ old('no_of_practice_exams', isset($product->no_of_practice_exams) ? $product->no_of_practice_exams : '2') }}">
+        <span class="validation-error">{{ $errors->first('no_of_practice_exams') }}</span>
+    </div>
+</div>
+
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Allowed Number <span class="text-danger">*</span></label>

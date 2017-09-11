@@ -28,7 +28,7 @@ class OnlineExamination extends Model
         'default_price', 'certificate_type', 'exam_type', 'rising_software_key', 'pricing_policy',
         'last_updated_by', 'last_updated_by_user',
 
-        'status', 'visibility', 'state_price'
+        'status', 'visibility', 'state_price', 'no_of_practice_exams'
     ];
 
     protected $appends = [
