@@ -62,11 +62,17 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
 
 
     $router->resource('admin-setting', 'Superadmin\AdminSetting\AdminSettingController');
+    $router->resource('course', 'Superadmin\Course\CourseController');
 
     Route::get('admin-setting/{id}/change-password',
         ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@showPasswordChangeForm' ]);
     Route::post('admin-setting/{id}/change-password',
         ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@passwordChange' ]);
+
+    Route::post('course/get-subcat',
+        ['as'=>'course.getsubcat', 'uses'=>'Api\CourseController@showSubCategory']);
+    Route::post('course/get-grade',
+        ['as'=>'course.getGrade', 'uses'=>'Api\CourseController@showGrade']);
 
 });
 
