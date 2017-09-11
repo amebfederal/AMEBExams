@@ -1,15 +1,14 @@
-<?php namespace App\Modules\Services\Login;
+<?php namespace App\Modules\Services\AccountHolder;
 
-use App\Http\Controllers\Superadmin\AdminSetting\AdminSettingController;
-use App\Modules\Models\User;
+use App\Modules\Models\AccountHolder;
 use App\Modules\Services\Service;
 
 class AccountHolderService extends Service
 {
-    protected $login;
+    protected $account;
 
-    public function __construct(User $login){
-        $this->login = $login;
+    public function __construct(AccountHolder $account){
+        $this->account = $account;
     }
 
     /**
@@ -20,18 +19,13 @@ class AccountHolderService extends Service
      */
     public function create(array $data)
     {
-        try {
+//        try {
+            $data['preference'] = 'something';
             $account = $this->account->create($data);
-
-            //now assign account holder to state
-            $state = $data['state'];
-            foreach($state as $states)
-                $account->state()->attach($states);
-
             return $account;
-        } catch (Exception $e) {
-            return null;
-        }
+//        } catch (Exception $e) {
+//            return null;
+//        }
 
     }
 

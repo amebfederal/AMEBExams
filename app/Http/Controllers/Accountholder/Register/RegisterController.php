@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers\Accountholder\Register;
 
+use App\Http\Requests\AccountHolderRequest;
+use App\Http\Requests\AddressVerificationRequest;
+use App\Modules\Services\AccountHolder\AccountHolderService;
+use App\Modules\Services\Option\CountryService;
 use App\Modules\Services\State\StateService;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {
     protected $state;
     protected $account;
+    protected $country;
 
     function __construct(
-        StateService $state
+        StateService $state,
+        CountryService $country,
+        AccountHolderService $account
     )
     {
         $this->state = $state;
-    }
-
-
-    public function index()
-    {
-        //
+        $this->country = $country;
+        $this->account = $account;
     }
 
     /**
@@ -32,69 +34,26 @@ class RegisterController extends Controller
     public function create()
     {
         $states = $this->state->all();
+//        $countries = $this->country->syncCountries();
+        $countries = $this->country->all();
 
-        return view('frontend-account.register.address-verification', compact('states'));
+        return view('frontend-account.register.address-verification',
+            compact('states', 'countries'));
     }
 
-    public function register(Request $request){
+    public function register(AddressVerificationRequest $request){
         $data = $request->all();
 
-        return view('frontend-account.register.register', compact('data'));
+        $countries = $this->country->all();
+        $states = $this->state->all();
+
+        return view('frontend-account.register.register', compact('data', 'countries', 'states'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function doRegister(AccountHolderRequest $request)
     {
-        //
-    }
+        if($this->account->create($request->all())){
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        }
     }
 }

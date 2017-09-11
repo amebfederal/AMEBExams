@@ -26,11 +26,27 @@ class AccountHolderRequest extends FormRequest
         $rules = [
             'fname' => 'required',
             'lname' => 'required',
+            'role' => 'required',
             'phone' => 'required',
             'email' => 'required',
+            'confirm_email' => 'sometimes|same:email',
+            'password' => 'required',
+            'confirm_password' => 'sometimes|same:password',
             'address' => 'required',
-            'city' => 'required'
+            'suburb' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
+            'age_verification' => 'required',
+//            'g-recaptcha-response' => 'required|recaptcha',
         ];
         return $rules;
+    }
+
+    public function messages(){
+
+        return [
+            'phone:required' => 'The preferred phone field is required'
+        ];
+
     }
 }

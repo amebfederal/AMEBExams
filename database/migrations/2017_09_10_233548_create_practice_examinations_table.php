@@ -17,7 +17,9 @@ class CreatePracticeExaminationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title', 100);
             $table->string('slug', 100);
-            $table->string('exam_id', 100)->unique();
+            $table->bigInteger('exam_id')->unsigned()->index();
+            $table->foreign('exam_id')->references('id')->on('online_examinations')
+                ->onDelete('cascade')->onUpdate('no action');
             $table->string('image', 100);
             $table->text('description')->nullable();
 

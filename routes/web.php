@@ -186,8 +186,10 @@ Account Holders Route
 *******************************************************************************************
 */
 
-Route::get('frontend-account/register/address-verification', 'AccountHolder\Register\RegisterController@create');
-Route::post('frontend-account/register/register', 'AccountHolder\Register\RegisterController@register');
+Route::get('account/register/address-verification', 'AccountHolder\Register\RegisterController@create');
+Route::get('account/register/register', 'AccountHolder\Register\RegisterController@register');
+Route::post('account/register/do-register',
+    ['as' => 'do-register', 'uses' => 'AccountHolder\Register\RegisterController@doRegister']);
 
 Route::get('accountholders/dashboard',    function () {
     return view('accountholders.dashboard.index');

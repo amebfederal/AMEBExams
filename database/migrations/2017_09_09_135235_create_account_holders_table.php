@@ -22,14 +22,22 @@ class CreateAccountHoldersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->bigInteger('phone')->unsigned();
-            $table->bigInteger('o_phone')->unsigned();
+            $table->bigInteger('o_phone')->unsigned()->nullable();
             $table->string('address',200);
-            $table->string('alt_address',200);
+            $table->string('alt_address',200)->nullable();
             $table->string('city',100);
             $table->string('suburb');
+            $table->string('preference');
+            $table->string('postcode');
 
             $table->bigInteger('state_id')->unsigned()->index()->nullable();
-            $table->string('country', 100);
+            $table->foreign('state_id')->references('id')->on('states');
+
+            $table->integer('country_id')->unsigned()->index()->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
+
+            $table->string('school_name')->nullable();
+
             $table->enum('status', ['active', 'in_active'])->index();
             $table->rememberToken();
             $table->timestamps();
@@ -43,6 +51,6 @@ class CreateAccountHoldersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('account_holders');
     }
 }
