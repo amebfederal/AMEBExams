@@ -1,8 +1,8 @@
 {!! csrf_field() !!}
 
-@foreach ($errors->all() as $error)
-    <div>{{ $error }}</div>
-@endforeach
+{{--@foreach ($errors->all() as $error)--}}
+    {{--<div>{{ $error }}</div>--}}
+{{--@endforeach--}}
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Exam Title <span class="text-danger">*</span></label>
@@ -16,13 +16,11 @@
 <div class="form-group">
     <label class="col-sm-3 control-label">
         Subject Code<span class="text-danger">*</span>
-        <span class="help-block">This is unique for this Online Music Theory Category</span>
     </label>
 
     <div class="col-sm-6">
         <input type="text" name="subject_code" class="form-control" placeholder="Subject Code for Exam"
-               value="{{ old('title', isset($product->subject_code) ? $product->subject_code : '') }}">
-        <span class="help-block">(Repeats on Online Theory Exam Category)</span>
+               value="{{ old('subject_code', isset($product->subject_code) ? $product->subject_code : '') }}">
         <span class="validation-error">{{ $errors->first('subject_code') }}</span>
     </div>
 </div>
@@ -30,6 +28,11 @@
     <label class="col-sm-3 control-label">Image <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
+        @if(isset($product->image))
+            <img src="{{ asset($product->thumbnail_path) }}" height="100px" alt=""/>
+            <br/>
+            <br/>
+        @endif
         <input type="file" name="image" id="image" class="form-control">
         <span class="validation-error">{{ $errors->first('image') }}</span>
     </div>
@@ -38,10 +41,11 @@
     <label class="col-sm-3 control-label">Short Description</label>
 
     <div class="col-sm-6">
-        <textarea name="" rows="3" class="form-control textarea-counter"
+        <textarea name="description" rows="3" class="form-control textarea-counter"
                   placeholder="Short description that is to be displayed for Exam">{{ old('description', isset($product->description) ? $product->description : '') }}</textarea>
 
         <div class="character-remaining clear input-description">125 characters left</div>
+        <span class="validation-error">{{ $errors->first('description') }}</span>
     </div>
 </div>
 <div class="form-group">
@@ -73,19 +77,22 @@
                 Custom
             </option>
             <option value="non-renewable"
-                    {{ old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') == 'default' ? 'selected="selected"' : '' }}
+                    {{ old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') == 'non-renewable' ? 'selected="selected"' : '' }}
                     }}>Non-renewable
             </option>
         </select>
     </div>
 </div>
-<div class="form-group renewable-fee hide">
+<?php $rnType = old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') ?>
+<div class="form-group renewable-fee" style="{{ $rnType != 'custom' ? 'display: none;' : '' }}">
     <label class="col-sm-3 control-label">Renewal Fee<span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
-        <input type="text" name="" class="form-control" placeholder="Price of the Exam, default 0.00"
-               value="{{ old('renewable_fee_type', isset($product->renewable_fee_type) ? $product->renewable_fee_type : '') }}">
+        <input type="text" name="renewable_fee" class="form-control" placeholder="Price of the Exam, default 0.00"
+               value="{{ old('renewable_fee', isset($product->renewable_fee) ? $product->renewable_fee : '') }}">
         <span class="help-block">This should appear only if custom is selected on renewal type</span>
+
+        <span class="validation-error">{{ $errors->first('renewable_fee') }}</span>
     </div>
 </div>
 
@@ -111,7 +118,7 @@
 
     <div class="col-sm-6">
         <select class="form-control category-grade" name="grade_id">
-            <option>Select Grades</option>
+            <option value="">Select Grades</option>
         </select>
         <span class="validation-error">{{ $errors->first('grade_id') }}</span>
     </div>
@@ -123,6 +130,7 @@
     <div class="col-sm-6">
         <input type="text" name="exam_duration" placeholder="Duration in minutes" class="form-control"
                value="{{ old('exam_duration', isset($product->exam_duration) ? $product->exam_duration : '') }}">
+
         <span class="validation-error">{{ $errors->first('exam_duration') }}</span>
     </div>
 
@@ -131,12 +139,15 @@
     <label class="col-sm-3 control-label">Marking Type <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
+        <?php $markingTypes = old('marking_types', isset($product->marking_type) ? $product->marking_type : ['automated']); ?>
         <input type="checkbox" name="marking_types[]" class="checkbox-inline" value="manual"
-                {{ old('marking_type', isset($product->marking_type) ? $product->marking_type : '') == 'manual' ? 'checked="checked"' : '' }}>
+                {{ in_array('manual', $markingTypes) ? 'checked="checked"' : '' }}>
         Manual Marking
         <input type="checkbox" name="marking_types[]" class="checkbox-inline" value="automated"
-                {{ old('marking_type', isset($product->marking_type) ? $product->marking_type : 'automated-marking') == 'automated-marking' ? 'checked="checked"' : '' }}>
+                {{ in_array('automated', $markingTypes) ? 'checked="checked"' : '' }}>
         Automated Marking
+            <div class="clearfix"></div>
+        <div class="validation-error">{{ $errors->first('marking_types') }}</div>
     </div>
 
 </div>
@@ -144,12 +155,15 @@
     <label class="col-sm-3 control-label">Certificate Type <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
+        <?php $certificateTypes = old('certificate_types', isset($product->certificate_type) ? $product->certificate_type : []); ?>
         <input type="checkbox" name="certificate_types[]" class="checkbox-inline" value="e-certificate"
-                {{ old('marking_type', isset($product->certificate_type) ? $product->certificate_type : '') == 'e-certificate' ? 'checked="checked"' : '' }}>
+                {{ in_array('e-certificate', $certificateTypes) ? 'checked="checked"' : '' }}>
         E-Certificate Marking
         <input type="checkbox" name="certificate_types[]" class="checkbox-inline" value="hard-copy"
-                {{ old('certificate_type', isset($product->certificate_type) ? $product->certificate_type : '') == 'hard-copy' ? 'checked="checked"' : '' }}>
+                {{ in_array('hard-copy', $certificateTypes) ? 'checked="checked"' : '' }}>
         Hard Copy
+            <div class="clearfix"></div>
+        <span class="validation-error">{{ $errors->first('certificate_types') }}</span>
     </div>
 
 </div>
@@ -162,8 +176,11 @@
         <select multiple="" class="multi-select state-options" name="states[]"
                 style="position: absolute; left: -9999px;"
                 id="714multiselect">
+            <?php $stateIds = old('states', isset($product->state_ids) ? $product->state_ids : []); ?>
             @foreach($states as $state)
-                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                <option value="{{ $state->id }}"
+                        {{ in_array($state->id, $stateIds) ? 'selected="selected"' : '' }}
+                        >{{ $state->name }}</option>
             @endforeach
         </select>
     </div>
@@ -175,6 +192,7 @@
     <div class="col-sm-6">
         <input type="text" name="default_price" placeholder="Global Price" class="form-control"
                value="{{ old('default_price', isset($product->default_price) ? $product->default_price : '') }}">
+        <span class="validation-error">{{ $errors->first('default_price') }}</span>
     </div>
 </div>
 
@@ -184,6 +202,7 @@
     <div class="col-sm-6">
         <input type="text" name="rising_software_key" id="" class="form-control" placeholder="Enter Rising Software Key"
                value="{{ old('rising_software_key', isset($product->rising_software_key) ? $product->rising_software_key : '') }}">
+        <span class="validation-error">{{ $errors->first('rising_software_key') }}</span>
     </div>
 </div>
 
@@ -209,7 +228,7 @@
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
             <div class="bootstrap-switch-container">
                 <input data-on-color="primary" name="status"
-                        {{ old('state_price', isset($product->status) ? $product->status : 'status') == 'status' ? 'checked' : '' }}
+                        {{ old('status', isset($product->status) ? $product->status : 'active') == 'active' ? 'checked' : '' }}
                        class="input-switch" data-size="medium"
                        data-on-text="Enabled" data-off-text="Disabled"
                        type="checkbox"></div>
@@ -224,7 +243,7 @@
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
             <div class="bootstrap-switch-container">
                 <input data-on-color="primary" name="visibility"
-                        {{ old('state_price', isset($product->visibility) ? $product->visibility : 'status') == 'status' ? 'checked' : '' }}
+                        {{ old('visibility', isset($product->visibility) ? $product->visibility : 'visible') == 'visible' ? 'checked' : '' }}
                        class="input-switch" data-size="medium"
                        data-on-text="Show" data-off-text="Hide" type="checkbox">
             </div>
@@ -237,7 +256,10 @@
     <label class="col-sm-3 control-label"></label>
 
     <div class="col-sm-6">
-        <input type="submit" class="btn btn-success" value="Add Product">
+        <input type="submit" class="btn btn-success btn-sm" value="Save Exam">
+        <a href="{{ route('online-examination.index') }}" class="btn btn-default btn-sm">
+            <i class="fa fa-aw fa-reply-o"></i> Back
+        </a>
     </div>
 </div>
 

@@ -23,6 +23,10 @@ class SubCategoryService extends Service
     public function create($category, array $data)
     {
         try {
+            if(empty($category)){
+                $categoryId = $data['category_id'];
+                $category = $this->category->find($categoryId);
+            }
             //now try to upload the file
             $file = $data['file'];
 
@@ -53,7 +57,7 @@ class SubCategoryService extends Service
      */
     public function paginate(array $filter = [])
     {
-        $filter['limit'] = 1;
+        $filter['limit'] = 20;
 
         return $this->category->paginate($filter['limit']);
     }
@@ -158,7 +162,16 @@ class SubCategoryService extends Service
     }
 
     public function getBySlug($slug){
-        return $this->category->whereSlug($slug)->first();
+        try{
+            return $this->category->whereSlug($slug)->first();
+        }catch(\Exception $e){
+            return null;
+        }
+
+    }
+
+    public function withCategory(){
+        return $this->category->with('category')->paginate(20);
     }
 
     private function __deleteImages($category){

@@ -11,7 +11,7 @@
     <div class="panel">
         <div class="panel-body">
             <a class="btn btn-sm btn-success add-button" href="{{URL::route('online-examination.create')}}">
-                <i class="fa fa-aw fc-agenda-axis"></i> Add Product</a>
+                <i class="fa fa-aw fc-agenda-axis"></i> Add Exam</a>
 
             <table id="datatable-fixedcolumns" class="table table-striped table-bordered">
                 <thead>
@@ -27,31 +27,36 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($products as $k => $product)
+                @if($products->count() > 0)
+                    @foreach($products as $k => $product)
+                        <tr>
+                            <td>{{ ++$k }}</td>
+                            <td>{{ $product->title }}</td>
+                            <td>{{ $product->subject_code }}</td>
+                            <td>{{ $product->grade->title }}</td>
+                            <td>{{ $product->category->name }}</td>
+                            <td>{{ $product->default_price }}</td>
+                            <td>{{ $product->status_text }}</td>
+                            <td>
+                                <a href="{{ route('online-examination.edit', $product->id) }}" title="Manage Details">
+                                    <i class="glyph-icon icon-pencil" aria-hidden="true"></i>
+                                    Edit
+                                </a>
+                                @if($product->has_state_price)
+                                    <a href="{{ route('product.manage-price', $product->id) }}"
+                                       title="Manage Exam price"><i
+                                                class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
+                                @endif
+                                {!! delete_form(route('online-examination.destroy', [$product->id]))
+                                !!}
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ ++$k }}</td>
-                        <td>{{ $product->title }}</td>
-                        <td>{{ $product->subject_code }}</td>
-                        <td>{{ $product->grade->title }}</td>
-                        <td>{{ $product->category->name }}</td>
-                        <td>{{ $product->default_price }}</td>
-                        <td>{{ $product->status_text }}</td>
-                        <td>
-                            <a href="{{ route('online-examination.edit', $product->id) }}" title="Manage Details">
-                                <i class="glyph-icon icon-pencil" aria-hidden="true"></i>
-                                Edit
-                            </a>
-                            @if($product->has_state_price)
-                                <a href="{{ url('superadmin/product/manageexamprice') }}" title="Manage Exam price"><i
-                                            class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
-                            @endif
-                            <a href="{{ url('online-examination.delete') }}" title="Delete This Exam"><i
-                                        class="glyph-icon icon-trash"
-                                        aria-hidden="true"></i>
-                                Delete </a>
-                        </td>
+                        <td colspan="8">No data found.</td>
                     </tr>
-                @endforeach
+                @endif
 
                 </tbody>
             </table>

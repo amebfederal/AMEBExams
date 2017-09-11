@@ -25,7 +25,7 @@ class CreateOnlineExaminationsTable extends Migration
             $table->date('expiry_date')->comment('Should be calculated from expiry_months');
 
             $table->enum('renewable_fee_type', ['default', 'custom', 'non-renewable'])->nullable()->index();
-            $table->double('renewable_fee', 15, 2);
+            $table->double('renewable_fee', 15, 2)->nullable();
 
             $table->bigInteger('sub_category_id')->unsigned()->index();
             $table->foreign('sub_category_id')->references('id')->on('sub_categories');

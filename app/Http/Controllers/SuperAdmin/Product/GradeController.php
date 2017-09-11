@@ -24,10 +24,15 @@ class GradeController extends AdminBaseController
      * write brief description
      * @return mixed
      */
-    public function index($slug)
+    public function index($slug = '')
     {
         $subCategory = $this->subCategory->getBySlug($slug);
-        $grades = $subCategory->grades;
+        if (!empty($subCategory)) {
+            $grades = $subCategory->grades;
+        } else {
+            $grades = $this->grade->paginate();
+        }
+
         return view('superadmin.product.grade.index', compact('subCategory', 'grades'));
     }
 
@@ -39,7 +44,10 @@ class GradeController extends AdminBaseController
     public function create($slug)
     {
         $subCategory = $this->subCategory->getBySlug($slug);
-        return view('superadmin.product.grade.create', compact('subCategory'));
+        if (empty($subCategory)) {
+            $subCategories = $this->subCategory->all();
+        }
+        return view('superadmin.product.grade.create', compact('subCategory', 'subCategories'));
     }
 
     /**
@@ -52,8 +60,12 @@ class GradeController extends AdminBaseController
     {
         $category = $this->subCategory->getBySlug($slug);
         if ($this->grade->create($category, $request->all())) {
-            return redirect()->route('sub-category.grade.index', $category->slug)
-                ->with('success', 'Grade created successfully.');
+            if (!empty($category))
+                return redirect()->route('sub-category.grade.index', $category->slug)
+                    ->with('success', 'Grade created successfully.');
+            else
+                return redirect()->to('super-admin/grade')
+                    ->with('success', 'Grade created successfully.');
         }
 
         return redirect()->route('sub-category.grade.create')
@@ -84,12 +96,12 @@ class GradeController extends AdminBaseController
     public function update(GradeRequest $request, $slug, $id)
     {
         $category = $this->subCategory->getBySlug($slug);
-        if($this->grade->update($category, $id, $request->all())) {
+        if ($this->grade->update($category, $id, $request->all())) {
             return redirect()->route('sub-category.grade.index', $category->slug)
                 ->with('success', 'Grade updated successfully.');
         }
 
-        return redirect()->route('sub-category.grade.edit',[$category->slug, $id])
+        return redirect()->route('sub-category.grade.edit', [$category->slug, $id])
             ->with('error', 'Grade could not be updated.');
     }
 

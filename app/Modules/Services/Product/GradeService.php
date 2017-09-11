@@ -7,11 +7,14 @@ use App\Modules\Services\Service;
 class GradeService extends Service
 {
     protected $grade;
+    protected $subCategory;
 
     public function __construct(
-        Grade $grade
+        Grade $grade,
+        SubCategory $subCategory
     ){
         $this->grade = $grade;
+        $this->subCategory = $subCategory;
     }
 
     /**
@@ -23,6 +26,11 @@ class GradeService extends Service
     public function create($subCategory, array $data)
     {
         try {
+            if(empty($subCategory)){
+                $categoryId = $data['sub_category_id'];
+                $subCategory = $this->subCategory->find($categoryId);
+            }
+
             $data['sub_category_id'] = $subCategory->id;
 
             $grade = $this->grade->create($data);
@@ -41,7 +49,7 @@ class GradeService extends Service
      */
     public function paginate(array $filter = [])
     {
-        $filter['limit'] = 1;
+        $filter['limit'] = 20;
 
         return $this->grade->paginate($filter['limit']);
     }

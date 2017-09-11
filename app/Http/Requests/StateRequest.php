@@ -32,8 +32,7 @@ class StateRequest extends FormRequest
             'address' => 'required',
             'contact_person' => 'required',
             'contact_person_phone' => 'required|regex:/[0-9]{10}/',
-            'contact_person_email' => 'required',
-            'key' => 'required'
+            'contact_person_email' => 'required'
         ];
         return $rules;
     }
