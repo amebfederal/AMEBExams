@@ -17,7 +17,7 @@ class Course extends Model
     }
 
     protected $fillable = [
-        'title', 'slug', 'subject_code', 'image', 'main_category_id', 'category_id', 'sub_category_id', 'grade_id', 'default_price',
+        'title', 'slug', 'subject_code', 'image', 'category_id', 'sub_category_id', 'grade_id', 'default_price',
         'rising_software_key', 'state_price', 'visibility', 'status', 'availiability_state', 'last_updated_by', 'description'
     ];
 
@@ -59,6 +59,10 @@ class Course extends Model
 
     function grade(){
         return $this->belongsTo('App\Modules\Models\Grade', 'grade_id');
+    }
+
+    function lessons(){
+        return $this->hasMany('App\Modules\Models\Lesson','course_id');
     }
 
 

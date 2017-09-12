@@ -41,7 +41,7 @@
                 </div>
                 <!-- .sidebar-submenu -->
             </li>
-            <li>
+         {{--   <li>
                 <a href="#" title="Elements">
                     <i class="glyph-icon icon-linecons-graduation-cap"></i>
                     <span>Practice Examination</span>
@@ -58,7 +58,7 @@
                     </ul>
                 </div>
                 <!-- .sidebar-submenu -->
-            </li>
+            </li>--}}
 
             <li class="{{ Request::is('super-admin/course*')?'active':'' }}">
                 <a href="#" title="Elements">
@@ -71,6 +71,23 @@
                         <li class="{{ Request::is('super-admin/course/create')?'active':'' }}"><a href="{{route('course.create')}}" title="Add Course"><span>Add Course</span></a></li>
 
                         <li class="{{ Request::is('super-admin/course')?'active':'' }}"><a href="{{ route('course.index')}}" title="Manage Course"><span>Manage Course</span></a></li>
+
+
+                    </ul>
+                </div><!-- .sidebar-submenu -->
+            </li>
+
+            <li class="{{ Request::is('super-admin/lesson*')?'active':'' }}">
+                <a href="#" title="Elements">
+                    <i class="glyph-icon icon-list-alt"></i>
+                    <span>Lesson</span>
+                </a>
+                <div class="sidebar-submenu">
+
+                    <ul>
+                        <li class="{{ Request::is('super-admin/lesson/create')?'active':'' }}"><a href="{{route('lesson.create')}}" title="Add Lesson"><span>Add Lesson</span></a></li>
+
+                        <li class="{{ Request::is('super-admin/lesson')?'active':'' }}"><a href="{{ route('lesson.index')}}" title="Manage Lesson"><span>Manage Lesson</span></a></li>
 
 
                     </ul>

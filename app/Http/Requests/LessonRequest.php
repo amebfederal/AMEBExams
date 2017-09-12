@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseRequest extends FormRequest
+class LessonRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,22 +25,13 @@ class CourseRequest extends FormRequest
     {
         $rules = [
             'title' => 'required',
-            'subject_code' => 'required',
             'description' => 'required',
-            'category_id' => 'required',
-            'sub_category_id' => 'required',
-            'grade_id' => 'required',
-            'default_price' => 'required',
-            'state_price' => 'required',
-            'availiability_state' => 'required',
-            'visibility' => 'required',
+            'video_link' => 'required',
+            'course_id' => 'required',
             'status' => 'required',
-
         ];
 
-        if($this->method() != 'PATCH'){
-            $rules['file'] = 'required';
-        }
+
 
         return $rules;
     }

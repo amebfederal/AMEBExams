@@ -34,6 +34,7 @@ class CourseService extends Service
             }else{
                 unset($data['image']);
             }
+            $data['state_price'] = $data['state_price'] == 'on' ? 'state' : 'default';
             $course = $this->course->create($data);
 
             return $course;
@@ -103,6 +104,7 @@ class CourseService extends Service
             }else{
                 unset($data['image']);
             }
+            $data['state_price'] = $data['state_price'] == 'on' ? 'state' : 'default';
             $course = $st->update($data);
             //$this->logger->info(' created successfully', $data);
 

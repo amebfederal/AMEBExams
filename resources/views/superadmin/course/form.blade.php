@@ -45,27 +45,7 @@
     </div>
 </div>
 
-<div class="form-group">
-    <label class="col-sm-3 control-label">Main Category <span class="text-danger">*</span></label>
 
-    <div class="col-sm-6">
-        <select class="form-control" name="main_category_id">
-            <option value="1"
-                    {{ old('main_category_id', isset($course->main_category_id) ? $course->main_category_id : '') == '1' ? 'selected="selected"' : '' }}
-            >Online Exam
-            </option>
-            <option value="2"
-                    {{ old('main_category_id', isset($course->main_category_id) ? $course->main_category_id : '') == '2' ? 'selected="selected"' : '' }}
-            >Theory Exam
-            </option>
-            <option value="3"
-                    {{ old('main_category_id', isset($course->main_category_id) ? $course->main_category_id : '') == '3' ? 'selected="selected"' : '' }}
-            >Rockschool Exam
-            </option>
-        </select>
-        <span class="validation-error">{{ $errors->first('main_category_id') }}</span>
-    </div>
-</div>
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Category <span class="text-danger">*</span></label>
@@ -133,7 +113,7 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">Rising Software Key <span class="text-danger">*</span></label>
+    <label class="col-sm-3 control-label">Rising Software Key <span class="text-danger"></span></label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" name="rising_software_key"
@@ -143,14 +123,20 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label">State Price <span class="text-danger">*</span></label>
+    <label class="col-sm-3 control-label">State Price</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" name="state_price"
-               value="{{ old('state_price', isset($course->state_price) ? $course->state_price : '') }}"/>
-        <span class="validation-error">{{ $errors->first('state_price') }}</span>
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-medium bootstrap-switch-animate">
+            <div class="bootstrap-switch-container">
+                <input data-on-color="primary" name="state_price"
+                       {{ old('state_price', isset($course->state_price) ? $course->state_price : '') == 'state' ? 'checked' : '' }}
+                       class="input-switch" data-size="medium"
+                       data-on-text="Enabled" data-off-text="Disabled"
+                       type="checkbox"></div>
+        </div>
     </div>
 </div>
+
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Availiability Status</label>

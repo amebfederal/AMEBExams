@@ -21,13 +21,12 @@ class CreateCourseTable extends Migration
             $table->string('subject_code', 100)->unique();
             $table->string('image', 100)->unique();
             $table->text('description');
-            $table->bigInteger('main_category_id')->unsigned()->index();
             $table->bigInteger('category_id')->unsigned()->index();
             $table->bigInteger('sub_category_id')->unsigned()->index();
             $table->bigInteger('grade_id')->unsigned()->index();
             $table->double('default_price', 15,2)->unique();
             $table->string('rising_software_key', 100)->unique();
-            $table->double('state_price', 15,2)->unique();
+            $table->enum('state_price', ['default', 'state'])->index();
             $table->enum('visibility', ['visible', 'not_visible'])->index();
             $table->enum('status', ['active', 'in_active'])->index();
             $table->enum('availiability_state', ['available', 'not_available'])->index();

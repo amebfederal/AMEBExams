@@ -72,6 +72,7 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
 
     $router->resource('admin-setting', 'Superadmin\AdminSetting\AdminSettingController');
     $router->resource('course', 'Superadmin\Course\CourseController');
+    $router->resource('lesson', 'Superadmin\Lesson\LessonController');
 
     Route::get('admin-setting/{id}/change-password',
         ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@showPasswordChangeForm' ]);
