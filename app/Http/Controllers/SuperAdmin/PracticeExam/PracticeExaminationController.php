@@ -4,17 +4,21 @@ namespace App\Http\Controllers\SuperAdmin\PracticeExam;
 
 use App\Http\Controllers\Superadmin\AdminBaseController;
 use App\Http\Requests\PracticeExaminationRequest;
+use App\Modules\Services\Product\OnlineExaminationService;
 use App\Modules\Services\Product\PracticeExaminationService;
 use Illuminate\Http\Request;
 
 class PracticeExaminationController extends AdminBaseController
 {
     private $exam;
+    private $onlineExam;
 
     function __construct(
-        PracticeExaminationService $exam
+        PracticeExaminationService $exam,
+        OnlineExaminationService $onlineExam
     ){
         $this->product = $exam;
+        $this->onlineExam = $onlineExam;
     }
 
     public function index(){
@@ -25,7 +29,8 @@ class PracticeExaminationController extends AdminBaseController
 
 
     function create(){
-        return view('superadmin.practice-exam.create');
+        $exams = $this->onlineExam->all();
+        return view('superadmin.practice-exam.create', compact('exams'));
     }
 
     function store(PracticeExaminationRequest $request){
@@ -40,7 +45,8 @@ class PracticeExaminationController extends AdminBaseController
 
     function edit($id){
         $product = $this->product->find($id);
-        return view('superadmin.practice-exam.edit', compact('product'));
+        $exams = $this->onlineExam->all();
+        return view('superadmin.practice-exam.edit', compact('product', 'exams'));
     }
 
 

@@ -53,6 +53,8 @@ class CreateOnlineExaminationsTable extends Migration
             $table->enum('status', ['active', 'in-active'])->index();
             $table->enum('visibility', ['visible', 'not-visible'])->index();
 
+            $table->integer('no_of_practice_exams')->default(2);
+
             $table->timestamps();
         });
     }

@@ -103,8 +103,8 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{ url('superadmin/user/manage')}}"
-                               title="Manage Teacher, School, Parent, Adult Candidate"><span>Account Holders</span></a>
+                        <li><a href="{{url('super-admin/account')}}"
+                               title="Account Holders"><span>Account Holders</span></a>
                         </li>
                         <li><a href="{{ url('superadmin/candidate/manage')}}"
                                title="Manage Candidate"><span>Candidate</span></a></li>
