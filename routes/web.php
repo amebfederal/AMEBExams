@@ -41,6 +41,7 @@ Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function
     $router->resource('category', 'SuperAdmin\Product\CategoryController');
     $router->resource('category.sub-category', 'SuperAdmin\Product\SubCategoryController');
     $router->resource('state', 'SuperAdmin\State\StateController');
+    $router->resource('account', 'SuperAdmin\Account\AccountController');
     $router->resource('sub-category.grade', 'SuperAdmin\Product\GradeController');
     $router->resource('session', 'SuperAdmin\Session\SessionController');
     $router->resource('online-examination', 'SuperAdmin\Product\OnlineExaminationController');
@@ -192,9 +193,9 @@ Account Holders Route
 *******************************************************************************************
 */
 
-Route::get('account/register/address-verification', 'AccountHolder\Register\RegisterController@create');
-Route::get('account/register/register', 'AccountHolder\Register\RegisterController@register');
-Route::post('account/register/do-register',
+Route::get('Account/register/address-verification', 'AccountHolder\Register\RegisterController@create');
+Route::get('Account/register/register', 'AccountHolder\Register\RegisterController@register');
+Route::post('Account/register/do-register',
     ['as' => 'do-register', 'uses' => 'AccountHolder\Register\RegisterController@doRegister']);
 Route::get('user/activation/{token}', 'AccountHolder\Register\RegisterController@activateUser')->name('user.activate');
 

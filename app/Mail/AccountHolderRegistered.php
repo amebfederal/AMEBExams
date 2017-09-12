@@ -33,7 +33,7 @@ class AccountHolderRegistered extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.account-holder-registered')
+        return $this->view('emails.Account-holder-registered')
             ->from('bhatta.bj@gmail.com');
     }
 }

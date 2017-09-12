@@ -17,7 +17,7 @@
                                 @endforeach
 
                                 <div class="example-box-wrapper">
-                                    <form action="{{ url('account/register/register') }}" method="get"
+                                    <form action="{{ url('Account') }}" method="get"
                                           class="form-horizontal bordered-row">
                                         {!! csrf_field() !!}
                                         <div class="col-md-12">

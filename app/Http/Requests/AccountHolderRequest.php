@@ -37,7 +37,7 @@ class AccountHolderRequest extends FormRequest
             'postcode' => 'required',
             'city' => 'required',
             'age_verification' => 'required',
-//            'g-recaptcha-response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|recaptcha',
         ];
         return $rules;
     }

@@ -6,7 +6,6 @@
                 <div class="row">
                     <div class="col-md-12">
 
-
                         <div id="page-title">
                         </div>
 
@@ -15,15 +14,6 @@
                                 <h3 class="title-hero">
                                     Fields with (*) are Mandatory
                                 </h3>
-                                <ul>
-                                    <li><p>You will need to register on this site before you can purchase an exam.</p>
-                                    </li>
-                                    <li><p> If you have already registered please login using the links at the top of
-                                            this page.</p></li>
-                                    <li><p>Registration is free and you will receive full details of available
-                                            examinations and costs when you have registered.</p></li>
-                                    <li><p> To purchase an online exam you must be 18 years of age or older.</p></li>
-                                </ul>
                                 <div class="example-box-wrapper">
                                     <form class="form-horizontal bordered-row" method="post"
                                           action="{{ route('do-register') }}">

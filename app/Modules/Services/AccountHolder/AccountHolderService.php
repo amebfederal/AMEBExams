@@ -33,7 +33,6 @@ class AccountHolderService extends Service
 //        }
 
     }
-
     /**
      * Paginate all AccountHolder
      *
@@ -44,7 +43,7 @@ class AccountHolderService extends Service
     {
         $filter['limit'] = 1;
 
-        return $this->login->paginate($filter['limit']);
+        return $this->account->paginate($filter['limit']);
     }
 
     /**
@@ -54,7 +53,7 @@ class AccountHolderService extends Service
      */
     public function all()
     {
-        return $this->login->all();
+        return $this->account->all();
     }
 
     /**
@@ -66,7 +65,7 @@ class AccountHolderService extends Service
     public function find($accountId)
     {
         try {
-            return $this->login->find($accountId);
+            return $this->account->find($accountId);
         } catch (Exception $e) {
             return null;
         }
@@ -81,7 +80,7 @@ class AccountHolderService extends Service
     public function update($accountId, array $data)
     {
         try {
-            $user = $this->login->find($accountId);
+            $user = $this->account->find($accountId);
 
             if ($user->update($data)) {
                 return true;
@@ -102,7 +101,7 @@ class AccountHolderService extends Service
     public function delete($accountId)
     {
         try {
-            $account = $this->login->find($accountId);
+            $account = $this->account->find($accountId);
             //unset the files uploaded first
             $this->__deleteImages($account);
 

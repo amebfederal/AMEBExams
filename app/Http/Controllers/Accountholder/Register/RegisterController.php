@@ -48,10 +48,10 @@ class RegisterController extends Controller
     public function create()
     {
         $states = $this->state->all();
-//        $countries = $this->country->syncCountries();
+        //$countries = $this->country->syncCountries();
         $countries = $this->country->all();
 
-        return view('frontend-account.register.address-verification',
+        return view('frontend-Account.register.address-verification',
             compact('states', 'countries'));
     }
 
@@ -61,13 +61,13 @@ class RegisterController extends Controller
         $countries = $this->country->all();
         $states = $this->state->all();
 
-        return view('frontend-account.register.register', compact('data', 'countries', 'states'));
+        return view('frontend-Account.register.register', compact('data', 'countries', 'states'));
     }
 
     public function doRegister(AccountHolderRequest $request)
     {
         if($account = $this->account->create($request->all())){
-//            $account = $this->account->find($account->id);
+//            $Account = $this->Account->find($Account->id);
             $this->activationFactory->sendActivationMail($account);
         }
     }

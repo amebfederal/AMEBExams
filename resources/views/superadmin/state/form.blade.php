@@ -74,10 +74,10 @@
 </div>
 <div class="form-group">
     <label class="col-sm-3 control-label">API Authority</label>
-    <div class="col-sm-6" id="api">
-        <input type="radio" name="authority" value="enabled" class="radio-inline"
+    <div class="col-sm-6" >
+        <input type="radio" name="authority" class="api" value="enabled" class="radio-inline"
                 {{old('authority',isset($state->authority)?$state->authority:'')=='enabled'?'checked="checked"':''}}> Enabled
-        <input type="radio" name="authority" value="disabled" class="radio-inline"
+        <input type="radio" name="authority" class="api" value="disabled" class="radio-inline"
                 {{old('authority',isset($state->authority)?$state->authority:'')=='disabled'?'checked="checked"':''}}> Disabled
     </div>
 </div>
@@ -106,18 +106,20 @@
 </div>
 @section('page-specific-scripts')
     <script type="text/javascript">
-        $('#api').change(function(){
-            var api =    $('#api').val();
-            if(api=='enabled')
+        $('.api').click(function(){
+            var radioValue = $("input[name='authority']:checked").val();
+            if(radioValue=='enabled')
             {
                 $('#otherdiv1').show();
                 $('#otherdiv2').show();
             }
-            else
+            if(radioValue=='disabled')
             {
                 $('#otherdiv1').hide();
                 $('#otherdiv2').hide();
             }
+
+
         });
         $('#otherdiv1').show();
         $('#otherdiv2').show();
