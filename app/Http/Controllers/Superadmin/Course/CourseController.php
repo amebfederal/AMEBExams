@@ -7,6 +7,7 @@ use App\Modules\Services\Course\CourseService;
 use App\Modules\Services\Product\CategoryService;
 use App\Modules\Services\Product\GradeService;
 use App\Modules\Services\Product\SubCategoryService;
+use App\Modules\Services\State\StateService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,18 +18,20 @@ class CourseController extends Controller
     protected $category;
     protected $subCategory;
     protected $grade;
+    private $state;
 
 
     public function __construct(CourseService $course,
                                 CategoryService $category,
                                 SubCategoryService $subCategory,
-                                GradeService $grade)
+                                GradeService $grade, StateService $state)
     {
         $this->middleware('superadmin');
         $this->course = $course;
         $this->category = $category;
         $this->subCategory = $subCategory;
         $this->grade = $grade;
+        $this->state =$state;
 
     }
     /**
@@ -120,5 +123,33 @@ class CourseController extends Controller
         }
 
         return redirect()->route('course.index')->with('error', 'Course could not be deleted.');
+    }
+
+    function managePrice($id){
+        $course = $this->course->find($id);
+
+        $statePrices = $course->state_prices;
+        $spArr = [];
+        foreach($statePrices as $price){
+            $spArr[$price->state_id] = $price->price;
+        }
+
+        if(!$course->has_state_price){
+            return redirect()->route('course.index')->with('success', 'State pricing not enabled for the product.');
+        }
+
+        $states = $this->state->all();
+
+        return view('superadmin.course.price.manage', compact('states', 'course', 'spArr'));
+    }
+
+    function savePrice(Request $request, $id){
+
+        if($this->course->savePrice($id, $request->all())){
+            return redirect()->route('course.index')->with('success', 'State pricing saved for the course.');
+        }
+
+        return redirect()->route('course.manage-price', $id)->with('success', 'State price not saved for the course. Please try again later.');
+
     }
 }

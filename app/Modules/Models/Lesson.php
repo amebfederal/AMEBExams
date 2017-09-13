@@ -25,7 +25,7 @@ class Lesson extends Model
     ];
 
     function course(){
-        return $this->belongsTo('App\Modules\Models\Course', 'course_id');
+        return $this->belongsTo('App\Modules\Models\Course');
     }
 
 

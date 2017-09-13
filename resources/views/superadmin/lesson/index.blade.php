@@ -12,7 +12,7 @@
         <div class="panel-body">
 
             <a class="btn btn-sm btn-success add-button"
-               href="{{ route('lesson.create') }}">
+               href="{{ route('lesson.create',$course->slug) }}">
                 <i class="fa fa-aw fc-agenda-axis"></i> Add Lesson
 
             </a>
@@ -38,10 +38,10 @@
                             <td>{{$lesson->video_link}}</td>
                             <td>{{ $lesson->rising_software_link }}</td>
                             <td>
-                                <a href="{{ route('lesson.edit', [$lesson->id]) }}">Edit</a>
+                                <a href="{{ route('lesson.edit', [$course->slug,$lesson->id]) }}">Edit</a>
                                 ||
                                 {!! delete_form(route('lesson.destroy',
-                                [$lesson->id]))
+                                [$course->slug,$lesson->id]))
                                 !!}
                             </td>
                         </tr>

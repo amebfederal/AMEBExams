@@ -22,7 +22,7 @@ class Course extends Model
     ];
 
     protected $appends = [
-        'visibility', 'status', 'availiability_state', 'thumbnail_path'
+        'visibility', 'status', 'availiability_state', 'thumbnail_path', 'has_state_price'
     ];
 
 
@@ -64,6 +64,20 @@ class Course extends Model
     function lessons(){
         return $this->hasMany('App\Modules\Models\Lesson','course_id');
     }
+
+    function states(){
+        return $this->belongsToMany('App\Modules\Models\State', 'courses');
+    }
+
+    function state_prices(){
+        return $this->hasMany('App\Modules\Models\CourseStatePrice', 'course_id');
+    }
+
+
+    function getHasStatePriceAttribute(){
+        return $this->state_price == 'state' ? 1 : 0;
+    }
+
 
 
 

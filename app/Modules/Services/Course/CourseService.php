@@ -1,17 +1,21 @@
 <?php namespace App\Modules\Services\Course;
 
 use App\Modules\Models\Course;
+use App\Modules\Models\CourseStatePrice;
 use App\Modules\Models\Session;
 use App\Modules\Services\Service;
+use Illuminate\Support\Facades\Auth;
 
 class CourseService extends Service
 {
     protected $course;
+    protected $statePrice;
 
     public function __construct(
-        Course $course
+        Course $course, CourseStatePrice $statePrice
     ){
         $this->course = $course;
+        $this->statePrice = $statePrice;
     }
 
     /**
@@ -145,7 +149,25 @@ class CourseService extends Service
     }
 
     public function getBySlug($slug){
-        return $this->course->whereSlug($slug);
+        return $this->course->whereSlug($slug)->first();
+    }
+
+    public function savePrice($id, $data){
+        $course = $this->course->find($id);
+
+        $defaultPrice = $data['default_price'];
+        $statePrices = $data['state_price'];
+
+        $prices = [];
+        foreach($statePrices as $k => $statePrice){
+            $prices[] = new $this->statePrice([
+                'state_id' => $k,
+                'last_updated_by' => Auth::user()->id,
+                'price' => !empty($statePrice) ? $statePrice : $defaultPrice
+            ]);
+        }
+
+        return $course->state_prices()->saveMany($prices);
     }
 
     private function __deleteImages($course){

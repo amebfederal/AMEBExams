@@ -77,22 +77,7 @@
                 </div><!-- .sidebar-submenu -->
             </li>
 
-            <li class="{{ Request::is('super-admin/lesson*')?'active':'' }}">
-                <a href="#" title="Elements">
-                    <i class="glyph-icon icon-list-alt"></i>
-                    <span>Lesson</span>
-                </a>
-                <div class="sidebar-submenu">
 
-                    <ul>
-                        <li class="{{ Request::is('super-admin/lesson/create')?'active':'' }}"><a href="{{route('lesson.create')}}" title="Add Lesson"><span>Add Lesson</span></a></li>
-
-                        <li class="{{ Request::is('super-admin/lesson')?'active':'' }}"><a href="{{ route('lesson.index')}}" title="Manage Lesson"><span>Manage Lesson</span></a></li>
-
-
-                    </ul>
-                </div><!-- .sidebar-submenu -->
-            </li>
 
             <li>
                 <a href="#" title="Widgets">

@@ -17,16 +17,15 @@
 
     <div class="col-sm-6">
         <select class="form-control" name="course_id" id="course_id">
-            <option value="">Select Course</option>
 
-            @foreach ($courses as $course)
+
                 <option value="{{$course->id}}"
                 @if(isset($savedCourse))
                     {{$course->id==$savedCourse->id?'selected="selected"':''}}
                         @endif
                 >{{$course->title}}
                 </option>
-            @endforeach
+
 
         </select>
         <span class="validation-error">{{ $errors->first('course_id') }}</span>
@@ -89,7 +88,7 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('lesson.index') }}" class="btn btn-default btn-sm">
+        <a href="{{ route('lesson.index',$course->slug) }}" class="btn btn-default btn-sm">
             <i class="fa fa-aw fa-reply-o"></i> Back
         </a>
     </div>
