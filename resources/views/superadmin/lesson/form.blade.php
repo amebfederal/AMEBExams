@@ -88,7 +88,7 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('lesson.index',$course->slug) }}" class="btn btn-default btn-sm">
+        <a href="{{ route('course.lesson.index',$course->slug) }}" class="btn btn-default btn-sm">
             <i class="fa fa-aw fa-reply-o"></i> Back
         </a>
     </div>

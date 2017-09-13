@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ ++$k }}</td>
                         <td>
-                          <a href="{{ route('lesson.index',$course->slug) }}"> {{ $course->title }} </a>
+                          <a href="{{ route('course.lesson.index',$course->slug) }}"> {{ $course->title }} </a>
                         </td>
                         <td>{{$course->subject_code}}</td>
 

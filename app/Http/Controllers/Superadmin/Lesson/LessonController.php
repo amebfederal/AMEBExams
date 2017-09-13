@@ -64,10 +64,10 @@ class LessonController extends AdminBaseController
     public function store($slug, LessonRequest $request)
     {
         if ($this->lesson->create($request->all())) {
-            return redirect()->route('lesson.index', $slug)->with('success', 'Lesson created successfully.');
+            return redirect()->route('course.lesson.index', $slug)->with('success', 'Lesson created successfully.');
         }
 
-        return redirect()->route('lesson.create', $slug)->with('error', 'Lesson could not be created.');
+        return redirect()->route('course.lesson.create', $slug)->with('error', 'Lesson could not be created.');
     }
 
 
@@ -94,10 +94,10 @@ class LessonController extends AdminBaseController
     public function update(LessonRequest $request, $slug,  $id)
     {
         if($this->lesson->update($id, $request->all())){
-            return redirect()->route('lesson.index',$slug)->with('success', 'Lesson updated successfully');
+            return redirect()->route('course.lesson.index',$slug)->with('success', 'Lesson updated successfully');
         }
 
-        return redirect()->route('lesson.index', $slug)->with('error', 'Lesson could not be successfully');
+        return redirect()->route('course.lesson.index', $slug)->with('error', 'Lesson could not be successfully');
     }
 
     /**
@@ -109,9 +109,9 @@ class LessonController extends AdminBaseController
     public function destroy($slug,$id)
     {
         if ($this->lesson->delete($id)) {
-            return redirect()->route('lesson.index',$slug)->with('success', 'Lesson deleted successfully.');
+            return redirect()->route('course.lesson.index',$slug)->with('success', 'Lesson deleted successfully.');
         }
 
-        return redirect()->route('lesson.index',$slug)->with('error', 'Lesson could not be deleted.');
+        return redirect()->route('course.lesson.index',$slug)->with('error', 'Lesson could not be deleted.');
     }
 }

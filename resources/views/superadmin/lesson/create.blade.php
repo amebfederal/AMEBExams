@@ -14,7 +14,7 @@
         </h3>
 
         <div class="example-box-wrapper">
-            <form class="form-horizontal bordered-row" method="POST" action="{{ route('lesson.store',$course->slug) }}"
+            <form class="form-horizontal bordered-row" method="POST" action="{{ route('course.lesson.store',$course->slug) }}"
                     enctype="multipart/form-data">
                 @include('superadmin.lesson.form')
             </form>
