@@ -3,11 +3,12 @@
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class FaqCategory extends Model
 {
 
-    use Sluggable;
 
+    use Sluggable;
+    protected $table = 'faq_categories';
     public function sluggable(){
         return [
             'slug' => [
@@ -17,15 +18,17 @@ class Lesson extends Model
     }
 
     protected $fillable = [
-        'title', 'slug', 'description', 'video_link', 'rising_software_link', 'status', 'course_id'
+        'title', 'slug', 'description',  'status',
     ];
 
     protected $appends = [
         'status_text'
     ];
 
-    function course(){
-        return $this->belongsTo('App\Modules\Models\Course');
+
+    function faq()
+    {
+        return $this->hasMany('App\Modules\Models\Faq', 'faq_category_id');
     }
 
 
@@ -33,4 +36,5 @@ class Lesson extends Model
     function getStatusTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->status));
     }
+
 }

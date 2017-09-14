@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Superadmin\Lesson;
 
+use App\Http\Controllers\Superadmin\AdminBaseController;
 use App\Http\Requests\LessonRequest;
 use App\Modules\Services\Course\CourseService;
 use App\Modules\Services\Lesson\LessonService;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class LessonController extends Controller
+
+class LessonController extends AdminBaseController
 {
     protected $lesson;
     protected $course;
@@ -26,12 +27,20 @@ class LessonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug='')
     {
-        //
+            if(empty($slug))
+            {
+                $lessons = $this->lesson->paginate();
+            }
+            else
+            {
+                $course = $this->course->getBySlug($slug);
 
-        $lessons = $this->lesson->paginate();
-        return view('superadmin.lesson.index', compact('courses', 'lessons'));
+                $lessons = $course->lessons;
+            }
+
+        return view('superadmin.lesson.index', compact('course', 'lessons'));
 
     }
 
@@ -40,10 +49,10 @@ class LessonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
-        $courses = $this->course->all();
-        return view('superadmin.lesson.create', compact('courses'));
+        $course = $this->course->getBySlug($slug);
+        return view('superadmin.lesson.create', compact('course'));
     }
 
     /**
@@ -52,13 +61,13 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($slug, LessonRequest $request)
     {
         if ($this->lesson->create($request->all())) {
-            return redirect()->route('lesson.index')->with('success', 'Lesson created successfully.');
+            return redirect()->route('course.lesson.index', $slug)->with('success', 'Lesson created successfully.');
         }
 
-        return redirect()->route('lesson.create')->with('error', 'Lesson could not be created.');
+        return redirect()->route('course.lesson.create', $slug)->with('error', 'Lesson could not be created.');
     }
 
 
@@ -68,12 +77,11 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug,$id)
     {
         $lesson = $this->lesson->find($id);
-        $courses = $this->course->all();
-        $savedCourse = $this->course->find($lesson->course_id);
-        return view('superadmin.lesson.edit', compact('courses', 'lesson', 'savedCourse'));
+        $course = $this->course->getBySlug($slug);
+        return view('superadmin.lesson.edit', compact('course', 'lesson', 'savedCourse'));
     }
 
     /**
@@ -83,13 +91,13 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(LessonRequest $request, $id)
+    public function update(LessonRequest $request, $slug,  $id)
     {
         if($this->lesson->update($id, $request->all())){
-            return redirect()->route('lesson.index')->with('success', 'Lesson updated successfully');
+            return redirect()->route('course.lesson.index',$slug)->with('success', 'Lesson updated successfully');
         }
 
-        return redirect()->route('lesson.index')->with('error', 'Lesson could not be successfully');
+        return redirect()->route('course.lesson.index', $slug)->with('error', 'Lesson could not be successfully');
     }
 
     /**
@@ -98,12 +106,12 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug,$id)
     {
         if ($this->lesson->delete($id)) {
-            return redirect()->route('lesson.index')->with('success', 'Lesson deleted successfully.');
+            return redirect()->route('course.lesson.index',$slug)->with('success', 'Lesson deleted successfully.');
         }
 
-        return redirect()->route('lesson.index')->with('error', 'Lesson could not be deleted.');
+        return redirect()->route('course.lesson.index',$slug)->with('error', 'Lesson could not be deleted.');
     }
 }

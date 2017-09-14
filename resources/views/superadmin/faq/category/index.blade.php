@@ -3,7 +3,7 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Lessons</h2>
+        <h2>FAQ Categories</h2>
 
 
     </div>
@@ -12,8 +12,8 @@
         <div class="panel-body">
 
             <a class="btn btn-sm btn-success add-button"
-               href="{{ route('course.lesson.create',$course->slug) }}">
-                <i class="fa fa-aw fc-agenda-axis"></i> Add Lesson
+               href="{{ route('faq-category.create') }}">
+                <i class="fa fa-aw fc-agenda-axis"></i> Add FAQ-Category
 
             </a>
 
@@ -22,26 +22,25 @@
                 <tr>
                     <th>SN</th>
                     <th>Title</th>
-                    <th>video Link</th>
-                    <th>Rising Software Link</th>
+                    <th>Discription</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($lessons->count() > 0)
-                    @foreach($lessons as $k => $lesson)
+                @if($categories->count() > 0)
+                    @foreach($categories as $k => $category)
                         <tr>
                             <td>{{ ++$k }}</td>
-                            <td>{{ $lesson->title }}</td>
-                            <td>{{ $lesson->status_text }}</td>
-                            <td>{{$lesson->video_link}}</td>
-                            <td>{{ $lesson->rising_software_link }}</td>
+                            <td>{{ $category->title }}</td>
+                            <td>{{$category->description}}</td>
+                            <td>{{ $category->status_text }}</td>
+
                             <td>
-                                <a href="{{ route('course.lesson.edit', [$course->slug,$lesson->id]) }}">Edit</a>
+                                <a href="{{ route('faq-category.edit', [$category->id]) }}">Edit</a>
                                 ||
-                                {!! delete_form(route('course.lesson.destroy',
-                                [$course->slug,$lesson->id]))
+                                {!! delete_form(route('faq-category.destroy',
+                                [$category->id]))
                                 !!}
                             </td>
                         </tr>

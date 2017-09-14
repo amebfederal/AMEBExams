@@ -1,21 +1,22 @@
-<?php namespace App\Modules\Services\Course;
+<?php namespace App\Modules\Services\Faq;
 
 use App\Modules\Models\Course;
 use App\Modules\Models\CourseStatePrice;
+use App\Modules\Models\FaqCategory;
 use App\Modules\Models\Session;
 use App\Modules\Services\Service;
 use Illuminate\Support\Facades\Auth;
 
-class CourseService extends Service
+class FaqCategoryService extends Service
 {
-    protected $course;
-    protected $statePrice;
+    protected $faqCategory;
+
 
     public function __construct(
-        Course $course, CourseStatePrice $statePrice
+       FaqCategory $faqCategory
     ){
-        $this->course = $course;
-        $this->statePrice = $statePrice;
+        $this->faqCategory = $faqCategory;
+
     }
 
     /**
@@ -27,21 +28,10 @@ class CourseService extends Service
     public function create(array $data)
     {
         try {
-            //now try to upload the file
-            $file = $data['file'];
 
-            if(!empty($file)){
-                $this->uploadPath = 'uploads/course';
-                $fileName = $this->upload($file);
+            $category = $this->faqCategory->create($data);
 
-                $data['image'] = $fileName;
-            }else{
-                unset($data['image']);
-            }
-            $data['state_price'] = $data['state_price'] == 'on' ? 'state' : 'default';
-            $course = $this->course->create($data);
-
-            return $course;
+            return $category;
         } catch (Exception $e) {
             return null;
         }
@@ -57,7 +47,7 @@ class CourseService extends Service
     {
         $filter['limit'] = 10;
 
-        return $this->course->paginate($filter['limit']);
+        return $this->faqCategory->paginate($filter['limit']);
     }
 
     /**
@@ -67,7 +57,7 @@ class CourseService extends Service
      */
     public function all()
     {
-        return $this->course->all();
+        return $this->faqCategory->all();
     }
 
     /**
@@ -76,10 +66,10 @@ class CourseService extends Service
      * @param $sessionId
      * @return Session |null
      */
-    public function find($courseId)
+    public function find($categoryId)
     {
         try {
-            return $this->course->find($courseId);
+            return $this->faqCategory->find($categoryId);
         } catch (Exception $e) {
             return null;
         }
@@ -91,29 +81,16 @@ class CourseService extends Service
      * @param array $data
      * @return bool
      */
-    public function update($courseId, array $data)
+    public function update($categoryId, array $data)
     {
         try {
-            $st = $this->course->find($courseId);
-            if(isset($date['file']))
-            $file = $data['file'];
+            $st = $this->faqCategory->find($categoryId);
 
-            if(!empty($file)){
-                $this->uploadPath = 'uploads/course';
-                $fileName = $this->upload($file);
-
-                $data['image'] = $fileName;
-
-                $this->__deleteImages($st);
-            }else{
-                unset($data['image']);
-            }
-            $data['state_price'] = $data['state_price'] == 'on' ? 'state' : 'default';
-            $course = $st->update($data);
+            $category = $st->update($data);
             //$this->logger->info(' created successfully', $data);
 
 
-            return $course;
+            return $category;
         } catch (Exception $e) {
             //$this->logger->error($e->getMessage());
             return false;
@@ -126,16 +103,16 @@ class CourseService extends Service
      * @param Id
      * @return bool
      */
-    public function delete($courseId)
+    public function delete($categoryId)
     {
         try {
-            $course = $this->course->find($courseId);
-            //unset the files uploaded first
-            $this->__deleteImages($course);
-            return $course->delete();
+            $category = $this->faqCategory->find($categoryId);
+            return $category->delete();
 
         } catch (Exception $e) {
+
             return false;
+
         }
     }
 

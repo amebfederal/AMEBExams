@@ -77,22 +77,7 @@
                 </div><!-- .sidebar-submenu -->
             </li>
 
-            <li class="{{ Request::is('super-admin/lesson*')?'active':'' }}">
-                <a href="#" title="Elements">
-                    <i class="glyph-icon icon-list-alt"></i>
-                    <span>Lesson</span>
-                </a>
-                <div class="sidebar-submenu">
 
-                    <ul>
-                        <li class="{{ Request::is('super-admin/lesson/create')?'active':'' }}"><a href="{{route('lesson.create')}}" title="Add Lesson"><span>Add Lesson</span></a></li>
-
-                        <li class="{{ Request::is('super-admin/lesson')?'active':'' }}"><a href="{{ route('lesson.index')}}" title="Manage Lesson"><span>Manage Lesson</span></a></li>
-
-
-                    </ul>
-                </div><!-- .sidebar-submenu -->
-            </li>
 
             <li>
                 <a href="#" title="Widgets">
@@ -200,10 +185,10 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{url('superadmin/faq/add')}}" title="Login page 1"><span>Add FAQ</span></a></li>
-                        <li><a href="{{url('superadmin/faq/manage')}}" title="Login page 2"><span>Manage FAQ</span></a>
+                        <li><a href="{{route('faq.create')}}" title="Login page 1"><span>Add FAQ</span></a></li>
+                        <li><a href="{{route('faq.index')}}" title="Login page 2"><span>Manage FAQ</span></a>
                         </li>
-                        <li><a href="{{url('superadmin/faq/category')}}" title="Login page 2"><span>FAQ Category</span></a>
+                        <li><a href="{{route('faq-category.index')}}" title="Login page 2"><span>FAQ Category</span></a>
                         </li>
                     </ul>
 

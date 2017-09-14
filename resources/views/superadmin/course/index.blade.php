@@ -31,11 +31,14 @@
                 </tr>
                 </thead>
                 <tbody>
+
+
                 @foreach($courses as $k => $course)
+
                     <tr>
                         <td>{{ ++$k }}</td>
                         <td>
-                            {{ $course->title }}
+                          <a href="{{ route('course.lesson.index',$course->slug) }}"> {{ $course->title }} </a>
                         </td>
                         <td>{{$course->subject_code}}</td>
 
@@ -48,6 +51,13 @@
                         <td>
                             <a href="{{ route('course.edit', [$course->id]) }}">Edit</a>
                             ||
+                            @if($course->has_state_price)
+                                <a href="{{ route('course.manage-price', $course->id) }}"
+                                   title="Manage Exam price"><i
+                                            class="glyph-icon icon-money" aria-hidden="true"></i> Price </a>
+                                ||
+                            @endif
+
                             {!! delete_form(route('course.destroy', [$course->id]))
                             !!}
                         </td>

@@ -3,11 +3,11 @@
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class Faq extends Model
 {
 
     use Sluggable;
-
+    protected  $table ='faqs';
     public function sluggable(){
         return [
             'slug' => [
@@ -17,20 +17,28 @@ class Lesson extends Model
     }
 
     protected $fillable = [
-        'title', 'slug', 'description', 'video_link', 'rising_software_link', 'status', 'course_id'
+        'title', 'slug', 'description', 'status', 'faq_category_id'
+
     ];
 
     protected $appends = [
         'status_text'
     ];
 
-    function course(){
-        return $this->belongsTo('App\Modules\Models\Course');
-    }
-
-
 
     function getStatusTextAttribute(){
         return ucwords(str_replace('_', ' ', $this->status));
     }
+
+
+
+
+    function faq_catecory(){
+        return $this->belongsTo('App\Modules\Models\FaqCategory','faq_category_id');
+    }
+
+
+
+
+
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="page-title">
-        <h2>Edit Lesson</h2>
+        <h2>Edit FAQ-Category</h2>
 
 
     </div>
@@ -14,10 +14,10 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" method="POST" action="{{ route('course.lesson.update',[$course->slug,$lesson->id]) }}"
+                <form class="form-horizontal bordered-row" method="POST" action="{{ route('faq-category.update',[$category->id]) }}"
                       enctype="multipart/form-data">
                     {{ method_field('patch') }}
-                    @include('superadmin.lesson.form')
+                    @include('superadmin.faq.category.form')
                 </form>
             </div>
         </div>

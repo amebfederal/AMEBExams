@@ -7,7 +7,7 @@
 
     <div class="col-sm-6">
         <input type="text" class="form-control" name="title" placeholder="Title"
-               value="{{ old('title', isset($lesson->title) ? $lesson->title : '') }}"/>
+               value="{{ old('title', isset($faq->title) ? $faq->title : '') }}"/>
         <span class="validation-error">{{ $errors->first('title') }}</span>
     </div>
 </div>
@@ -16,19 +16,20 @@
     <label class="col-sm-3 control-label">Course <span class="text-danger">*</span></label>
 
     <div class="col-sm-6">
-        <select class="form-control" name="course_id" id="course_id">
+        <select class="form-control" name="faq_category_id" id="faq_category_id">
 
-
-                <option value="{{$course->id}}"
-                @if(isset($savedCourse))
-                    {{$course->id==$savedCourse->id?'selected="selected"':''}}
+                @foreach($faqCategories as $category)
+                <option value="{{$category->id}}"
+                @if(isset($savedCategory))
+                    {{$category->id==$savedCategory->id?'selected="selected"':''}}
                         @endif
-                >{{$course->title}}
+                >{{$category->title}}
                 </option>
+                   @endforeach;
 
 
         </select>
-        <span class="validation-error">{{ $errors->first('course_id') }}</span>
+        <span class="validation-error">{{ $errors->first('faq_category_id') }}</span>
     </div>
 </div>
 
@@ -37,33 +38,13 @@
 
     <div class="col-sm-9">
          <textarea class="ckeditor" cols="80" id="editor1" name="description" rows="10" placeholder="Description">
-            {{ old('description', isset($lesson->description) ? $lesson->description : '') }}
+            {{ old('description', isset($faq->description) ? $faq->description : '') }}
             </textarea>
         <span class="validation-error">{{ $errors->first('description') }}</span>
     </div>
 </div>
 
 
-<div class="form-group">
-    <label class="col-sm-3 control-label">Video Link</label>
-
-    <div class="col-sm-6">
-        <input type="text" class="form-control" name="video_link" placeholder="Video Link"
-               value="{{ old('video_link', isset($lesson->video_link) ? $lesson->video_link : '') }}"/>
-        <span class="validation-error">{{ $errors->first('video_link') }}</span>
-    </div>
-</div>
-
-
-<div class="form-group">
-    <label class="col-sm-3 control-label">Rising Software Link</label>
-
-    <div class="col-sm-6">
-        <input type="text" class="form-control" name="rising_software_link" placeholder="Rising Software Link"
-               value="{{ old('rising_software_link', isset($lesson->rising_software_link) ? $lesson->rising_software_link : '') }}"/>
-        <span class="validation-error">{{ $errors->first('rising_software_link') }}</span>
-    </div>
-</div>
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Status</label>
@@ -71,11 +52,11 @@
     <div class="col-sm-6">
         <select class="form-control" name="status">
             <option value="active"
-                    {{ old('status', isset($lesson->status) ? $lesson->status : '') == 'active' ? 'selected="selected"' : '' }}
+                    {{ old('status', isset($faq->status) ? $faq->status : '') == 'active' ? 'selected="selected"' : '' }}
                     >Active
             </option>
             <option value="in_active"
-                    {{ old('status', isset($lesson->status) ? $lesson->status : '') == 'in_active' ? 'selected="selected"' : '' }}
+                    {{ old('status', isset($faq->status) ? $faq->status : '') == 'in_active' ? 'selected="selected"' : '' }}
                     >Inactive
             </option>
         </select>
@@ -88,7 +69,7 @@
 
     <div class="col-sm-6">
         <button type="submit" class="btn btn-success btn-sm">Save</button>
-        <a href="{{ route('course.lesson.index',$course->slug) }}" class="btn btn-default btn-sm">
+        <a href="{{ route('faq.index') }}" class="btn btn-default btn-sm">
             <i class="fa fa-aw fa-reply-o"></i> Back
         </a>
     </div>

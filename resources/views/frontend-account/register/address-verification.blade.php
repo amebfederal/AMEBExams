@@ -13,11 +13,11 @@
                             <div class="panel-body">
 
                                 @foreach ($errors->all() as $error)
-                                <div>{{ $error }}</div>
+                                    <div>{{ $error }}</div>
                                 @endforeach
 
                                 <div class="example-box-wrapper">
-                                    <form action="{{ url('Account') }}" method="get"
+                                    <form action="{{ url('account/register/register') }}" method="get"
                                           class="form-horizontal bordered-row">
                                         {!! csrf_field() !!}
                                         <div class="col-md-12">
@@ -99,4 +99,3 @@
         });
     </script>
 @endsection
-

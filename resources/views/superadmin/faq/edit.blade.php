@@ -14,10 +14,10 @@
             </h3>
 
             <div class="example-box-wrapper">
-                <form class="form-horizontal bordered-row" method="POST" action="{{ route('course.lesson.update',[$course->slug,$lesson->id]) }}"
+                <form class="form-horizontal bordered-row" method="POST" action="{{ route('faq.update',[$faq->id]) }}"
                       enctype="multipart/form-data">
                     {{ method_field('patch') }}
-                    @include('superadmin.lesson.form')
+                    @include('superadmin.faq.form')
                 </form>
             </div>
         </div>
