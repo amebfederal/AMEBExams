@@ -182,10 +182,10 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{url('superadmin/faq/add')}}" title="Login page 1"><span>Add FAQ</span></a></li>
-                        <li><a href="{{url('superadmin/faq/manage')}}" title="Login page 2"><span>Manage FAQ</span></a>
+                        <li><a href="{{route('faq.create')}}" title="Login page 1"><span>Add FAQ</span></a></li>
+                        <li><a href="{{route('faq.index')}}" title="Login page 2"><span>Manage FAQ</span></a>
                         </li>
-                        <li><a href="{{url('superadmin/faq/category')}}" title="Login page 2"><span>FAQ Category</span></a>
+                        <li><a href="{{route('faq-category.index')}}" title="Login page 2"><span>FAQ Category</span></a>
                         </li>
                     </ul>
 

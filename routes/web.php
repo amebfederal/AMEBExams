@@ -73,6 +73,8 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
 
     $router->resource('admin-setting', 'Superadmin\AdminSetting\AdminSettingController');
     $router->resource('course', 'Superadmin\Course\CourseController');
+    $router->resource('faq', 'Superadmin\Faq\FaqController');
+    $router->resource('faq-category', 'Superadmin\Faq\FaqCategoryController');
     $router->resource('course.lesson', 'Superadmin\Lesson\LessonController');
 
 /*    $router->get('course/{slug}/lesson/create',[ 'as'=> 'lesson.create', 'uses'=> 'Superadmin\Lesson\LessonController@create' ]);
