@@ -3,7 +3,7 @@
 @section('content')
 
     <div id="page-title">
-        <h2>Lessons</h2>
+        <h2>Faq</h2>
 
 
     </div>
@@ -12,8 +12,8 @@
         <div class="panel-body">
 
             <a class="btn btn-sm btn-success add-button"
-               href="{{ route('course.lesson.create',$course->slug) }}">
-                <i class="fa fa-aw fc-agenda-axis"></i> Add Lesson
+               href="{{ route('faq.create') }}">
+                <i class="fa fa-aw fc-agenda-axis"></i> Add FAQ
 
             </a>
 
@@ -22,26 +22,22 @@
                 <tr>
                     <th>SN</th>
                     <th>Title</th>
-                    <th>video Link</th>
-                    <th>Rising Software Link</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($lessons->count() > 0)
-                    @foreach($lessons as $k => $lesson)
+                @if($faqs->count() > 0)
+                    @foreach($faqs as $k => $faq)
                         <tr>
                             <td>{{ ++$k }}</td>
-                            <td>{{ $lesson->title }}</td>
-                            <td>{{ $lesson->status_text }}</td>
-                            <td>{{$lesson->video_link}}</td>
-                            <td>{{ $lesson->rising_software_link }}</td>
+                            <td>{{ $faq->title }}</td>
+                            <td>{{ $faq->status_text }}</td>
                             <td>
-                                <a href="{{ route('course.lesson.edit', [$course->slug,$lesson->id]) }}">Edit</a>
+                                <a href="{{ route('faq.edit', [$faq->id]) }}">Edit</a>
                                 ||
-                                {!! delete_form(route('course.lesson.destroy',
-                                [$course->slug,$lesson->id]))
+                                {!! delete_form(route('faq.destroy',
+                                [$faq->id]))
                                 !!}
                             </td>
                         </tr>

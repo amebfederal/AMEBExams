@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="page-title">
-    <h2>Add Lesson</h2>
+    <h2>Add FAQ</h2>
 
 
 </div>
@@ -14,9 +14,9 @@
         </h3>
 
         <div class="example-box-wrapper">
-            <form class="form-horizontal bordered-row" method="POST" action="{{ route('course.lesson.store',$course->slug) }}"
+            <form class="form-horizontal bordered-row" method="POST" action="{{ route('faq.store') }}"
                     enctype="multipart/form-data">
-                @include('superadmin.lesson.form')
+                @include('superadmin.faq.form')
             </form>
         </div>
     </div>
