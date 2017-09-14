@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers\SuperAdmin\Account;
 
+use App\Modules\Services\Option\CountryService;
+use App\Modules\Services\State\StateService;
 use App\Http\Controllers\Superadmin\AdminBaseController;
 use App\Http\Requests\AccountHolderRequest;
 use App\Modules\Services\AccountHolder\AccountHolderService;
@@ -7,12 +9,19 @@ use App\Modules\Services\AccountHolder\AccountHolderService;
 class AccountController extends AdminBaseController
 {
     protected $account;
+    protected $states;
+    protected $country;
 
-    public function __construct(AccountHolderService $account
+    public function __construct(
+        AccountHolderService $account,
+        StateService $state,
+        CountryService $country
     )
     {
         $this->middleware('auth');
         $this->account = $account;
+        $this->states = $state;
+        $this->country = $country;
     }
 
     /**
@@ -28,10 +37,6 @@ class AccountController extends AdminBaseController
     /**
      *
      */
-    public function create()
-    {
-
-    }
 
     /**
      * Store a newly created Bank in storage.
@@ -57,8 +62,10 @@ class AccountController extends AdminBaseController
     public function edit($id)
     {
         $account = $this->account->find($id);
+        $countries= $this->country->all();
+        $states = $this->states->all();
 
-        return view('superadmin.account.edit', compact('account'));
+        return view('superadmin.account.edit', compact('account', 'countries', 'states'));
     }
 
     /**

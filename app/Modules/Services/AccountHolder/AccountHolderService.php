@@ -103,7 +103,6 @@ class AccountHolderService extends Service
         try {
             $account = $this->account->find($accountId);
             //unset the files uploaded first
-            $this->__deleteImages($account);
 
             return $account->delete();
 

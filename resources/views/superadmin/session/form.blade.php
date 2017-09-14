@@ -1,8 +1,6 @@
 {!! csrf_field() !!}
-
 <div class="form-group">
     <label class="col-sm-3 control-label">Name <span class="text-danger">*</span></label>
-
     <div class="col-sm-6">
         <input type="text" class="form-control" name="name"
                value="{{ old('name', isset($session->name) ? $session->name : '') }}"/>
@@ -32,7 +30,6 @@
 
 <div class="form-group">
     <label class="col-sm-3 control-label">Status <span class="text-danger">*</span></label>
-
     <div class="col-sm-6">
         <select class="form-control" name="status">
             <option value="active"

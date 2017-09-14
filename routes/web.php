@@ -41,6 +41,8 @@ Route::group(['middleware' => 'superadmin', 'prefix' => 'super-admin'], function
     $router->resource('category', 'SuperAdmin\Product\CategoryController');
     $router->resource('category.sub-category', 'SuperAdmin\Product\SubCategoryController');
     $router->resource('state', 'SuperAdmin\State\StateController');
+    $router->resource('parent-page', 'SuperAdmin\Page\ParentPageController');
+    $router->resource('page', 'SuperAdmin\Page\PageController');
     $router->resource('account', 'SuperAdmin\Account\AccountController');
     $router->resource('sub-category.grade', 'SuperAdmin\Product\GradeController');
     $router->resource('session', 'SuperAdmin\Session\SessionController');
@@ -112,10 +114,10 @@ Route::get('superadmin/reports/reports/manage',    function () {
     return view('superadmin.reports.managereports');
 });
 Route::get('superadmin/page/add',    function () {
-    return view('superadmin.pages.add');
+    return view('superadmin.page.add');
 });
 Route::get('superadmin/page/manage',    function () {
-    return view('superadmin.pages.manage');
+    return view('superadmin.page.manage');
 });
 Route::get('superadmin/faq/add',    function () {
     return view('superadmin.faq.add');
