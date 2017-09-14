@@ -28,7 +28,7 @@ class AccountHolderRequest extends FormRequest
             'lname' => 'required',
             'role' => 'required',
             'phone' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:',
             'confirm_email' => 'sometimes|same:email',
             'password' => 'required',
             'confirm_password' => 'sometimes|same:password',
@@ -39,6 +39,15 @@ class AccountHolderRequest extends FormRequest
             'age_verification' => 'required',
             'g-recaptcha-response' => 'required|recaptcha',
         ];
+
+        if($this->method() != 'PATCH'){
+            $rules['image'] = 'required';
+            $rules['email'] = 'required|unique:online_examinations|max:100';
+        }else{
+            $id = $this->segment(3);
+            $rules['email'] = 'required|unique:online_examinations,id,'.$id.'|max:100';
+        }
+
         return $rules;
     }
 

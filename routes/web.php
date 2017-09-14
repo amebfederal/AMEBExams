@@ -204,9 +204,9 @@ Account Holders Route
 *******************************************************************************************
 */
 
-Route::get('Account/register/address-verification', 'AccountHolder\Register\RegisterController@create');
-Route::get('Account/register/register', 'AccountHolder\Register\RegisterController@register');
-Route::post('Account/register/do-register',
+Route::get('account/register/address-verification', 'AccountHolder\Register\RegisterController@create');
+Route::get('account/register/register', 'AccountHolder\Register\RegisterController@register');
+Route::post('account/register/do-register',
     ['as' => 'do-register', 'uses' => 'AccountHolder\Register\RegisterController@doRegister']);
 Route::get('user/activation/{token}', 'AccountHolder\Register\RegisterController@activateUser')->name('user.activate');
 
