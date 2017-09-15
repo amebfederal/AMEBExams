@@ -120,11 +120,10 @@
                                                            class="form-control {{ $errors->first('password') ? 'errorbox' : '' }}"
                                                            name="password"
                                                            placeholder="Your password">
-                                                    <small><i style="color: #999999;">Password must be at least 8
+                                                    <small><i style="{{ !$errors->first('password') ? 'color: #999999;' : 'color: red' }}">Password must be at least 8
                                                             characters long,
                                                             must contain at least one capital letter, one symbol and one
                                                             number.</i></small>
-                                                    <i class="errormsg" style="display: block">{{ $errors->first('password') }}</i>
                                                 </div>
 
                                             </div>
@@ -224,7 +223,7 @@
                                                             @foreach($countries as $country)
                                                                 <option value="{{ $country->id }}" {{ old('state') == $country->id ? 'selected="selected"' : '' }}
                                                                         {{ $country->code == $data['country'] ? 'selected="selected"' : '' }}
-                                                                        ></option>
+                                                                        >{{ $country->name }}</option>
                                                             @endforeach
                                                         @else
                                                             @foreach($states as $state)
