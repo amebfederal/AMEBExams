@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Accountholder\Register;
+namespace App\Http\Controllers\AccountHolder\Register;
 
 use App\Factories\ActivationFactory;
 use App\Http\Requests\AccountHolderRequest;
@@ -70,7 +70,7 @@ class RegisterController extends Controller
 //            $Account = $this->Account->find($Account->id);
             $this->activationFactory->sendActivationMail($account);
 
-            return redirect()->to('account/register/address-verification');
+            return redirect()->to('accountholders/dashboard');
         }
     }
 
