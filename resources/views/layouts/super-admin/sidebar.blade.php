@@ -164,10 +164,13 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{url('superadmin/page/add')}}"
-                               title="Alternate dashboard"><span>Add New</span></a></li>
-                        <li><a href="{{url('superadmin/page/manage')}}"
-                               title="View profile"><span>Manage Pages</span></a></li>
+                        <li><a href="{{url('super-admin/parent-page')}}"
+                               title="View profile"><span>Manage Parent Pages</span></a></li>
+                        <li><a href="{{url('super-admin/page/create')}}"
+                               title="Alternate dashboard"><span>Add Pages</span></a></li>
+                        <li><a href="{{url('super-admin/page')}}"
+                               title="Alternate dashboard"><span>Manage Pages</span></a></li>
+
                     </ul>
 
                 </div>

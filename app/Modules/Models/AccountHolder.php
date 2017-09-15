@@ -24,6 +24,6 @@ class AccountHolder extends  Authenticatable
     }
 
     function state(){
-        return $this->belongsTo('App\Modules\Models\State', 'account_state')->withTimestamps();
+        return $this->belongsTo('App\Modules\Models\State', 'account_state');
     }
 }
