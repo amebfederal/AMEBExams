@@ -69,6 +69,8 @@ class RegisterController extends Controller
         if($account = $this->account->create($request->all())){
 //            $Account = $this->Account->find($Account->id);
             $this->activationFactory->sendActivationMail($account);
+
+            return redirect()->to('account/register/address-verification');
         }
     }
 

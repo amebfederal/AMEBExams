@@ -42,7 +42,6 @@ class AccountHolderRequest extends FormRequest
         ];
 
         if($this->method() != 'PATCH'){
-            $rules['image'] = 'required';
             $rules['email'] = 'required|unique:account_holders|max:100';
         }else{
             $id = $this->segment(3);

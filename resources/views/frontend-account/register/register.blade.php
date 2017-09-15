@@ -1,6 +1,9 @@
 @extends('layouts.frontend-account')
 @section('content')
     <div id="page-content" class="col-md-12 center-margin frontend-components mrg25T">
+        @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
         <div class="row">
             <div class="container">
                 <div class="row">
@@ -217,6 +220,7 @@
                                                     *</label>
 
                                                 <div class="col-sm-9">
+                                                    <input name="chosen_state" type="hidden" value="{{ $data['state'] }}">
                                                     <select class="form-control" name="state_id">
                                                         <option>Select State (Country)</option>
                                                         @if($data['state'] == 'others')
