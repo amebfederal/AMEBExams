@@ -1,0 +1,16 @@
+/node_modules
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+composer.lock
+/public/uploads
+/config/database.php
+/config/app.php
+<<<<<<< HEAD
+/public/uploads/
+=======
+>>>>>>> 5083606afa3b061cabdc530deee90c7ab70523ab

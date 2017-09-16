@@ -1,0 +1,5 @@
+@include('candidate.layouts.head')
+@include('candidate.layouts.sidebar')
+@yield('content')
+@yield('page-specific-scripts')
+@include('candidate.layouts.footer')
