@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin\Course;
+namespace App\Http\Controllers\SuperAdmin\Course;
 
 use App\Http\Requests\CourseRequest;
 use App\Modules\Services\Course\CourseService;

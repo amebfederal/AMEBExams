@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\SuperAdmin\Venue;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\VenueRequest;
 use App\Modules\Services\Venue\VenueService;
 

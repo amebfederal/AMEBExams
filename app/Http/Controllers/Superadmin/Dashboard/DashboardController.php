@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin\Dashboard;
+namespace App\Http\Controllers\SuperAdmin\Dashboard;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\SuperAdmin\PracticeExam;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\PracticeExaminationRequest;
 use App\Modules\Services\Product\OnlineExaminationService;
 use App\Modules\Services\Product\PracticeExaminationService;

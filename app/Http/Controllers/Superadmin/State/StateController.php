@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\SuperAdmin\State;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\StateRequest;
 use App\Modules\Services\State\StateService;
 

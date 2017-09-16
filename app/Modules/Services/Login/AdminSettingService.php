@@ -1,6 +1,6 @@
 <?php namespace App\Modules\Services\Login;
 
-use App\Http\Controllers\Superadmin\AdminSetting\AdminSettingController;
+use App\Http\Controllers\SuperAdmin\AdminSetting\AdminSettingController;
 use App\Modules\Models\User;
 use App\Modules\Services\Service;
 

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\SuperAdmin\Session;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\SessionRequest;
 use App\Modules\Models\SessionVenue;
 use App\Modules\Services\Venue\VenueService;

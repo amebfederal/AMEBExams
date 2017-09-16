@@ -2,7 +2,7 @@
 
 use App\Modules\Services\Option\CountryService;
 use App\Modules\Services\State\StateService;
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\AccountHolderRequest;
 use App\Modules\Services\AccountHolder\AccountHolderService;
 

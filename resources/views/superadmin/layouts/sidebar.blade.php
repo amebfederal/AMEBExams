@@ -121,7 +121,7 @@
                 <div class="sidebar-submenu">
 
                     <ul>
-                        <li><a href="{{url('superadmin/banner/add')}}" title="Login page 1"><span>Add Banner</span></a></li>
+                        <li><a href="{{url('superadmin/banner/create')}}" title="Login page 1"><span>Add Banner</span></a></li>
                         <li><a href="{{url('superadmin/banner/manage')}}" title="Login page 2"><span>Manage Banner</span></a></li>
                     </ul>
 

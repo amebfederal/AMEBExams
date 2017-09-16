@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin\Banner;
+namespace App\Http\Controllers\SuperAdmin\Banner;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\BannerRequest;
 use App\Modules\Services\Banner\BannerService;
 use Illuminate\Http\Request;

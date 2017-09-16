@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\SuperAdmin\Page;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\PageRequest;
 use App\Modules\Services\Page\PageService;
 use App\Modules\Services\Page\ParentPageService;

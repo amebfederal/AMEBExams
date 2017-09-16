@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin\Faq;
+namespace App\Http\Controllers\SuperAdmin\Faq;
 
 use App\Http\Requests\CourseRequest;
 use App\Http\Requests\FaqCategoryRequest;

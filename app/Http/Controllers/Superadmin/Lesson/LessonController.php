@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin\Lesson;
+namespace App\Http\Controllers\SuperAdmin\Lesson;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\LessonRequest;
 use App\Modules\Services\Course\CourseService;
 use App\Modules\Services\Lesson\LessonService;

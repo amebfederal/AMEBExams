@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Modules\Models\Category;
 use App\Modules\Services\Product\CategoryService;
 use App\Modules\Services\Product\GradeService;

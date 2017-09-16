@@ -64,7 +64,7 @@ Route::group(['middleware' => 'superadmin', 'prefix' => 'api'], function ($route
 Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function ($router) {
 
     Route::get('dashboard',
-        ['as' => 'superadmin.dashboard',  'uses' => 'Superadmin\Dashboard\DashboardController@index']);
+        ['as' => 'superadmin.dashboard',  'uses' => 'SuperAdmin\Dashboard\DashboardController@index']);
     Route::get('login',
         ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@showLoginForm']);
     Route::get('logout',
@@ -73,28 +73,28 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
         ['as' => 'superadmin.login',  'uses' => 'Auth\SuperadminLoginController@login']);
 
 
-    $router->resource('admin-setting', 'Superadmin\AdminSetting\AdminSettingController');
-    $router->resource('course', 'Superadmin\Course\CourseController');
-    $router->resource('faq', 'Superadmin\Faq\FaqController');
-    $router->resource('faq-category', 'Superadmin\Faq\FaqCategoryController');
-    $router->resource('course.lesson', 'Superadmin\Lesson\LessonController');
+    $router->resource('admin-setting', 'SuperAdmin\AdminSetting\AdminSettingController');
+    $router->resource('course', 'SuperAdmin\Course\CourseController');
+    $router->resource('faq', 'SuperAdmin\Faq\FaqController');
+    $router->resource('faq-category', 'SuperAdmin\Faq\FaqCategoryController');
+    $router->resource('course.lesson', 'SuperAdmin\Lesson\LessonController');
     $router->resource('banner', 'SuperAdmin\Banner\BannerController');
 
-/*    $router->get('course/{slug}/lesson/create',[ 'as'=> 'lesson.create', 'uses'=> 'Superadmin\Lesson\LessonController@create' ]);
-    $router->get('course/{slug}/lesson',[ 'as'=> 'lesson.index', 'uses'=> 'Superadmin\Lesson\LessonController@index' ]);
-    $router->post('course/{slug}/lesson/store',[ 'as'=> 'lesson.store', 'uses'=> 'Superadmin\Lesson\LessonController@store' ]);
-    $router->get('course/{slug}/{id}/lesson/edit',[ 'as'=> 'lesson.edit', 'uses'=> 'Superadmin\Lesson\LessonController@edit' ]);
-    $router->patch('course/{slug}/{id}/lesson/update',[ 'as'=> 'lesson.update', 'uses'=> 'Superadmin\Lesson\LessonController@update' ]);
-    $router->delete('course/{slug}/{id}/lesson/destroy',[ 'as'=> 'lesson.destroy', 'uses'=> 'Superadmin\Lesson\LessonController@destroy' ]);*/
+/*    $router->get('course/{slug}/lesson/create',[ 'as'=> 'lesson.create', 'uses'=> 'SuperAdmin\Lesson\LessonController@create' ]);
+    $router->get('course/{slug}/lesson',[ 'as'=> 'lesson.index', 'uses'=> 'SuperAdmin\Lesson\LessonController@index' ]);
+    $router->post('course/{slug}/lesson/store',[ 'as'=> 'lesson.store', 'uses'=> 'SuperAdmin\Lesson\LessonController@store' ]);
+    $router->get('course/{slug}/{id}/lesson/edit',[ 'as'=> 'lesson.edit', 'uses'=> 'SuperAdmin\Lesson\LessonController@edit' ]);
+    $router->patch('course/{slug}/{id}/lesson/update',[ 'as'=> 'lesson.update', 'uses'=> 'SuperAdmin\Lesson\LessonController@update' ]);
+    $router->delete('course/{slug}/{id}/lesson/destroy',[ 'as'=> 'lesson.destroy', 'uses'=> 'SuperAdmin\Lesson\LessonController@destroy' ]);*/
 
     $router->get('superadmin/course/{id}/course-price', ['as' => 'course.manage-price', 'uses' => 'SuperAdmin\Course\CourseController@managePrice']);
     $router->post('superadmin/course/{id}/course-price',
         ['as' => 'course.save-price', 'uses' => 'SuperAdmin\Course\CourseController@savePrice']);
 
     Route::get('admin-setting/{id}/change-password',
-        ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@showPasswordChangeForm' ]);
+        ['as'=>'admin-setting.change-password', 'uses'=>'SuperAdmin\AdminSetting\AdminSettingController@showPasswordChangeForm' ]);
     Route::post('admin-setting/{id}/change-password',
-        ['as'=>'admin-setting.change-password', 'uses'=>'Superadmin\AdminSetting\AdminSettingController@passwordChange' ]);
+        ['as'=>'admin-setting.change-password', 'uses'=>'SuperAdmin\AdminSetting\AdminSettingController@passwordChange' ]);
 
     Route::post('course/get-subcat',
         ['as'=>'course.getsubcat', 'uses'=>'Api\CourseController@showSubCategory']);

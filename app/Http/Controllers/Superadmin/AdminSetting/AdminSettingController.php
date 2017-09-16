@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Superadmin\AdminSetting;
+namespace App\Http\Controllers\SuperAdmin\AdminSetting;
 
-use App\Http\Controllers\Superadmin\AdminBaseController;
+use App\Http\Controllers\SuperAdmin\AdminBaseController;
 use App\Http\Requests\AdminChangePasswordRequest;
 use App\Http\Requests\AdminLoginAddRequest;
 use App\Http\Requests\AdminLoginEditRequest;
