@@ -41,6 +41,17 @@ return [
             'provider' => 'users',
         ],
 
+        //Admin custom driver.
+        'superadmin' => [
+            'driver' => 'session',
+            'provider' => 'superadmin',
+        ],
+
+        'accountholders' => [
+            'driver' => 'session',
+            'provider' => 'accountholders'
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -67,9 +78,19 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Modules\Models\User::class,
         ],
 
+        //User Provider for superadminadmin
+        'superadmin' => [
+            'driver' => 'eloquent',
+             'model' => App\Modules\Models\User::class,
+        ],
+
+        'accountholders' => [
+            'driver' => 'eloquent',
+            'model' => \App\Modules\Models\AccountHolder::class,
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -81,6 +102,7 @@ return [
     | Resetting Passwords
     |--------------------------------------------------------------------------
     |
+
     | You may specify multiple password reset configurations if you have more
     | than one user table or model in the application and you want to have
     | separate password reset settings based on the specific user types.
@@ -94,6 +116,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        //Password broker for superadmin
+        'superadmin' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
         ],

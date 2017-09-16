@@ -1,0 +1,5 @@
+@include('layouts.frontend-account.head')
+@include('layouts.frontend-account.header')
+@yield('content')
+@yield('page-specific-scripts')
+@include('layouts.frontend-account.footer')
