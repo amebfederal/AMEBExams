@@ -1,6 +1,9 @@
 @extends('layouts.frontend-account')
 @section('content')
     <div id="page-content" class="col-md-12 center-margin frontend-components mrg25T">
+        @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
         <div class="row">
             <div class="container">
                 <div class="row">
@@ -120,11 +123,10 @@
                                                            class="form-control {{ $errors->first('password') ? 'errorbox' : '' }}"
                                                            name="password"
                                                            placeholder="Your password">
-                                                    <small><i style="color: #999999;">Password must be at least 8
+                                                    <small><i style="{{ !$errors->first('password') ? 'color: #999999;' : 'color: red' }}">Password must be at least 8
                                                             characters long,
                                                             must contain at least one capital letter, one symbol and one
                                                             number.</i></small>
-                                                    <i class="errormsg" style="display: block">{{ $errors->first('password') }}</i>
                                                 </div>
 
                                             </div>
@@ -218,13 +220,14 @@
                                                     *</label>
 
                                                 <div class="col-sm-9">
+                                                    <input name="chosen_state" type="hidden" value="{{ $data['state'] }}">
                                                     <select class="form-control" name="state_id">
                                                         <option>Select State (Country)</option>
                                                         @if($data['state'] == 'others')
                                                             @foreach($countries as $country)
                                                                 <option value="{{ $country->id }}" {{ old('state') == $country->id ? 'selected="selected"' : '' }}
                                                                         {{ $country->code == $data['country'] ? 'selected="selected"' : '' }}
-                                                                        ></option>
+                                                                        >{{ $country->name }}</option>
                                                             @endforeach
                                                         @else
                                                             @foreach($states as $state)

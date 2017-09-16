@@ -12,10 +12,6 @@
                         <div class="panel">
                             <div class="panel-body">
 
-                                @foreach ($errors->all() as $error)
-                                    <div>{{ $error }}</div>
-                                @endforeach
-
                                 <div class="example-box-wrapper">
                                     <form action="{{ url('account/register/register') }}" method="get"
                                           class="form-horizontal bordered-row">

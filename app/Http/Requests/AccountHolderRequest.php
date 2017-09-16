@@ -30,6 +30,7 @@ class AccountHolderRequest extends FormRequest
             'phone' => 'required',
             'email' => 'required|unique:',
             'confirm_email' => 'sometimes|same:email',
+            // 'password' => 'required|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/',
             'password' => 'required',
             'confirm_password' => 'sometimes|same:password',
             'address' => 'required',
@@ -41,11 +42,10 @@ class AccountHolderRequest extends FormRequest
         ];
 
         if($this->method() != 'PATCH'){
-            $rules['image'] = 'required';
-            $rules['email'] = 'required|unique:online_examinations|max:100';
+            $rules['email'] = 'required|unique:account_holders|max:100';
         }else{
             $id = $this->segment(3);
-            $rules['email'] = 'required|unique:online_examinations,id,'.$id.'|max:100';
+            $rules['email'] = 'required|unique:account_holders,id,'.$id.'|max:100';
         }
 
         return $rules;
@@ -54,7 +54,8 @@ class AccountHolderRequest extends FormRequest
     public function messages(){
 
         return [
-            'phone:required' => 'The preferred phone field is required'
+            'phone:required' => 'The preferred phone field is required',
+            'password:regex' => 'The password field does not meet the requirement mentioned'
         ];
 
     }

@@ -1,28 +1,24 @@
-
- </div>
-</div> 
-</div>
 <div class="main-footer bg-black clearfix">
     <div class="container clearfix">
         <div class="col-md-3 pad25R">
             <div class="header">About AMEB</div>
             <p class="about-us">
                 sollicitudin eu erat. Pellentesque ornare mi vitae sem consequat ac bibendum neque adipiscing.
-            </p>    
+            </p>
         </div>
         <div class="col-md-3">
             <div class="header">State Offices</div>
-             <ul class="footer-nav">
+            <ul class="footer-nav">
                 <li><a href="hero-static.html" title="Static hero sections"><span>New South Wales</span></a></li>
                 <li><a href="hero-alignments.html" title="Hero alignments"><span>Australian Capital Territory</span></a></li>
                 <li><a href="hero-overlays.html" title="Hero overlays"><span>Victoria</span></a></li>
-                 <li><a href="hero-overlays.html" title="Hero overlays"><span>Queensland</span></a></li>
-                  <li><a href="hero-overlays.html" title="Hero overlays"><span>Western Australia</span></a></li>
-                  <li><a href="hero-overlays.html" title="Hero overlays"><span>Tasmania</span></a></li>
-                  <li><a href="hero-overlays.html" title="Hero overlays"><span>South Australia</span></a></li>
-                  <li><a href="hero-overlays.html" title="Hero overlays"><span>Northern Territory</span></a></li>
-            </ul>  
-           
+                <li><a href="hero-overlays.html" title="Hero overlays"><span>Queensland</span></a></li>
+                <li><a href="hero-overlays.html" title="Hero overlays"><span>Western Australia</span></a></li>
+                <li><a href="hero-overlays.html" title="Hero overlays"><span>Tasmania</span></a></li>
+                <li><a href="hero-overlays.html" title="Hero overlays"><span>South Australia</span></a></li>
+                <li><a href="hero-overlays.html" title="Hero overlays"><span>Northern Territory</span></a></li>
+            </ul>
+
         </div>
         <div class="col-md-3">
             <h3 class="header">Links</h3>
@@ -38,7 +34,7 @@
         <div class="col-md-3">
             <h3 class="header">Contact us</h3>
             <ul class="footer-contact">
-              <li>
+                <li>
                     <i class="glyph-icon icon-about"></i>
                     AMEB Federal Office
                 </li>
@@ -48,9 +44,9 @@
                 </li>
                 <li>
                     <i class="glyph-icon icon-phone"></i>
-                    
-                1300 725 709
-            
+
+                    1300 725 709
+
                 </li>
                 <li>
                     <i class="glyph-icon icon-globe"></i>
@@ -74,47 +70,48 @@
             </div>
         </div>
     </div>
-</div></div>
+</div>
 
 
-    <!-- FRONTEND ELEMENTS -->
 
-    <!-- JS Demo -->
-  <!-- WIDGETS -->
+<!-- FRONTEND ELEMENTS -->
 
-<script type="text/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.js') }}"></script>
+<!-- JS Demo -->
+<!-- WIDGETS -->
 
-<script type="text/javascript" src="{{ asset('assets/widgets/progressbar/progressbar.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/bootstrap/js/bootstrap.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/widgets/superclick/superclick.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/progressbar/progressbar.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/widgets/input-switch/inputswitch-alt.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/superclick/superclick.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/widgets/slimscroll/slimscroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/input-switch/inputswitch-alt.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/widgets/slidebars/slidebars.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/widgets/slidebars/slidebars-demo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/slimscroll/slimscroll.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/widgets/charts/piegage/piegage.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/widgets/charts/piegage/piegage-demo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/slidebars/slidebars.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/slidebars/slidebars-demo.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('assets/widgets/screenfull/screenfull.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/charts/piegage/piegage.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/charts/piegage/piegage-demo.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/screenfull/screenfull.js') }}"></script>
 
 <!-- Content box -->
 
-<script type="text/javascript" src="{{ asset('assets/widgets/content-box/contentbox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/content-box/contentbox.js') }}"></script>
 
 <!-- Overlay -->
 
-<script type="text/javascript" src="{{ asset('assets/widgets/overlay/overlay.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/widgets/overlay/overlay.js') }}"></script>
 
 <!-- Widgets init for demo -->
 
-<script type="text/javascript" src="{{ asset('assets/js-init/widgets-init.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/js-init/widgets-init.js') }}"></script>
 
 <!-- Theme layout -->
 
-<script type="text/javascript" src="{{ asset('assets/themes/admin/layout.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/themes/admin/layout.js') }}"></script>
 
 
 

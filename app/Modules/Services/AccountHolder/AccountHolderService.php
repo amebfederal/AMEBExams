@@ -23,7 +23,12 @@ class AccountHolderService extends Service
     public function create(array $data)
     {
 //        try {
-        $data[''] = '';
+        $chosenState = $data['chosen_state'];
+        if($chosenState == 'others'){
+            $data['country_id'] = $data['state_id'];
+            unset($data['state_id']);
+        }
+        $data['password'] = bcrypt($data['password']);
         $account = $this->account->create($data);
 
         // now send a verification link

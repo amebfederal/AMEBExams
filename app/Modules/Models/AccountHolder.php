@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AccountHolder extends  Authenticatable
 {
+    protected $table = 'account_holders';
     protected $fillable = [
         'title', 'role', 'fname', 'lname','email','password','phone','o_phone','address','alt_address','city','suburb','country', 'preference',
         'state_id', 'postcode', 'school_name'
