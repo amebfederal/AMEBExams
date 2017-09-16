@@ -78,7 +78,7 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
     $router->resource('faq', 'Superadmin\Faq\FaqController');
     $router->resource('faq-category', 'Superadmin\Faq\FaqCategoryController');
     $router->resource('course.lesson', 'Superadmin\Lesson\LessonController');
-    $router->resource('banner', 'Superadmin\Banner\BannerController');
+    $router->resource('banner', 'SuperAdmin\Banner\BannerController');
 
 /*    $router->get('course/{slug}/lesson/create',[ 'as'=> 'lesson.create', 'uses'=> 'Superadmin\Lesson\LessonController@create' ]);
     $router->get('course/{slug}/lesson',[ 'as'=> 'lesson.index', 'uses'=> 'Superadmin\Lesson\LessonController@index' ]);
