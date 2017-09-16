@@ -47,9 +47,9 @@ return [
             'provider' => 'superadmin',
         ],
 
-        'account_holders' => [
+        'accountholders' => [
             'driver' => 'session',
-            'provider' => 'account_holders'
+            'provider' => 'accountholders'
         ],
 
         'api' => [
@@ -87,9 +87,9 @@ return [
              'model' => App\Modules\Models\User::class,
         ],
 
-        'account_holders' => [
+        'accountholders' => [
             'driver' => 'eloquent',
-            'model' => \App\Modules\Models\AccountState::class,
+            'model' => \App\Modules\Models\AccountHolder::class,
         ]
         // 'users' => [
         //     'driver' => 'database',

@@ -28,6 +28,7 @@ class AccountHolderService extends Service
             $data['country_id'] = $data['state_id'];
             unset($data['state_id']);
         }
+        $data['password'] = bcrypt($data['password']);
         $account = $this->account->create($data);
 
         // now send a verification link

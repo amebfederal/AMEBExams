@@ -102,6 +102,10 @@ Route::group(['middleware' => 'superadmin',  'prefix'=>'super-admin'], function 
 
 });
 
+
+
+
+
 Route::get('superadmin/user/manage',    function () {
     return view('superadmin.user.index');
 });
@@ -215,9 +219,20 @@ Route::post('account/register/do-register',
     ['as' => 'do-register', 'uses' => 'AccountHolder\Register\RegisterController@doRegister']);
 Route::get('user/activation/{token}', 'AccountHolder\Register\RegisterController@activateUser')->name('user.activate');
 
-Route::get('accountholders/dashboard',    function () {
-    return view('accountholders.dashboard.index');
+Route::group(['middleware' => 'accountholders', 'prefix' => 'account-holders'], function ($router) {
+
+    Route::get('dashboard',
+        ['as' => 'accountholders.dashboard',  'uses' => 'AccountHolder\Dashboard\DashboardController@index']);
+    Route::get('login',
+        ['as' => 'accountholders.login',  'uses' => 'Auth\AccountHolderLoginController@showLoginForm']);
+    Route::get('logout',
+        ['as' => 'accountholders.logout',  'uses' => 'Auth\AccountHolderLoginController@logout']);
+    Route::post('login',
+        ['as' => 'accountholders.login',  'uses' => 'Auth\AccountHolderLoginController@login']);
 });
+
+
+
 
 Route::get('accountholders/notifications',    function () {
     return view('accountholders.notifications.index');

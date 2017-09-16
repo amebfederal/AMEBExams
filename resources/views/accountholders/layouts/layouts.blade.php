@@ -1,5 +1,9 @@
 @include('accountholders.layouts.head')
-@include('accountholders.layouts.sidebar')
-@yield('content')
+
+<div id="page-wrapper">
+    @include('accountholders.layouts.header')
+    @yield('content')
+</div>
+
 @yield('page-specific-scripts')
 @include('accountholders.layouts.footer')
