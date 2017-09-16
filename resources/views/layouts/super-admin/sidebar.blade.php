@@ -206,7 +206,7 @@
                     <ul>
                         <li><a href="{{route('banner.create')}}" title="Login page 1"><span>Add Banner</span></a>
                         </li>
-                        <li><a href="{{route('banner.indexde')}}"
+                        <li><a href="{{route('banner.index')}}"
                                title="Login page 2"><span>Manage Banner</span></a></li>
                     </ul>
 
